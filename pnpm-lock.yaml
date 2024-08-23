@@ -68,6 +68,9 @@ importers:
       '@mui/material':
         specifier: ^5.16.7
         version: 5.16.7(@emotion/react@11.13.3(@types/react@18.2.61)(react@18.2.0))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.2.61)(react@18.2.0))(@types/react@18.2.61)(react@18.2.0))(@types/react@18.2.61)(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
+      '@mui/material-nextjs':
+        specifier: ^5.16.6
+        version: 5.16.6(@emotion/cache@11.13.1)(@mui/material@5.16.7(@emotion/react@11.13.3(@types/react@18.2.61)(react@18.2.0))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.2.61)(react@18.2.0))(@types/react@18.2.61)(react@18.2.0))(@types/react@18.2.61)(react-dom@18.3.1(react@18.2.0))(react@18.2.0))(@types/react@18.2.61)(next@14.2.6(react-dom@18.3.1(react@18.2.0))(react@18.2.0))(react@18.2.0)
       next:
         specifier: 14.2.6
         version: 14.2.6(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
@@ -8102,6 +8105,16 @@ snapshots:
 
   '@mui/core-downloads-tracker@5.16.7': {}
 
+  '@mui/material-nextjs@5.16.6(@emotion/cache@11.13.1)(@mui/material@5.16.7(@emotion/react@11.13.3(@types/react@18.2.61)(react@18.2.0))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.2.61)(react@18.2.0))(@types/react@18.2.61)(react@18.2.0))(@types/react@18.2.61)(react-dom@18.3.1(react@18.2.0))(react@18.2.0))(@types/react@18.2.61)(next@14.2.6(react-dom@18.3.1(react@18.2.0))(react@18.2.0))(react@18.2.0)':
+    dependencies:
+      '@babel/runtime': 7.25.4
+      '@mui/material': 5.16.7(@emotion/react@11.13.3(@types/react@18.2.61)(react@18.2.0))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.2.61)(react@18.2.0))(@types/react@18.2.61)(react@18.2.0))(@types/react@18.2.61)(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
+      next: 14.2.6(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
+      react: 18.2.0
+    optionalDependencies:
+      '@emotion/cache': 11.13.1
+      '@types/react': 18.2.61
+
   '@mui/material-nextjs@5.16.6(@emotion/cache@11.13.1)(@mui/material@5.16.7(@emotion/react@11.13.3(@types/react@18.2.61)(react@18.2.0))(@types/react@18.2.61)(react-dom@18.3.1(react@18.2.0))(react@18.2.0))(@types/react@18.2.61)(next@14.2.6(react-dom@18.3.1(react@18.2.0))(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@babel/runtime': 7.25.4
@@ -8448,7 +8461,7 @@ snapshots:
 
   '@radix-ui/react-focus-scope@1.0.4(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.3.1(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.23.2
+      '@babel/runtime': 7.25.4
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.61)(react@18.2.0)
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
       '@radix-ui/react-use-callback-ref': 1.0.1(@types/react@18.2.61)(react@18.2.0)
@@ -10835,7 +10848,7 @@ snapshots:
 
   broadcast-channel@3.7.0:
     dependencies:
-      '@babel/runtime': 7.23.2
+      '@babel/runtime': 7.25.4
       detect-node: 2.1.0
       js-sha3: 0.8.0
       microseconds: 0.2.0
@@ -11353,7 +11366,7 @@ snapshots:
 
   date-fns@2.30.0:
     dependencies:
-      '@babel/runtime': 7.23.2
+      '@babel/runtime': 7.25.4
 
   debounce@1.2.1: {}
 
@@ -14809,7 +14822,7 @@ snapshots:
 
   redux@4.2.1:
     dependencies:
-      '@babel/runtime': 7.23.2
+      '@babel/runtime': 7.25.4
 
   reflect.getprototypeof@1.0.4:
     dependencies:
