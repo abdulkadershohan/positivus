@@ -1,4 +1,4 @@
-import { Stack } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 
 export default function Page() {
   return (
@@ -7,9 +7,9 @@ export default function Page() {
         bgcolor: '#f00'
       }}
     >
-      <h1>
+      <Typography>
         Welcome to <a href="https://nextjs.org">Next.js!</a>
-      </h1>
+      </Typography>
     </Stack>
   )
 }
