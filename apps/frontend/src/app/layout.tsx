@@ -1,8 +1,8 @@
-import lightTheme from "@/themes/lightTheme";
+import ThemeProvider from "@/themes";
+import { CssBaseline } from "@mui/material";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
-import ThemeProvider from "@/themes";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -17,6 +17,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
       <body>
         <AppRouterCacheProvider>
           <ThemeProvider>
+            <CssBaseline />
             {children}
           </ThemeProvider>
         </AppRouterCacheProvider>

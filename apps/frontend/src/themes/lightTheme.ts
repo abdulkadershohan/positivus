@@ -126,8 +126,13 @@ const lightTheme = createTheme({
                     borderRadius: 14,
                     fontFamily: space_grotesk.style.fontFamily,
                     fontWeight: 400,
-                    fontSize: 20
+                    fontSize: 20,
+
+                },
+                sizeMedium: {
+                    padding: '20px 35px 20px 35px',
                 }
+
             }
         },
     },
