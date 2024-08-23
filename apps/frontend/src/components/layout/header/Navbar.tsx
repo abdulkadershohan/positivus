@@ -92,17 +92,32 @@ export default function DrawerAppBar(props: Props) {
             position='static'
             elevation={0}
         >
-            <Container maxWidth={'lg'}>
+            <Container maxWidth={'lg'} >
                 <Toolbar>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        edge="start"
-                        onClick={handleDrawerToggle}
-                        sx={{ mr: 2, display: { md: 'none' } }}
+                    {/* mobile screen icon and logo */}
+                    <Stack
+                        direction={'row'}
+                        justifyContent={'space-between'}
+                        alignItems={'center'}
+                        width={'100%'}
+                        display={{ xs: 'flex', md: 'none' }}
                     >
-                        <MenuIcon />
-                    </IconButton>
+                        <Image
+                            src="/images/logo.png"
+                            alt="mui-logo"
+                            width={200}
+                            height={56}
+                        />
+                        <Box>
+                            <IconButton
+                                color="inherit"
+                                onClick={handleDrawerToggle}
+                            >
+                                <MenuIcon />
+                            </IconButton>
+                        </Box>
+                    </Stack>
+
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }}>
                         <Image
                             src="/images/logo.png"
