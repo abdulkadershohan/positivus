@@ -1,6 +1,7 @@
 import Banner from "@/components/banner/Index";
 import CompanyLogo from "@/components/company-logo";
-import { Container, Stack } from "@mui/material";
+import Services from "@/components/services";
+import { Stack } from "@mui/material";
 const data = {
   title: `Navigating the digital landscape for success`,
   description: `Our digital marketing agency helps businesses grow and succeed online through a range of services including SEO, PPC, social media marketing, and content creation.`,
@@ -38,17 +39,21 @@ const data = {
 }
 export default function Page() {
   return (
-    <Container maxWidth='lg' >
-      <Stack
-        py={4}
-        spacing={4}
-      >
-        <Banner />
-        <CompanyLogo />
+    <Stack spacing={4}
+      sx={{
+        width: '100%',
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'column'
+      }}
+    >
+      <Banner />
+      <CompanyLogo />
+      <Services />
+    </Stack>
 
 
-
-      </Stack>
-    </Container >
   )
 }

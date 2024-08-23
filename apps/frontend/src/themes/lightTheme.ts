@@ -70,6 +70,11 @@ const lightTheme = createTheme({
             fontWeight: 500,
             textTransform: 'none',
         },
+        caption: {
+            fontSize: 16,
+            fontWeight: 400,
+        },
+
 
 
 
@@ -135,7 +140,9 @@ const lightTheme = createTheme({
 
             }
         },
+
     },
+
 });
 
 export default lightTheme;
