@@ -107,35 +107,64 @@ export default function Services() {
 
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <Box
-                            sx={{
-                                position: 'relative',
-                                width: '100%',
-                                height: {
-                                    xs: 130,
-                                    md: 210
-                                },
-                                overflow: 'hidden',
-
-                            }}
+                        <Stack
+                            direction={'row'}
+                            gap={4}
+                            alignItems={'flex-end'}
                         >
-                            <Image
-                                src={image}
-                                alt={title}
-                                fill={true}
-                            />
-                        </Box>
+                            <Box
+                                sx={{
+                                    display: {
+                                        sm: 'none',
+                                        xs: 'block'
+                                    }
+                                }}
+                            >
+                                <IconBox
+                                    bgcolor={iconBgColor}
+                                    iconColor={iconColor}
+
+                                />
+                            </Box>
+                            <Box
+                                sx={{
+                                    position: 'relative',
+                                    width: '100%',
+                                    height: {
+                                        xs: 130,
+                                        md: 210
+                                    },
+                                    overflow: 'hidden',
+
+                                }}
+                            >
+                                <Image
+                                    src={image}
+                                    alt={title}
+                                    fill={true}
+                                />
+                            </Box>
+                        </Stack>
+
                     </Grid>
                 </Grid>
                 <Box py={2} />
+                <Box
+                    sx={{
+                        display: {
+                            xs: 'none',
+                            sm: 'block'
+                        }
+                    }}
+                >
+                    <IconBox
+                        bgcolor={iconBgColor}
+                        iconColor={iconColor}
+                        label="Learn more"
+                        labelColor={labelColor}
 
-                <IconBox
-                    bgcolor={iconBgColor}
-                    iconColor={iconColor}
-                    label="Learn more"
-                    labelColor={labelColor}
-
-                />
+                    />
+                </Box>
             </Card>
         )
     }
