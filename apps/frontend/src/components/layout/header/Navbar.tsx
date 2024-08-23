@@ -93,7 +93,7 @@ export default function DrawerAppBar(props: Props) {
             elevation={0}
         >
             <Container maxWidth={'lg'} >
-                <Toolbar>
+                <Toolbar disableGutters>
                     {/* mobile screen icon and logo */}
                     <Stack
                         direction={'row'}

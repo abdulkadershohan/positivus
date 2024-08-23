@@ -58,11 +58,11 @@ const lightTheme = createTheme({
             fontWeight: 500,
         },
         body1: {
-            fontSize: 18,
+            fontSize: 20,
             fontWeight: 400,
         },
         body2: {
-            fontSize: 16,
+            fontSize: 18,
             fontWeight: 400,
         },
         button: {
