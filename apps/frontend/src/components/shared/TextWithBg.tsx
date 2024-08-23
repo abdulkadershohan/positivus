@@ -38,8 +38,8 @@ export default function TextWithBg({ text, rest, bgcolor }: TextWithBgProps) {
             borderRadius={"7px"}
             fontWeight={500}
             fontSize={{
-                xs: "h2.fontSize",
-                md: "h3.fontSize",
+                xs: "h3.fontSize",
+                md: "h2.fontSize",
             }}
             px={"7px"}
             {...rest}

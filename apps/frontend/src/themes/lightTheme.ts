@@ -89,6 +89,7 @@ const lightTheme = createTheme({
             xl: 1920,
         },
     },
+    spacing: 9,
     components: {
         MuiTypography: {
             defaultProps: {

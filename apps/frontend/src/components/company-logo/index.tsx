@@ -32,7 +32,7 @@ export default function CompanyLogo() {
         <Container maxWidth='lg'>
             <Stack direction='row' gap={{
                 xs: 2,
-                md: 12
+                md: 10
             }}
                 flexWrap={'wrap'}
             >

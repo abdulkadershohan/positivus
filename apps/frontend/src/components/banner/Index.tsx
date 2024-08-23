@@ -12,7 +12,7 @@ const data = {
 }
 export default function Banner() {
     return (
-        <Container maxWidth='lg'>
+        <Container maxWidth='lg' >
             <Stack width={'100%'}>
                 <Grid container spacing={6}>
                     <Grid item xs={12} md={6}>
@@ -74,7 +74,7 @@ export default function Banner() {
                     </Grid>
                 </Grid>
             </Stack>
-        </Container>
+        </Container >
 
     )
 }
