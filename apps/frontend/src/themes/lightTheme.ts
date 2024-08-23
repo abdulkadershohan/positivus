@@ -115,6 +115,21 @@ const lightTheme = createTheme({
                 underline: 'hover'
             }
         },
+        MuiButton: {
+            defaultProps: {
+                disableElevation: true,
+                disableRipple: true
+            },
+            styleOverrides: {
+                root: {
+                    textTransform: 'none',
+                    borderRadius: 14,
+                    fontFamily: space_grotesk.style.fontFamily,
+                    fontWeight: 400,
+                    fontSize: 20
+                }
+            }
+        },
     },
 });
 
