@@ -21,7 +21,6 @@ interface Props {
     window?: () => Window;
     children?: React.ReactNode;
 }
-
 const drawerWidth = 240;
 // const navItems = ['About us', 'Services', 'Use Cases',"Pricing","Blog"];
 const navItems = [
