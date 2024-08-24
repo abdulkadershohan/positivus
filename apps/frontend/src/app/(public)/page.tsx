@@ -1,9 +1,9 @@
 import Banner from "@/components/banner/Index";
-import CaseStudies from "@/components/case-studies";
 import CompanyLogo from "@/components/company-logo";
 import Proposal from "@/components/proposal";
 import Services from "@/components/services";
 import Team from "@/components/team";
+import WorkingProcess from "@/components/working-process";
 import { Stack } from "@mui/material";
 const data = {
   title: `Navigating the digital landscape for success`,
@@ -56,7 +56,7 @@ export default function Page() {
       <CompanyLogo />
       <Services />
       <Proposal />
-      <CaseStudies />
+      <WorkingProcess />
       <Team />
     </Stack>
 

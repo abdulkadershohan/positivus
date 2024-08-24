@@ -40,7 +40,7 @@ const data = [
     }
 ];
 
-export default function CaseStudies() {
+export default function WorkingProcess() {
     const [index, setIndex] = React.useState<number | null>(1);
 
     const handleToggle = (id: number) => {
@@ -58,7 +58,7 @@ export default function CaseStudies() {
                     gap={6}
                     alignItems={'center'}
                 >
-                    <TextWithBg text="Case Studies" bgcolor="primary" />
+                    <TextWithBg text="Our Working Process " bgcolor="primary" />
                     <Typography
                         color={(theme) => theme.palette.text.primary}
                         maxWidth={{
@@ -74,7 +74,7 @@ export default function CaseStudies() {
                             md: 'left',
                         }}
                     >
-                        Explore Real-Life Examples of Our Proven Digital Marketing Success through Our Case Studies
+                        Step-by-Step Guide to Achieving Your Business Goals
                     </Typography>
                 </Stack>
                 {data.map((item) => (
