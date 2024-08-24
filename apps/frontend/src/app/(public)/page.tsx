@@ -1,5 +1,6 @@
 import Banner from "@/components/banner/Index";
 import CompanyLogo from "@/components/company-logo";
+import Proposal from "@/components/proposal";
 import Services from "@/components/services";
 import { Stack } from "@mui/material";
 const data = {
@@ -52,6 +53,7 @@ export default function Page() {
       <Banner />
       <CompanyLogo />
       <Services />
+      <Proposal />
     </Stack>
 
 

@@ -83,11 +83,11 @@ const lightTheme = createTheme({
     breakpoints: {
         values: {
             xs: 0,
-            sm: 600,
-            md: 960,
-            lg: 1280,
-            xl: 1920,
-        },
+            sm: 768,
+            md: 1200,
+            lg: 1400,
+            xl: 1840
+        }
     },
     spacing: 9,
     components: {
