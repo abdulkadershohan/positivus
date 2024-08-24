@@ -3,6 +3,7 @@ import CaseStudies from "@/components/case-studies";
 import CompanyLogo from "@/components/company-logo";
 import Proposal from "@/components/proposal";
 import Services from "@/components/services";
+import Team from "@/components/team";
 import { Stack } from "@mui/material";
 const data = {
   title: `Navigating the digital landscape for success`,
@@ -41,7 +42,7 @@ const data = {
 }
 export default function Page() {
   return (
-    <Stack spacing={4}
+    <Stack spacing={12}
       sx={{
         width: '100%',
         height: '100%',
@@ -56,6 +57,7 @@ export default function Page() {
       <Services />
       <Proposal />
       <CaseStudies />
+      <Team />
     </Stack>
 
 
