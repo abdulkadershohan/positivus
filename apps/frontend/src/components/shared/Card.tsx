@@ -29,11 +29,7 @@ export default function Card({ children, onClick, sx, bgcolor, cardProps }: Card
                 border: '1px solid',
                 padding: '50px',
                 bgcolor: (theme) => getBgColor(bgcolor || 'primary', theme),
-                '&:hover': {
-                    transform: 'translateY(-5px)',
-                    transition: 'transform 0.3s ease-in-out',
-                    cursor: 'pointer',
-                },
+
                 ...sx
             }}
             onClick={onClick}

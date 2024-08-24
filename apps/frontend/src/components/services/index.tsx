@@ -84,6 +84,13 @@ export default function Services() {
         return (
             <Card
                 bgcolor={bgcolor}
+                sx={{
+                    '&:hover': {
+                        transform: 'translateY(-5px)',
+                        transition: 'transform 0.3s ease-in-out',
+                        cursor: 'pointer',
+                    },
+                }}
 
             >
                 <Grid container spacing={4}>

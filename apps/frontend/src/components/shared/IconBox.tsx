@@ -6,9 +6,10 @@ type IconBoxProps = {
     onClick?: () => void;
     label?: string;
     labelProps?: TypographyProps,
-    labelColor?: string
+    labelColor?: string,
+    icon?: React.ReactNode
 };
-export default function IconBox({ bgcolor = 'white', iconColor = '#B9FF66', onClick, label, labelProps, labelColor }: IconBoxProps) {
+export default function IconBox({ icon, bgcolor = 'white', iconColor = '#B9FF66', onClick, label, labelProps, labelColor }: IconBoxProps) {
     const getBgColor = (color: string, theme: any) => {
         switch (color) {
             case 'primary':
@@ -39,11 +40,14 @@ export default function IconBox({ bgcolor = 'white', iconColor = '#B9FF66', onCl
                     alignItems: 'center',
                 }}
             >
-                <CallMadeIcon
-                    sx={{
-                        color: (theme) => getBgColor(iconColor || 'primary', theme),
-                    }}
-                />
+                {
+                    icon ? icon : <CallMadeIcon
+                        sx={{
+                            color: (theme) => getBgColor(iconColor || 'primary', theme),
+                        }}
+                    />
+                }
+
             </Box>
             {label && <Typography
                 variant="h4"
