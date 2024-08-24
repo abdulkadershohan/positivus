@@ -48,7 +48,7 @@ export default function WorkingProcess() {
     };
 
     return (
-        <Container maxWidth='lg' id='services'>
+        <Container maxWidth='lg' id='use-cases'>
             <Stack spacing={6}>
                 <Stack
                     direction={{
@@ -87,7 +87,7 @@ export default function WorkingProcess() {
                                 alignItems={'center'}
                                 justifyContent={'space-between'}
                             >
-                                <Stack direction={'row'} alignItems={'center'} gap={4}>
+                                <Stack direction={'row'} alignItems={'center'} gap={4} >
                                     <Typography
                                         color={(theme) => theme.palette.text.primary}
                                         fontSize={{
@@ -105,6 +105,7 @@ export default function WorkingProcess() {
                                             md: 30,
                                         }}
                                         fontWeight={500}
+
                                     >
                                         {item.title}
                                     </Typography>

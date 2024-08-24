@@ -43,7 +43,8 @@ const navItems = [
     },
     {
         title: 'Blog',
-        href: '/blog',
+        href: '#blog',
+        // href: '/blog',
     }
 ];
 

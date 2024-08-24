@@ -33,7 +33,7 @@ const lightTheme = createTheme({
             default: '#FFFFFF',
             paper: '#F3F3F3',
         },
-        divider: '#000000',
+        divider: '#E5E5E5',
         text: {
             primary: '#000000',
             secondary: '#FFFFFF',

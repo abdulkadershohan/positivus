@@ -1,4 +1,5 @@
 import Banner from "@/components/banner/Index";
+import CaseStudies from "@/components/case-studies";
 import CompanyLogo from "@/components/company-logo";
 import Proposal from "@/components/proposal";
 import Services from "@/components/services";
@@ -56,6 +57,7 @@ export default function Page() {
       <CompanyLogo />
       <Services />
       <Proposal />
+      <CaseStudies />
       <WorkingProcess />
       <Team />
     </Stack>
