@@ -228,6 +228,47 @@ export default function Footer() {
                             </Stack>
                         </Grid>
                     </Grid>
+                    <Stack
+                        direction={'row'}
+                        gap={2}
+                        display={{
+                            xs: 'flex',
+                            md: 'none'
+                        }}
+                        justifyContent={'center'}
+
+                    >
+                        <Box component={Link} href='#'>
+                            <LinkedInIcon
+                                sx={{
+                                    color: (theme) => theme.palette.text.secondary,
+                                    width: 30,
+                                    height: 30,
+                                    cursor: 'pointer'
+                                }}
+                            />
+                        </Box>
+                        <Box component={Link} href='#'>
+                            <FacebookIcon
+                                sx={{
+                                    color: (theme) => theme.palette.text.secondary,
+                                    width: 30,
+                                    height: 30,
+                                    cursor: 'pointer'
+                                }}
+                            />
+                        </Box>
+                        <Box component={Link} href='#'>
+                            <TwitterIcon
+                                sx={{
+                                    color: (theme) => theme.palette.text.secondary,
+                                    width: 30,
+                                    height: 30,
+                                    cursor: 'pointer'
+                                }}
+                            />
+                        </Box>
+                    </Stack>
                     <Divider />
                     <Stack direction={{
                         xs: 'column',
