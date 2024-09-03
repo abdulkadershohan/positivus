@@ -2,6 +2,7 @@
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { Box, Button, Container, Divider, Grid, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
+import Link from 'next/link';
 import Card from '../shared/Card';
 import TextWithBg from '../shared/TextWithBg';
 const data = [
@@ -180,6 +181,8 @@ export default function Team() {
                                     color: (theme) => theme.palette.primary.contrastText
                                 },
                             }}
+                            LinkComponent={Link}
+                            href='#'
                         >
                             See all team
                         </Button>
