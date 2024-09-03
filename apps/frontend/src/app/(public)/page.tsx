@@ -5,6 +5,7 @@ import ContactUs from "@/components/contact-us";
 import Proposal from "@/components/proposal";
 import Services from "@/components/services";
 import Team from "@/components/team";
+import Testimonials from "@/components/testimonials";
 import WorkingProcess from "@/components/working-process";
 import { Stack } from "@mui/material";
 const data = {
@@ -61,6 +62,7 @@ export default function Page() {
       <CaseStudies />
       <WorkingProcess />
       <Team />
+      <Testimonials />
       <ContactUs />
     </Stack>
 
