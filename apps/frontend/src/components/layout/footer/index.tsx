@@ -13,7 +13,10 @@ export default function Footer() {
             <Paper
                 sx={{
                     mt: 8,
-                    p: 4,
+                    p: {
+                        xs: 2,
+                        md: 4
+                    },
                     borderTopLeftRadius: 45,
                     borderTopRightRadius: 45,
                     bgcolor: (theme) => theme.palette.info.main

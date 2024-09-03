@@ -35,7 +35,7 @@ export default function ContactUs() {
                             Connect with Us: Let{`'`}s Discuss Your Digital Marketing Needs
                         </Typography>
                     </Stack>
-                    <Stack position={'relative'} overflow={'hidden'} sx={{ borderRadius: 10, p: 6, bgcolor: (theme) => theme.palette.background.paper }} >
+                    <Stack position={'relative'} overflow={'hidden'} sx={{ borderRadius: 10, p: { md: 6, xs: 2 }, bgcolor: (theme) => theme.palette.background.paper }} >
                         <Grid container spacing={4} >
                             <Grid item xs={12} md={6}>
                                 <Stack component={'form'} gap={4}>
