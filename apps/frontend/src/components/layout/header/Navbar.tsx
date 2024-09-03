@@ -23,7 +23,7 @@ interface Props {
 }
 const drawerWidth = 240;
 // const navItems = ['About us', 'Services', 'Use Cases',"Pricing","Blog"];
-const navItems = [
+export const navItems = [
     {
         title: 'About us',
         href: '#about-us',

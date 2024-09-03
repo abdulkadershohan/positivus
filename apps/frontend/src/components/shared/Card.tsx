@@ -1,5 +1,6 @@
-import { Stack, StackProps, SxProps } from '@mui/material'
-import React from 'react'
+'use client';
+import { Stack, StackProps, SxProps } from '@mui/material';
+import React from 'react';
 type CardProps = {
     children: React.ReactNode,
     onClick?: () => void
