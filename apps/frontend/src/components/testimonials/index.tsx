@@ -107,7 +107,7 @@ export default function Testimonials() {
     };
     return (
         <Container maxWidth='lg' >
-            <Stack spacing={6} position={'relative'}>
+            <Stack spacing={6}  >
                 <Stack
                     direction={{
                         xs: 'column',
@@ -135,137 +135,101 @@ export default function Testimonials() {
                         Hear from Our Satisfied Clients: Read Our Testimonials to Learn More about Our Digital Marketing Services
                     </Typography>
                 </Stack>
-                <Slider {...settings} ref={slider}>
-                    {
-                        testimonials.map((testimonial) => (
-                            <Box key={testimonial.id} p={2}>
-                                <Stack
-                                    sx={{
-                                        boxShadow: '0px 5px 0px 0px',
-                                        borderColor: (theme) => theme.palette.text.primary,
-                                        borderRadius: '45px',
-                                        border: '1px solid',
-                                        padding: 4
-                                    }}
-                                >
-                                    <Stack gap={2}>
-                                        <Stack direction={"row"} spacing={2} alignItems={"center"}>
-                                            <Stack>
-                                                <Typography color="text.primary" fontWeight={400} fontSize={20}>
-                                                    {testimonial.name}
-                                                </Typography>
-                                                <Typography color="text.disabled" fontWeight={400} fontSize={14}>
-                                                    {testimonial.position}
-                                                </Typography>
+                <Stack gap={4} position={'relative'} bgcolor={(theme) => theme.palette.info.main} borderRadius={6} p={{ xs: 0, sm: 4 }} >
+                    <Slider {...settings} ref={slider}>
+                        {
+                            testimonials.map((testimonial) => (
+                                <Box key={testimonial.id} p={2}>
+                                    <Stack
+                                        sx={{
+                                            boxShadow: '0 4px 6px rgba(255, 255, 255, 0.3), 0 1px 3px rgba(255, 255, 255, 0.2)',
+                                            borderRadius: '45px',
+                                            border: (theme) => `1px solid ${theme.palette.primary.main}`,
+                                            padding: 4
+                                        }}
+                                    >
+                                        <Stack gap={2}>
+                                            <Stack direction={"row"} spacing={2} alignItems={"center"}>
+                                                <Stack>
+                                                    <Typography color={(theme => theme.palette.text.secondary)} fontWeight={400} fontSize={20}>
+                                                        {testimonial.name}
+                                                    </Typography>
+                                                    <Typography color={(theme => theme.palette.text.secondary)} fontWeight={400} fontSize={14}>
+                                                        {testimonial.position}
+                                                    </Typography>
+                                                </Stack>
                                             </Stack>
+                                            <Typography color={(theme => theme.palette.text.secondary)} fontWeight={400} fontSize={16}>
+                                                {testimonial.text}
+                                            </Typography>
                                         </Stack>
-                                        <Typography color="text.disabled" fontWeight={400} fontSize={16}>
-                                            {testimonial.text}
-                                        </Typography>
                                     </Stack>
-                                </Stack>
-                            </Box>
-                        ))
-                    }
-
-                </Slider>
-                <Box
-                    sx={{
-                        position: "absolute",
-                        left: 0,
-                        bottom: {
-                            xs: '-10%',
-                            sm: '-20%'
-                        },
-                        zIndex: 1,
-                        transform: "translateY(-20%)",
-                        display: {
-                            xs: 'none',
-                            sm: 'block'
+                                </Box>
+                            ))
                         }
 
-                    }}
-                >
-                    <IconButton
-                        sx={{
-                            color: (theme) => theme.palette.text.primary,
-                            bgcolor: (theme) => theme.palette.background.paper,
-                            "&:hover": {
-                                bgcolor: (theme) => theme.palette.primary.main,
-                                color: (theme) => theme.palette.primary.contrastText,
-                            },
-                        }}
-                        onClick={() => slider.current?.slickPrev()}
-                    >
-                        <ArrowBackOutlinedIcon sx={{ height: 32, width: 32 }} />
-                    </IconButton>
-                </Box>
-                <Box
-                    sx={{
-                        position: "absolute",
-                        right: 0,
-                        bottom: {
-                            xs: '-10%',
-                            sm: '-20%'
-                        },
-                        zIndex: 1,
-                        transform: "translateY(-20%)",
-                        display: {
+                    </Slider>
+                    <Stack
+                        direction={'row'}
+                        justifyContent={'space-between'}
+                        gap={4}
+                        display={{
                             xs: 'none',
-                            sm: 'block'
-                        }
-                    }}
-                >
-                    <IconButton
-                        sx={{
-                            color: (theme) => theme.palette.text.primary,
-                            bgcolor: (theme) => theme.palette.background.paper,
-                            "&:hover": {
-                                bgcolor: (theme) => theme.palette.primary.main,
-                                color: (theme) => theme.palette.primary.contrastText,
-                            },
+                            sm: 'flex',
                         }}
-                        onClick={() => slider.current?.slickNext()}
                     >
-                        <ArrowForwardOutlinedIcon sx={{ height: 32, width: 32 }} />
-                    </IconButton>
-                </Box>
-                <Box
-                    sx={{
-                        position: "absolute",
-                        bottom: "-20%",
-                        left: "50%",
-                        transform: "translateX(-50%)",
-                        zIndex: 1,
-                        display: {
-                            xs: 'none',
-                            md: 'block'
-                        }
-                    }}
-                >
-                    <Stack direction={'row'} gap={2}>
-                        {testimonials.map((testimonial, index) => (
-                            <IconButton
-                                key={testimonial.id}
-                                sx={{
-                                    color: (theme) =>
-                                        index === currentIndex
-                                            ? theme.palette.primary.main
-                                            : theme.palette.text.primary,
-                                    bgcolor: (theme) => index === currentIndex ? theme.palette.info.main : theme.palette.background.paper,
-                                    "&:hover": {
-                                        bgcolor: (theme) => theme.palette.primary.main,
-                                        color: (theme) => theme.palette.primary.contrastText,
-                                    },
-                                }}
-                                onClick={() => slider.current?.slickGoTo(index)}
-                            >
-                                <PagesOutlinedIcon sx={{ height: 32, width: 32 }} />
-                            </IconButton>
-                        ))}
+                        <IconButton
+                            sx={{
+                                color: (theme) => theme.palette.text.primary,
+                                bgcolor: (theme) => theme.palette.background.paper,
+                                "&:hover": {
+                                    bgcolor: (theme) => theme.palette.primary.main,
+                                    color: (theme) => theme.palette.primary.contrastText,
+                                },
+                            }}
+                            onClick={() => slider.current?.slickPrev()}
+                        >
+                            <ArrowBackOutlinedIcon sx={{ height: 32, width: 32 }} />
+                        </IconButton>
+                        <Stack direction={'row'} gap={2}>
+                            {testimonials.map((testimonial, index) => (
+                                <IconButton
+                                    key={testimonial.id}
+                                    sx={{
+                                        color: (theme) =>
+                                            index === currentIndex
+                                                ? theme.palette.primary.contrastText
+                                                : theme.palette.text.secondary,
+                                        bgcolor: (theme) => index === currentIndex ? theme.palette.primary.main : 'inherit',
+                                        "&:hover": {
+                                            bgcolor: (theme) => theme.palette.primary.main,
+                                            color: (theme) => theme.palette.primary.contrastText,
+                                        },
+                                    }}
+                                    onClick={() => slider.current?.slickGoTo(index)}
+                                >
+                                    <PagesOutlinedIcon sx={{ height: 32, width: 32 }} />
+                                </IconButton>
+                            ))}
+                        </Stack>
+
+                        <IconButton
+                            sx={{
+                                color: (theme) => theme.palette.text.primary,
+                                bgcolor: (theme) => theme.palette.background.paper,
+                                "&:hover": {
+                                    bgcolor: (theme) => theme.palette.primary.main,
+                                    color: (theme) => theme.palette.primary.contrastText,
+                                },
+                            }}
+                            onClick={() => slider.current?.slickNext()}
+                        >
+                            <ArrowForwardOutlinedIcon sx={{ height: 32, width: 32 }} />
+                        </IconButton>
+
                     </Stack>
-                </Box>
+                </Stack>
             </Stack>
-        </Container>
+        </Container >
     )
 }

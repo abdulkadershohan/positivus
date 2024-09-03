@@ -6,7 +6,7 @@ import TextWithBg from '../shared/TextWithBg'
 export default function ContactUs() {
     return (
         <Container maxWidth='lg' id='ContactUs' >
-            <Stack spacing={6} pt={8}>
+            <Stack spacing={6} >
                 <Stack spacing={6}>
                     <Stack
                         direction={{
