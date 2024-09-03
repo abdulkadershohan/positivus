@@ -1,6 +1,6 @@
 'use client';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { Box, Container, Divider, Grid, Stack, Typography } from '@mui/material';
+import { Box, Button, Container, Divider, Grid, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
 import Card from '../shared/Card';
 import TextWithBg from '../shared/TextWithBg';
@@ -167,6 +167,23 @@ export default function Team() {
                             ))
                         }
                     </Grid>
+                    <Stack spacing={4} pt={4} alignItems={{
+                        xs: 'center',
+                        md: 'flex-end',
+                    }}>
+                        <Button
+                            variant='contained'
+                            color='info'
+                            sx={{
+                                '&:hover': {
+                                    bgcolor: (theme) => theme.palette.primary.main,
+                                    color: (theme) => theme.palette.primary.contrastText
+                                },
+                            }}
+                        >
+                            See all team
+                        </Button>
+                    </Stack>
                 </Stack>
             </Stack>
         </Container>
