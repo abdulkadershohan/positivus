@@ -129,7 +129,11 @@ export default function WorkingProcess() {
                             </Stack>
                             <Collapse in={index === item.id}>
                                 <Stack spacing={4} py={4}>
-                                    <Divider />
+                                    <Divider
+                                        sx={{
+                                            borderColor: (theme) => theme.palette.info.main,
+                                        }}
+                                    />
                                     <Typography
                                         color={(theme) => theme.palette.text.primary}
                                         fontSize={{

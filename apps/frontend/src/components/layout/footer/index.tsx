@@ -35,7 +35,7 @@ export default function Footer() {
                     >
                         <Box >
                             <Image
-                                src="/images/logo.png"
+                                src="/images/logoDark.png"
                                 alt="mui-logo"
                                 width={200}
                                 height={56}
