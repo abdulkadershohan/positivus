@@ -124,7 +124,7 @@ const lightTheme = createTheme({
         MuiButton: {
             defaultProps: {
                 disableElevation: true,
-                disableRipple: true
+                //   disableRipple: true
             },
             styleOverrides: {
                 root: {
