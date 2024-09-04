@@ -1,11 +1,13 @@
 'use client'
+import { data } from '@fakeData/index'
 import { Box, Button, Container, FormControl, FormControlLabel, Grid, Radio, RadioGroup, Stack, TextField, Typography } from '@mui/material'
 import Image from 'next/image'
 import TextWithBg from '../shared/TextWithBg'
 
 export default function ContactUs() {
+    const { title, description, form, button, image } = data?.contact_us || {}
     return (
-        <Container maxWidth='lg' id='ContactUs' >
+        <Container maxWidth='lg' id='contact-us' >
             <Stack spacing={6} >
                 <Stack spacing={6}>
                     <Stack
@@ -16,7 +18,7 @@ export default function ContactUs() {
                         gap={6}
                         alignItems={'center'}
                     >
-                        <TextWithBg text="Contact Us" bgcolor="primary" />
+                        <TextWithBg text={title} bgcolor="primary" />
                         <Typography
                             color={(theme) => theme.palette.text.primary}
                             maxWidth={{
@@ -32,7 +34,7 @@ export default function ContactUs() {
                                 md: 'left',
                             }}
                         >
-                            Connect with Us: Let{`'`}s Discuss Your Digital Marketing Needs
+                            {description}
                         </Typography>
                     </Stack>
                     <Stack position={'relative'} overflow={'hidden'} sx={{ borderRadius: 10, p: { md: 6, xs: 2 }, bgcolor: (theme) => theme.palette.background.paper }} >
@@ -53,17 +55,16 @@ export default function ContactUs() {
                                                 },
                                             }}
                                         >
-                                            <FormControlLabel value={0} control={<Radio
-                                                sx={{
-                                                    color: (theme) => theme.palette.text.primary,
+                                            {
+                                                form?.radio?.map((item) => (
+                                                    <FormControlLabel key={item?.id} value={item?.value} control={<Radio
+                                                        sx={{
+                                                            color: (theme) => theme.palette.text.primary,
 
-                                                }}
-                                            />} label="Say Hi" />
-                                            <FormControlLabel value={1} control={<Radio
-                                                sx={{
-                                                    color: (theme) => theme.palette.text.primary,
-                                                }}
-                                            />} label="Get a Quote" />
+                                                        }}
+                                                    />} label={item?.label} />
+                                                ))
+                                            }
                                         </RadioGroup>
                                     </FormControl>
                                     <Stack spacing={1}>
@@ -71,11 +72,11 @@ export default function ContactUs() {
                                             variant='caption'
                                             color={(theme) => theme.palette.text.primary}
                                         >
-                                            Name
+                                            {form?.name?.label}
                                         </Typography>
                                         <TextField
                                             fullWidth
-                                            placeholder='Name'
+                                            placeholder={form?.name?.placeholder}
                                             variant="outlined"
                                             sx={{
                                                 color: (theme) => theme.palette.text.primary,
@@ -97,11 +98,11 @@ export default function ContactUs() {
                                             variant='caption'
                                             color={(theme) => theme.palette.text.primary}
                                         >
-                                            Email *
+                                            {form?.email?.label} *
                                         </Typography>
                                         <TextField
                                             fullWidth
-                                            placeholder='Email'
+                                            placeholder={form?.email?.placeholder}
                                             variant="outlined"
                                             required
                                             sx={{
@@ -124,11 +125,11 @@ export default function ContactUs() {
                                             variant='caption'
                                             color={(theme) => theme.palette.text.primary}
                                         >
-                                            Message *
+                                            {form?.message?.label} *
                                         </Typography>
                                         <TextField
                                             fullWidth
-                                            placeholder='Message'
+                                            placeholder={form?.message?.placeholder}
                                             variant="outlined"
                                             sx={{
                                                 color: (theme) => theme.palette.text.primary,
@@ -160,7 +161,7 @@ export default function ContactUs() {
 
                                         }}
                                     >
-                                        Send Message
+                                        {button?.title}
                                     </Button>
                                 </Stack>
                             </Grid>
@@ -182,7 +183,7 @@ export default function ContactUs() {
                                     }}
                                 >
                                     <Box component={Image}
-                                        src={'/images/contact-us/Illustration.svg'}
+                                        src={image?.url}
                                         alt="Proposal"
                                         fill={true}
 

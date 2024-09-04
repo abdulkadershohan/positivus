@@ -1,13 +1,14 @@
 'use client'
 import TextWithBg from '@/components/shared/TextWithBg'
+import { data } from '@fakeData/index'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import { Box, Button, Container, Divider, Grid, Paper, Stack, TextField, Typography } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
-import { navItems } from '../header/Navbar'
 export default function Footer() {
+    const { logo, navItems, contact, form, button, social, copyright } = data?.layout?.footer || {}
     return (
         <Container maxWidth='lg'>
             <Paper
@@ -38,8 +39,8 @@ export default function Footer() {
                     >
                         <Box >
                             <Image
-                                src="/images/logoDark.png"
-                                alt="mui-logo"
+                                src={logo.darkLogo.url}
+                                alt="positivus-logo"
                                 width={200}
                                 height={56}
                             />
@@ -64,6 +65,7 @@ export default function Footer() {
                                         color={(theme) => theme.palette.text.secondary}
                                         component={Link}
                                         href={item.href}
+                                        target={item.target}
                                     >
                                         {item.title}
                                     </Typography>
@@ -78,7 +80,7 @@ export default function Footer() {
                                 md: 'flex'
                             }}
                         >
-                            <Box component={Link} href='#'>
+                            <Box component={Link} href={social.linkedin} target='_blank'>
                                 <LinkedInIcon
                                     sx={{
                                         color: (theme) => theme.palette.text.secondary,
@@ -88,7 +90,7 @@ export default function Footer() {
                                     }}
                                 />
                             </Box>
-                            <Box component={Link} href='#'>
+                            <Box component={Link} href={social.facebook} target='_blank'>
                                 <FacebookIcon
                                     sx={{
                                         color: (theme) => theme.palette.text.secondary,
@@ -98,7 +100,7 @@ export default function Footer() {
                                     }}
                                 />
                             </Box>
-                            <Box component={Link} href='#'>
+                            <Box component={Link} href={social.twitter} target='_blank'>
                                 <TwitterIcon
                                     sx={{
                                         color: (theme) => theme.palette.text.secondary,
@@ -118,7 +120,7 @@ export default function Footer() {
                                     xs: 'center',
                                     md: 'flex-start'
                                 }}>
-                                    <TextWithBg text='Contact Us' bgcolor='primary'
+                                    <TextWithBg text={contact?.title} bgcolor='primary'
                                         rest={{
                                             fontSize: {
                                                 xs: 'body2.fontSize',
@@ -138,7 +140,7 @@ export default function Footer() {
                                         md: 'start'
                                     }}
                                 >
-                                    Email: info@positivus.com
+                                    Email: {contact?.email}
                                 </Typography>
                                 <Typography
                                     fontSize={{
@@ -152,7 +154,7 @@ export default function Footer() {
                                     }}
 
                                 >
-                                    Phone: +123456789
+                                    Phone: {contact?.phone}
                                 </Typography>
                                 <Typography
                                     fontSize={{
@@ -164,11 +166,13 @@ export default function Footer() {
                                         xs: 'center',
                                         md: 'start'
                                     }}
-                                    maxWidth={300}
+                                    maxWidth={{
+                                        xs: '100%',
+                                        md: 300
+                                    }}
 
                                 >
-                                    Address: 1234 Main St
-                                    Moonstone City, Stardust State 12345
+                                    {contact?.address}
                                 </Typography>
                             </Stack>
                         </Grid>
@@ -188,7 +192,7 @@ export default function Footer() {
                                     <Grid item xs={12} md={6}>
                                         <TextField
                                             fullWidth
-                                            placeholder='Email'
+                                            placeholder={form?.email?.placeholder}
                                             variant="outlined"
                                             sx={{
                                                 color: (theme) => theme.palette.text.primary,
@@ -223,7 +227,7 @@ export default function Footer() {
                                                 }
                                             }}
                                         >
-                                            Subscribe to news
+                                            {button.title}
                                         </Button>
                                     </Grid>
                                 </Grid>
@@ -241,7 +245,7 @@ export default function Footer() {
                         justifyContent={'center'}
 
                     >
-                        <Box component={Link} href='#'>
+                        <Box component={Link} href={social.linkedin} target='_blank'>
                             <LinkedInIcon
                                 sx={{
                                     color: (theme) => theme.palette.text.secondary,
@@ -251,7 +255,7 @@ export default function Footer() {
                                 }}
                             />
                         </Box>
-                        <Box component={Link} href='#'>
+                        <Box component={Link} href={social.facebook} target='_blank'>
                             <FacebookIcon
                                 sx={{
                                     color: (theme) => theme.palette.text.secondary,
@@ -261,7 +265,7 @@ export default function Footer() {
                                 }}
                             />
                         </Box>
-                        <Box component={Link} href='#'>
+                        <Box component={Link} href={social.twitter} target='_blank'>
                             <TwitterIcon
                                 sx={{
                                     color: (theme) => theme.palette.text.secondary,
@@ -290,7 +294,7 @@ export default function Footer() {
                                 md: 'start'
                             }}
                         >
-                            © 2023 Positivus. All Rights Reserved.
+                            &copy;  {new Date().getFullYear()} {copyright?.text}
                         </Typography>
                         <Typography
                             color={(theme) => theme.palette.text.secondary}
@@ -299,13 +303,14 @@ export default function Footer() {
                                 md: 'body2.fontSize'
                             }}
                             component={Link}
-                            href='#'
+                            href={copyright?.link?.href}
                             textAlign={{
                                 xs: 'center',
                                 md: 'start'
                             }}
+                            target={copyright?.link?.target}
                         >
-                            Privacy Policy
+                            {copyright?.link?.title}
                         </Typography>
                     </Stack>
                 </Stack>

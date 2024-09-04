@@ -288,6 +288,154 @@ export const data = {
 
         ]
 
+    },
+    contact_us: {
+        title: `Contact Us`,
+        description: `Connect with Us: Let's Discuss Your Digital Marketing Needs`,
+        form: {
+            name: {
+                label: 'Name',
+                placeholder: 'Name',
+            },
+            email: {
+                label: 'Email',
+                placeholder: 'Email',
+            },
+            message: {
+                label: 'Message',
+                placeholder: 'Message',
+            },
+            radio: [
+                {
+                    id: 1,
+                    label: 'Say Hi',
+                    value: 0
+                },
+                {
+                    id: 2,
+                    label: 'Get a Quote',
+                    value: 1
+                },
+
+            ],
+        },
+        button: {
+            title: 'Send message'
+        },
+        image: {
+            url: '/images/contact-us/Illustration.svg'
+        }
+    },
+    layout: {
+        header: {
+            logo: {
+                darkLogo: {
+                    url: "/images/logo/logoLight.png"
+                },
+                lightLogo: {
+                    url: "/images/logo/logoDark.png"
+                }
+            },
+            navItems: [
+                {
+                    title: 'About us',
+                    href: '#about-us',
+                    target: '_self',
+                },
+                {
+                    title: 'Services',
+                    href: '#services',
+                    target: '_self',
+                },
+                {
+                    title: 'Use Cases',
+                    href: '#use-cases',
+                    target: '_self',
+                },
+                {
+                    title: 'Testimonials',
+                    href: '#testimonials',
+                    target: '_self',
+                },
+                {
+                    title: 'Blog',
+                    href: '/#blog',
+                    target: '_self',
+                },
+            ],
+            button: {
+                title: 'Request a quote',
+                href: '/#contact-us',
+            }
+        },
+        footer: {
+            logo: {
+                darkLogo: {
+                    url: "/images/logo/logoLight.png"
+                },
+                lightLogo: {
+                    url: "/images/logo/logoDark.png"
+                }
+
+
+
+            },
+            navItems: [
+                {
+                    title: 'About us',
+                    href: '#about-us',
+                    target: '_self',
+                },
+                {
+                    title: 'Services',
+                    href: '#services',
+                    target: '_self',
+                },
+                {
+                    title: 'Use Cases',
+                    href: '#use-cases',
+                    target: '_self',
+                },
+                {
+                    title: 'Testimonials',
+                    href: '#testimonials',
+                    target: '_self',
+                },
+                {
+                    title: 'Blog',
+                    href: '/#blog',
+                    target: '_self',
+                },
+            ],
+            contact: {
+                title: 'Contact Us',
+                address: 'Address: 1234 Main St Moonstone City, Stardust State 12345',
+                phone: '+1 (555) 555-5555',
+                email: 'info@positivus.com',
+            },
+            form: {
+                email: {
+                    label: 'Email',
+                    placeholder: 'Email',
+                }
+            },
+            button: {
+                title: 'Subscribe to news'
+            },
+            social: {
+                facebook: 'https://www.facebook.com',
+                twitter: 'https://www.twitter.com',
+                linkedin: 'https://www.linkedin.com',
+            },
+            copyright: {
+                text: `Positivus. All rights reserved.`,
+                link: {
+                    title: 'Privacy Policy',
+                    href: '#',
+                    target: '_self',
+                }
+            }
+        }
     }
 
 

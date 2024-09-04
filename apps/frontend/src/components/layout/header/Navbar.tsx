@@ -1,4 +1,5 @@
 'use client';
+import { data } from '@fakeData/index';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Button, Container, Stack } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
@@ -22,32 +23,9 @@ interface Props {
     children?: React.ReactNode;
 }
 const drawerWidth = 240;
-// const navItems = ['About us', 'Services', 'Use Cases',"Pricing","Blog"];
-export const navItems = [
-    {
-        title: 'About us',
-        href: '#about-us',
-    },
-    {
-        title: 'Services',
-        href: '#services',
-    },
-    {
-        title: 'Use Cases',
-        href: '#use-cases',
-    },
-    {
-        title: 'Pricing',
-        href: '/pricing',
-    },
-    {
-        title: 'Blog',
-        href: '#blog',
-        // href: '/blog',
-    }
-];
 
 export default function DrawerAppBar(props: Props) {
+    const { logo, navItems, button } = data?.layout?.header
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const currentPathName = usePathname();
@@ -62,8 +40,8 @@ export default function DrawerAppBar(props: Props) {
                 passHref
             >
                 <Image
-                    src="/images/logo.png"
-                    alt="mui-logo"
+                    src={logo?.lightLogo?.url}
+                    alt="logo"
                     width={200}
                     height={56}
                 />
@@ -103,8 +81,8 @@ export default function DrawerAppBar(props: Props) {
                         display={{ xs: 'flex', md: 'none' }}
                     >
                         <Image
-                            src="/images/logo.png"
-                            alt="mui-logo"
+                            src={logo?.lightLogo?.url}
+                            alt="logo"
                             width={200}
                             height={56}
                         />
@@ -120,7 +98,7 @@ export default function DrawerAppBar(props: Props) {
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }}>
                         <Image
-                            src="/images/logo.png"
+                            src={logo?.lightLogo?.url}
                             alt="mui-logo"
                             width={200}
                             height={56}
@@ -143,7 +121,7 @@ export default function DrawerAppBar(props: Props) {
                                         borderBottom: (theme) => `2px solid ${theme.palette.primary.main}`,
                                     },
                                 }}
-
+                                target={item?.target || '_self'}
                             >
                                 {item?.title}
                             </Typography>
@@ -152,8 +130,10 @@ export default function DrawerAppBar(props: Props) {
                             variant='outlined'
                             color='info'
                             size='medium'
+                            LinkComponent={NextLink}
+                            href={button?.href}
                         >
-                            Request a quote
+                            {button?.title}
                         </Button>
                     </Stack>
                 </Toolbar>
