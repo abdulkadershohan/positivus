@@ -1,16 +1,11 @@
 'use client';
+import { data } from '@fakeData/index';
 import { Button, Container, Grid, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
-const data = {
-    title: `Navigating the digital landscape for success`,
-    description: `Our digital marketing agency helps businesses grow and succeed online through a range of services including SEO, PPC, social media marketing, and content creation.`,
-    banner: {
-        src: "/images/banner/banner.svg",
-        alt: "Hero",
-    },
 
-}
 export default function Banner() {
+
+    const { title, description, banner, button } = data.banner
     return (
         <Container maxWidth='lg' >
             <Stack width={'100%'}>
@@ -24,7 +19,7 @@ export default function Banner() {
                                     md: 'h1.fontSize',
                                 }}
                                 color={(theme) => theme.palette.text.primary}
-                            >{data.title}</Typography>
+                            >{title}</Typography>
                             <Typography
                                 variant="body1"
                                 fontSize={{
@@ -33,7 +28,7 @@ export default function Banner() {
                                 }}
                                 color={(theme) => theme.palette.text.primary}
 
-                            >{data.description}</Typography>
+                            >{description}</Typography>
                             <Stack
                                 sx={{
                                     width: {
@@ -45,9 +40,15 @@ export default function Banner() {
                                 <Button
                                     variant="contained"
                                     color="info"
+                                    sx={{
+                                        '&:hover': {
+                                            backgroundColor: (theme) => theme.palette.primary.main,
+                                            color: (theme) => theme.palette.primary.contrastText,
+                                        },
+                                    }}
 
                                 >
-                                    Book a consultation
+                                    {button?.title}
                                 </Button>
 
                             </Stack>
@@ -66,8 +67,8 @@ export default function Banner() {
                             }}
                         >
                             <Image
-                                src={data.banner.src}
-                                alt={data.banner.alt}
+                                src={banner.url}
+                                alt={banner.alt}
                                 fill={true}
                             />
                         </Stack>
