@@ -1,7 +1,8 @@
-import ThemeProvider from "@/themes";
+import { NextThemeConfigProvider } from "@/next-theme";
 import { CssBaseline } from "@mui/material";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import type { Metadata } from "next";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,10 +17,12 @@ export default function RootLayout(props: { children: React.ReactNode }) {
     <html lang="en">
       <body>
         <AppRouterCacheProvider>
-          <ThemeProvider>
-            <CssBaseline />
-            {children}
-          </ThemeProvider>
+          <NextThemesProvider>
+            <NextThemeConfigProvider>
+              <CssBaseline />
+              {children}
+            </NextThemeConfigProvider>
+          </NextThemesProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

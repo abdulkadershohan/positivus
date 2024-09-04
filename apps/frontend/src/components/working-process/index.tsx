@@ -84,7 +84,7 @@ export default function WorkingProcess() {
                                     sx={{
                                         border: '1px solid',
                                         borderRadius: '50%',
-                                        borderColor: (theme) => theme.palette.info.main,
+                                        borderColor: 'inherit',
                                         cursor: 'pointer',
 
                                     }}

@@ -15,6 +15,7 @@
     "@mui/material": "^5.16.7",
     "@mui/material-nextjs": "^5.16.6",
     "next": "14.2.6",
+    "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
     "react-slick": "^0.30.2",
