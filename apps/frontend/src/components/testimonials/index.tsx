@@ -1,4 +1,5 @@
 'use client'
+import { data } from '@fakeData/index';
 import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
 import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
 import PagesOutlinedIcon from '@mui/icons-material/PagesOutlined';
@@ -8,53 +9,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import TextWithBg from "../shared/TextWithBg";
-const testimonials = [
-    {
-        id: 1,
-        name: "John Doe",
-        position: "Marketing Manager",
-        text: `"We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence."`
-    },
-    {
-        id: 2,
-        name: "Jane Smith",
-        position: "CEO",
-        text: `"We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence."`
-    },
-    {
-        id: 3,
-        name: "John Doe",
-        position: "Marketing Manager",
-        text: `"We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence."`
-    },
-    {
-        id: 4,
-        name: "Jane Smith",
-        position: "CEO",
-        text: `"We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence."`
-    },
-    {
-        id: 5,
-        name: "John Doe",
-        position: "Marketing Manager",
-        text: `"We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence."`
-    },
-    {
-        id: 6,
-        name: "Jane Smith",
-        position: "CEO",
-        text: `"We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence."`
-    },
-    {
-        id: 7,
-        name: "John Doe",
-        position: "Marketing Manager",
-        text: `"We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence."`
-    },
-
-]
 
 export default function Testimonials() {
+    const { title, description, testimonials } = data?.testimonial || {}
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const slider = React.useRef<Slider | null>(null);
@@ -116,7 +73,7 @@ export default function Testimonials() {
                     gap={6}
                     alignItems={'center'}
                 >
-                    <TextWithBg text="Testimonials" bgcolor="primary" />
+                    <TextWithBg text={title} bgcolor="primary" />
                     <Typography
                         color={(theme) => theme.palette.text.primary}
                         maxWidth={{
@@ -132,7 +89,7 @@ export default function Testimonials() {
                             md: 'left',
                         }}
                     >
-                        Hear from Our Satisfied Clients: Read Our Testimonials to Learn More about Our Digital Marketing Services
+                        {description}
                     </Typography>
                 </Stack>
                 <Stack gap={4} position={'relative'} bgcolor={(theme) => theme.palette.info.main} borderRadius={6} p={{ xs: 0, sm: 4 }} >
@@ -160,7 +117,7 @@ export default function Testimonials() {
                                                 </Stack>
                                             </Stack>
                                             <Typography color={(theme => theme.palette.text.secondary)} fontWeight={400} fontSize={16}>
-                                                {testimonial.text}
+                                                {testimonial.description}
                                             </Typography>
                                         </Stack>
                                     </Stack>

@@ -1,4 +1,5 @@
 'use client';
+import { data } from '@fakeData/index';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { Box, Collapse, Container, Divider, Stack, Typography } from '@mui/material';
@@ -7,40 +8,9 @@ import Card from '../shared/Card';
 import IconBox from '../shared/IconBox';
 import TextWithBg from '../shared/TextWithBg';
 
-const data = [
-    {
-        id: 1,
-        title: 'Consultation',
-        description: `During the initial consultation, we will discuss your business goals and objectives, target audience, and current marketing efforts. This will allow us to understand your needs and tailor our services to best fit your requirements.`,
-    },
-    {
-        id: 2,
-        title: 'Strategy Development',
-        description: `Based on the information gathered during the consultation, we will develop a comprehensive digital marketing strategy that outlines the goals, objectives, and tactics to be used in your campaign. This will serve as a roadmap for our team to follow throughout the campaign.`,
-    },
-    {
-        id: 3,
-        title: 'Implementation',
-        description: `Once the strategy has been approved, we will begin implementing the tactics outlined in the plan. This may include optimizing your website for search engines, creating content for social media, or launching a pay-per-click advertising campaign.`,
-    },
-    {
-        id: 4,
-        title: 'Monitoring & Reporting',
-        description: `Throughout the campaign, we will monitor the performance of your digital marketing efforts and provide regular reports on key metrics such as website traffic, leads generated, and return on investment. This will allow us to make data-driven decisions and optimize the campaign for maximum results.`,
-    },
-    {
-        id: 5,
-        title: 'Optimization',
-        description: `Based on the data collected during the monitoring phase, we will make adjustments to the campaign to improve performance and achieve better results. This may involve tweaking ad copy, adjusting targeting parameters, or optimizing landing pages for better conversion rates.`,
-    },
-    {
-        id: 6,
-        title: 'Results',
-        description: `At the end of the campaign, we will provide a detailed report on the results achieved, including key performance indicators, return on investment, and recommendations for future campaigns. This will allow you to see the impact of our work and make informed decisions moving forward.`,
-    }
-];
 
 export default function WorkingProcess() {
+    const { description, items, title } = data.working_process
     const [index, setIndex] = React.useState<number | null>(1);
 
     const handleToggle = (id: number) => {
@@ -58,7 +28,7 @@ export default function WorkingProcess() {
                     gap={6}
                     alignItems={'center'}
                 >
-                    <TextWithBg text="Our Working Process " bgcolor="primary" />
+                    <TextWithBg text={title} bgcolor="primary" />
                     <Typography
                         color={(theme) => theme.palette.text.primary}
                         maxWidth={{
@@ -74,10 +44,10 @@ export default function WorkingProcess() {
                             md: 'left',
                         }}
                     >
-                        Step-by-Step Guide to Achieving Your Business Goals
+                        {description}
                     </Typography>
                 </Stack>
-                {data.map((item) => (
+                {items.map((item) => (
                     <Card key={item.id}
                         bgcolor={index === item.id ? 'primary' : 'secondary'}
                     >

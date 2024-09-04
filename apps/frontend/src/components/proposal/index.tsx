@@ -1,13 +1,11 @@
 'use client';
+import { data } from "@fakeData/index";
 import { Button, Container, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 
-const data = {
-    title: `Let’s make things happen`,
-    description: `Contact us today to learn more about how our digital marketing services can help your business grow and succeed online.`,
-    image: '/images/proposal/image1.svg',
-}
+
 export default function Proposal() {
+    const { button, description, image, title } = data.proposal
     return (
         <Container maxWidth='lg'>
             <Stack sx={{ borderRadius: 10, p: 6, bgcolor: (theme) => theme.palette.background.paper }}>
@@ -23,7 +21,7 @@ export default function Proposal() {
                                 color={(theme) => theme.palette.text.primary}
 
                             >
-                                {data.title}
+                                {title}
                             </Typography>
                             <Typography
                                 variant="body2"
@@ -33,7 +31,7 @@ export default function Proposal() {
                                 }}
                                 color={(theme) => theme.palette.text.primary}
                             >
-                                {data.description}
+                                {description}
                             </Typography>
                             <Stack
                                 sx={{
@@ -49,7 +47,7 @@ export default function Proposal() {
                                     fullWidth
 
                                 >
-                                    Get proposal
+                                    {button.sm.title}
                                 </Button>
 
                             </Stack>
@@ -67,7 +65,7 @@ export default function Proposal() {
                                     color="info"
 
                                 >
-                                    Get your free proposal
+                                    {button.md.title}
                                 </Button>
 
                             </Stack>
@@ -86,7 +84,7 @@ export default function Proposal() {
                             }}
                         >
                             <Image
-                                src={data.image}
+                                src={image}
                                 alt="Proposal"
                                 fill={true}
                             />

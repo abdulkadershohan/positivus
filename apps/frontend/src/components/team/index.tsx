@@ -1,55 +1,14 @@
 'use client';
+import { data } from '@fakeData/index';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { Box, Button, Container, Divider, Grid, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 import Card from '../shared/Card';
 import TextWithBg from '../shared/TextWithBg';
-const data = [
-    {
-        id: 1,
-        name: 'John Smith',
-        role: 'CEO and Founder',
-        image: '/images/team/image1.png',
-        description: `10+ years of experience in digital marketing. Expertise in SEO, PPC, and content strategy. Passionate about helping businesses grow`,
-    },
-    {
-        id: 2,
-        name: 'Jane Doe',
-        role: 'Director of Operations',
-        description: `7+ years of experience in project management and team leadership. Strong organizational and communication skills`,
-        image: '/images/team/image2.png',
-    },
-    {
-        id: 3,
-        name: 'Michael Brown',
-        role: 'Senior SEO Specialist',
-        description: `5+ years of experience in SEO and content creation. Proficient in keyword research and on-page optimization`,
-        image: '/images/team/image3.png',
-    },
-    {
-        id: 4,
-        name: 'Emily Johnson',
-        role: 'PPC Manager',
-        description: `3+ years of experience in paid search advertising. Skilled in campaign management and performance analysis`,
-        image: '/images/team/image4.png',
-    },
-    {
-        id: 5,
-        name: 'Brian Williams',
-        role: 'Social Media Specialist',
-        description: `4+ years of experience in social media marketing. Proficient in creating and scheduling content, analyzing metrics.`,
-        image: '/images/team/image5.png',
-    },
-    {
-        id: 6,
-        name: 'Sarah Kim',
-        role: 'Content Creator',
-        description: `2+ years of experience in writing and editing Skilled in creating compelling, SEO-optimized content for various industries`,
-        image: '/images/team/image6.png',
-    }
-]
+
 export default function Team() {
+    const { description, members, title, button } = data?.team || {}
     return (
         <Container maxWidth='lg' id='team'>
             <Stack spacing={6}>
@@ -61,7 +20,7 @@ export default function Team() {
                     gap={6}
                     alignItems={'center'}
                 >
-                    <TextWithBg text="Team" bgcolor="primary" />
+                    <TextWithBg text={title} bgcolor="primary" />
                     <Typography
                         color={(theme) => theme.palette.text.primary}
                         maxWidth={{
@@ -77,13 +36,13 @@ export default function Team() {
                             md: 'left',
                         }}
                     >
-                        Meet the skilled and experienced team behind our successful digital marketing strategies
+                        {description}
                     </Typography>
                 </Stack>
                 <Stack>
                     <Grid container spacing={4}>
                         {
-                            data.map((item) => (
+                            members.map((item) => (
                                 <Grid item xs={12} sm={6} md={4} key={item.id}>
                                     <Card
                                         sx={{
@@ -184,7 +143,7 @@ export default function Team() {
                             LinkComponent={Link}
                             href='#'
                         >
-                            See all team
+                            {button.title}
                         </Button>
                     </Stack>
                 </Stack>
