@@ -2,6 +2,7 @@
 import { data } from '@fakeData/index';
 import { Button, Container, Grid, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
+import Link from 'next/link';
 export default function Banner() {
     const { title, description, banner, button } = data.banner
     return (
@@ -44,6 +45,9 @@ export default function Banner() {
                                             color: (theme) => theme.palette.primary.contrastText,
                                         },
                                     }}
+                                    LinkComponent={Link}
+                                    href={button?.href}
+                                    target={button?.target || '_self'}
 
                                 >
                                     {button?.title}

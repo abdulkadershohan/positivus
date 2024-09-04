@@ -1,4 +1,6 @@
-export const data = {
+import { IData } from "@/types";
+
+export const data: IData = {
     banner: {
         title: `Navigating the digital landscape for success`,
         description: `Our digital marketing agency helps businesses grow and succeed online through a range of services including SEO, PPC, social media marketing, and content creation.`,
@@ -7,7 +9,9 @@ export const data = {
             alt: "Banner",
         },
         button: {
-            title: 'Book a consultation'
+            title: 'Book a consultation',
+            href: '#',
+            target: '_self'
         }
     },
     company_logo: [
@@ -115,7 +119,9 @@ export const data = {
             }
         ],
         link: {
-            title: 'Learn more'
+            title: 'Learn more',
+            link: '#',
+            target: '_self'
         }
     },
     proposal: {
@@ -128,7 +134,9 @@ export const data = {
             },
             md: {
                 title: 'Get your free proposal',
-            }
+            },
+            href: '#',
+            target: '_self'
         }
     },
     case_studies: {
@@ -150,6 +158,8 @@ export const data = {
         ],
         link: {
             title: 'Learn more',
+            link: '#',
+            target: '_self'
         }
     },
     working_process: {
@@ -236,7 +246,9 @@ export const data = {
             }
         ],
         button: {
-            title: "See all team"
+            title: "See all team",
+            href: '#',
+            target: '_self'
         }
     },
     testimonial: {
@@ -320,7 +332,7 @@ export const data = {
             ],
         },
         button: {
-            title: 'Send message'
+            title: 'Send message',
         },
         image: {
             url: '/images/contact-us/Illustration.svg'
@@ -366,6 +378,7 @@ export const data = {
             button: {
                 title: 'Request a quote',
                 href: '/#contact-us',
+                target: '_self'
             }
         },
         footer: {
@@ -420,7 +433,9 @@ export const data = {
                 }
             },
             button: {
-                title: 'Subscribe to news'
+                title: 'Subscribe to news',
+                target: '_self',
+                href: '#'
             },
             social: {
                 facebook: 'https://www.facebook.com',
@@ -437,6 +452,4 @@ export const data = {
             }
         }
     }
-
-
 }

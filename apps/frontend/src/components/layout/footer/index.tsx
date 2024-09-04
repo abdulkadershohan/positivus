@@ -226,6 +226,10 @@ export default function Footer() {
                                                     color: (theme) => theme.palette.info.contrastText
                                                 }
                                             }}
+                                            LinkComponent={Link}
+                                            href={button?.href}
+                                            target={button?.target || '_self'}
+
                                         >
                                             {button.title}
                                         </Button>

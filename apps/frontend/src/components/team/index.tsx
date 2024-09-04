@@ -141,7 +141,8 @@ export default function Team() {
                                 },
                             }}
                             LinkComponent={Link}
-                            href='#'
+                            href={button?.href}
+                            target={button?.target || '_self'}
                         >
                             {button.title}
                         </Button>
