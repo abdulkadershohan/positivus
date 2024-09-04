@@ -7,19 +7,18 @@ import Services from "@/components/services";
 import Team from "@/components/team";
 import Testimonials from "@/components/testimonials";
 import WorkingProcess from "@/components/working-process";
-import { Stack } from "@mui/material";
+import { Paper } from "@mui/material";
 
 export default function Page() {
   return (
-    <Stack spacing={12}
+    <Paper
       sx={{
-        width: '100%',
-        height: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        gap: 12,
+        backgroundColor: 'background.default',
       }}
+      elevation={0}
     >
       <Banner />
       <CompanyLogo />
@@ -30,7 +29,7 @@ export default function Page() {
       <Team />
       <Testimonials />
       <ContactUs />
-    </Stack>
+    </Paper>
 
 
   )
