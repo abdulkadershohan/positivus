@@ -24,8 +24,14 @@ export default function IconBox({ icon, bgcolor = 'white', iconColor = '#B9FF66'
         >
             <Box
                 sx={{
-                    height: 41,
-                    width: 41,
+                    height: {
+                        xs: 30,
+                        md: 41,
+                    },
+                    width: {
+                        xs: 30,
+                        md: 41,
+                    },
                     borderRadius: '50%',
                     bgcolor: (theme) => getBgColor(bgcolor || 'primary', theme),
                     display: 'flex',

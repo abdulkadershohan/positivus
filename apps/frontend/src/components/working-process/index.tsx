@@ -57,11 +57,11 @@ export default function WorkingProcess() {
                                 alignItems={'center'}
                                 justifyContent={'space-between'}
                             >
-                                <Stack direction={'row'} alignItems={'center'} gap={4} >
+                                <Stack direction={'row'} alignItems={'center'} gap={{ md: 4, xs: 2 }} >
                                     <Typography
                                         color={(theme) => theme.palette.text.primary}
                                         fontSize={{
-                                            xs: 30,
+                                            xs: 20,
                                             md: 60,
                                         }}
                                         fontWeight={500}

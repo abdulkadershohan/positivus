@@ -7,15 +7,19 @@ export default function Banner() {
     const { title, description, banner, button } = data?.banner || {};
     return (
         <Container maxWidth='lg' >
-            <Stack width={'100%'}>
+            <Stack width={'100%'} pt={10}>
                 <Grid container spacing={6}>
                     <Grid item xs={12} md={6}>
-                        <Stack spacing={6}>
+                        <Stack spacing={6} >
                             <Typography
                                 variant="h1"
                                 fontSize={{
                                     xs: 'h2.fontSize',
                                     md: 'h1.fontSize',
+                                }}
+                                textAlign={{
+                                    xs: 'center',
+                                    sm: 'left',
                                 }}
                                 color={(theme) => theme.palette.text.primary}
                             >{title}</Typography>
