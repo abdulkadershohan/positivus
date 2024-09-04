@@ -24,7 +24,7 @@ interface Props {
 const drawerWidth = 240;
 
 export default function DrawerAppBar(props: Props) {
-    const { logo, navItems, button } = data?.layout?.header
+    const { logo, navItems, button } = data?.layout?.header || {};
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const handleDrawerToggle = () => {

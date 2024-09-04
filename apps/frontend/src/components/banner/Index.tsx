@@ -4,7 +4,7 @@ import { Button, Container, Grid, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 export default function Banner() {
-    const { title, description, banner, button } = data.banner
+    const { title, description, banner, button } = data?.banner || {};
     return (
         <Container maxWidth='lg' >
             <Stack width={'100%'}>

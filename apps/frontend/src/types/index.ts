@@ -9,7 +9,7 @@ export type IData = {
         button: {
             title: string;
             href: string;
-            target: string;
+            target: "_blank" | "_self" | "_parent" | "_top";
         };
     };
     company_logo: {
@@ -25,16 +25,16 @@ export type IData = {
             text: string;
             image: string;
             link: string;
-            bgcolor: string;
-            color: string;
-            iconColor: string;
-            iconBgColor: string;
-            iconLabelColor: string;
+            bgcolor: 'primary' | 'secondary' | 'info'
+            color: 'primary' | 'secondary' | 'info';
+            iconColor: 'primary' | 'secondary' | 'info';
+            iconBgColor: 'primary' | 'secondary' | 'info';
+            iconLabelColor: 'text.primary' | 'text.secondary' | 'text.info';
         }[];
         link: {
             title: string;
             link: string;
-            target: string;
+            target: "_blank" | "_self" | "_parent" | "_top";
         };
     };
     proposal: {
@@ -49,7 +49,7 @@ export type IData = {
                 title: string;
             };
             href: string;
-            target: string;
+            target: "_blank" | "_self" | "_parent" | "_top";
         };
     };
     case_studies: {
@@ -62,7 +62,7 @@ export type IData = {
         link: {
             title: string;
             link: string;
-            target: string;
+            target: "_blank" | "_self" | "_parent" | "_top";
         };
     };
     working_process: {
@@ -87,7 +87,7 @@ export type IData = {
         button: {
             title: string;
             href: string;
-            target: string;
+            target: "_blank" | "_self" | "_parent" | "_top";
         };
     };
     testimonial: {
@@ -142,12 +142,12 @@ export type IData = {
             navItems: {
                 title: string;
                 href: string;
-                target: string;
+                target: "_blank" | "_self" | "_parent" | "_top";
             }[];
             button: {
                 title: string;
                 href: string;
-                target: string;
+                target: "_blank" | "_self" | "_parent" | "_top";
             };
         };
         footer: {
@@ -162,7 +162,7 @@ export type IData = {
             navItems: {
                 title: string;
                 href: string;
-                target: string;
+                target: "_blank" | "_self" | "_parent" | "_top";
             }[];
             contact: {
                 title: string;
@@ -178,8 +178,8 @@ export type IData = {
             };
             button: {
                 title: string;
-                target: string;
                 href: string;
+                target: "_blank" | "_self" | "_parent" | "_top";
             };
             social: {
                 facebook: string;
@@ -191,7 +191,7 @@ export type IData = {
                 link: {
                     title: string;
                     href: string;
-                    target: string;
+                    target: "_blank" | "_self" | "_parent" | "_top";
                 };
             };
         };

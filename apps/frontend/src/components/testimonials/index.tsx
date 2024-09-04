@@ -24,7 +24,7 @@ export default function Testimonials() {
         arrows: false,
         speed: 500,
         autoplay: true,
-        beforeChange: (oldIndex: any, newIndex: any) => setCurrentIndex(newIndex), // Track the current index
+        beforeChange: (oldIndex: number, newIndex: number) => setCurrentIndex(newIndex), // Track the current index
         responsive: [
             {
                 breakpoint: 1200,

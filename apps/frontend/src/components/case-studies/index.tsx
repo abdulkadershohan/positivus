@@ -11,7 +11,7 @@ import Card from '../shared/Card';
 import TextWithBg from '../shared/TextWithBg';
 
 export default function CaseStudies() {
-    const { items, title, description, link } = data.case_studies
+    const { items, title, description, link } = data?.case_studies || {};
     const slider = React.useRef<Slider | null>(null);
     const settings = {
         className: "center",

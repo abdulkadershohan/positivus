@@ -4,7 +4,7 @@ import { Button, Container, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 export default function Proposal() {
-    const { button, description, image, title } = data.proposal
+    const { button, description, image, title } = data?.proposal || {};
     return (
         <Container maxWidth='lg'>
             <Stack sx={{ borderRadius: 10, p: 6, bgcolor: (theme) => theme.palette.background.paper }}>
