@@ -2,9 +2,7 @@
 import { data } from '@fakeData/index';
 import { Button, Container, Grid, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
-
 export default function Banner() {
-
     const { title, description, banner, button } = data.banner
     return (
         <Container maxWidth='lg' >

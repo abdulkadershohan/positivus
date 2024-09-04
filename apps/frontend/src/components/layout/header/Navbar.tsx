@@ -15,7 +15,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 import NextLink from 'next/link';
-import { usePathname } from 'next/navigation';
 import * as React from 'react';
 
 interface Props {
@@ -28,7 +27,6 @@ export default function DrawerAppBar(props: Props) {
     const { logo, navItems, button } = data?.layout?.header
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const currentPathName = usePathname();
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
     };
@@ -62,83 +60,84 @@ export default function DrawerAppBar(props: Props) {
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <>    <AppBar
-            sx={{
-                backgroundColor: (theme) => theme.palette.background.default,
-                py: { xs: 0, md: 2 },
-            }}
-            position='static'
-            elevation={0}
-        >
-            <Container maxWidth={'lg'} >
-                <Toolbar disableGutters>
-                    {/* mobile screen icon and logo */}
-                    <Stack
-                        direction={'row'}
-                        justifyContent={'space-between'}
-                        alignItems={'center'}
-                        width={'100%'}
-                        display={{ xs: 'flex', md: 'none' }}
-                    >
-                        <Image
-                            src={logo?.lightLogo?.url}
-                            alt="logo"
-                            width={200}
-                            height={56}
-                        />
-                        <Box>
-                            <IconButton
-                                color="inherit"
-                                onClick={handleDrawerToggle}
-                            >
-                                <MenuIcon />
-                            </IconButton>
-                        </Box>
-                    </Stack>
-
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }}>
-                        <Image
-                            src={logo?.lightLogo?.url}
-                            alt="mui-logo"
-                            width={200}
-                            height={56}
-                        />
-                    </Box>
-
-                    <Stack spacing={6} direction={'row'} sx={{ display: { xs: 'none', md: 'block' } }}>
-                        {navItems.map((item) => (
-                            <Typography
-                                key={Math.random()}
-                                color={(theme) => theme.palette.text.primary}
-                                fontWeight={400}
-                                fontSize={20}
-                                component={NextLink}
-                                href={item?.href}
-                                sx={{
-                                    textDecoration: 'none',
-                                    // i need bottom line on hover after 
-                                    "&:hover": {
-                                        borderBottom: (theme) => `2px solid ${theme.palette.primary.main}`,
-                                    },
-                                }}
-                                target={item?.target || '_self'}
-                            >
-                                {item?.title}
-                            </Typography>
-                        ))}
-                        <Button
-                            variant='outlined'
-                            color='info'
-                            size='medium'
-                            LinkComponent={NextLink}
-                            href={button?.href}
+        <React.Fragment>
+            <AppBar
+                sx={{
+                    backgroundColor: (theme) => theme.palette.background.default,
+                    py: { xs: 0, md: 2 },
+                }}
+                position='sticky'
+                elevation={0}
+            >
+                <Container maxWidth={'lg'} >
+                    <Toolbar disableGutters>
+                        {/* mobile screen icon and logo */}
+                        <Stack
+                            direction={'row'}
+                            justifyContent={'space-between'}
+                            alignItems={'center'}
+                            width={'100%'}
+                            display={{ xs: 'flex', md: 'none' }}
                         >
-                            {button?.title}
-                        </Button>
-                    </Stack>
-                </Toolbar>
-            </Container>
-        </AppBar>
+                            <Image
+                                src={logo?.lightLogo?.url}
+                                alt="logo"
+                                width={200}
+                                height={56}
+                            />
+                            <Box>
+                                <IconButton
+                                    color="inherit"
+                                    onClick={handleDrawerToggle}
+                                >
+                                    <MenuIcon />
+                                </IconButton>
+                            </Box>
+                        </Stack>
+
+                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }}>
+                            <Image
+                                src={logo?.lightLogo?.url}
+                                alt="mui-logo"
+                                width={200}
+                                height={56}
+                            />
+                        </Box>
+
+                        <Stack spacing={6} direction={'row'} sx={{ display: { xs: 'none', md: 'block' } }}>
+                            {navItems.map((item) => (
+                                <Typography
+                                    key={Math.random()}
+                                    color={(theme) => theme.palette.text.primary}
+                                    fontWeight={400}
+                                    fontSize={20}
+                                    component={NextLink}
+                                    href={item?.href}
+                                    sx={{
+                                        textDecoration: 'none',
+                                        // i need bottom line on hover after 
+                                        "&:hover": {
+                                            borderBottom: (theme) => `2px solid ${theme.palette.primary.main}`,
+                                        },
+                                    }}
+                                    target={item?.target || '_self'}
+                                >
+                                    {item?.title}
+                                </Typography>
+                            ))}
+                            <Button
+                                variant='outlined'
+                                color='info'
+                                size='medium'
+                                LinkComponent={NextLink}
+                                href={button?.href}
+                            >
+                                {button?.title}
+                            </Button>
+                        </Stack>
+                    </Toolbar>
+                </Container>
+            </AppBar>
             <nav>
                 <Drawer
                     container={container}
@@ -156,7 +155,7 @@ export default function DrawerAppBar(props: Props) {
                     {drawer}
                 </Drawer>
             </nav>
-        </>
+        </React.Fragment>
 
     );
 }

@@ -2,8 +2,6 @@
 import { data } from "@fakeData/index";
 import { Button, Container, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
-
-
 export default function Proposal() {
     const { button, description, image, title } = data.proposal
     return (

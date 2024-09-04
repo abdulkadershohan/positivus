@@ -1,8 +1,6 @@
 import { data } from '@fakeData/index'
 import { Container, Stack } from '@mui/material'
 import Image from 'next/image'
-
-
 export default function CompanyLogo() {
     const { company_logo } = data
     return (
