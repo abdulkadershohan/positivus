@@ -1,26 +1,11 @@
+import { ISingleServiceProps } from '@/types'
 import { Box, Grid, Stack } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
 import Card from '../shared/Card'
 import IconBox from '../shared/IconBox'
 import TextWithBg from '../shared/TextWithBg'
-type ISingleServiceProps = {
-    title: string;
-    text: string;
-    image: string;
-    link: string;
-    bgcolor: 'primary' | 'secondary' | 'info'
-    color: 'primary' | 'secondary' | 'info';
-    iconColor: 'primary' | 'secondary' | 'info';
-    iconBgColor: 'primary' | 'secondary' | 'info';
-    labelColor?: 'text.primary' | 'text.secondary' | 'text.info';
-    id?: number;
-    btnTitle: {
-        title: string;
-        link: string;
-        target: "_blank" | "_self" | "_parent" | "_top";
-    }
-};
+
 const SingleServiceCard = ({ btnTitle, title, text, image, link, bgcolor, color, iconColor, iconBgColor, labelColor }: ISingleServiceProps) => {
     return (
         <Card

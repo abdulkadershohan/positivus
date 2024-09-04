@@ -1,14 +1,7 @@
+import { IconBoxProps } from '@/types';
 import CallMadeIcon from '@mui/icons-material/CallMade';
-import { Box, Stack, Typography, TypographyProps } from "@mui/material";
-type IconBoxProps = {
-    bgcolor?: string;
-    iconColor?: string;
-    onClick?: () => void;
-    label?: string;
-    labelProps?: TypographyProps,
-    labelColor?: string,
-    icon?: React.ReactNode
-};
+import { Box, Stack, Typography } from "@mui/material";
+
 export default function IconBox({ icon, bgcolor = 'white', iconColor = '#B9FF66', onClick, label, labelProps, labelColor }: IconBoxProps) {
     const getBgColor = (color: string, theme: any) => {
         switch (color) {

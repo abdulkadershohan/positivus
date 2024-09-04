@@ -1,11 +1,8 @@
 'use client'
-import { Typography, TypographyProps } from '@mui/material'
-type TextWithBgProps = {
-    text: string
-    rest?: TypographyProps
-    bgcolor: 'primary' | 'secondary' | 'info'
-}
-export default function TextWithBg({ text, rest, bgcolor }: TextWithBgProps) {
+import { ITextWithBgProps } from '@/types'
+import { Typography } from '@mui/material'
+
+export default function TextWithBg({ text, rest, bgcolor }: ITextWithBgProps) {
     const getBgColor = (color: string, theme: any) => {
         switch (color) {
             case 'primary':

@@ -1,14 +1,8 @@
 'use client';
-import { Stack, StackProps, SxProps } from '@mui/material';
-import React from 'react';
-type CardProps = {
-    children: React.ReactNode,
-    onClick?: () => void
-    sx?: SxProps
-    cardProps?: StackProps,
-    bgcolor?: 'primary' | 'secondary' | 'info'
-}
-export default function Card({ children, onClick, sx, bgcolor, cardProps }: CardProps) {
+import { ICardProps } from '@/types';
+import { Stack } from '@mui/material';
+
+export default function Card({ children, onClick, sx, bgcolor, cardProps }: ICardProps) {
     const getBgColor = (color: string, theme: any) => {
         switch (color) {
             case 'primary':

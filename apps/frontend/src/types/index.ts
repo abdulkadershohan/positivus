@@ -1,3 +1,5 @@
+import { StackProps, SxProps, TypographyProps } from "@mui/material";
+
 export type IData = {
     banner: {
         title: string;
@@ -196,4 +198,42 @@ export type IData = {
             };
         };
     };
+}
+export type ISingleServiceProps = {
+    title: string;
+    text: string;
+    image: string;
+    link: string;
+    bgcolor: 'primary' | 'secondary' | 'info'
+    color: 'primary' | 'secondary' | 'info';
+    iconColor: 'primary' | 'secondary' | 'info';
+    iconBgColor: 'primary' | 'secondary' | 'info';
+    labelColor?: 'text.primary' | 'text.secondary' | 'text.info';
+    id?: number;
+    btnTitle: {
+        title: string;
+        link: string;
+        target: "_blank" | "_self" | "_parent" | "_top";
+    }
+};
+export type ICardProps = {
+    children: React.ReactNode,
+    onClick?: () => void
+    sx?: SxProps
+    cardProps?: StackProps,
+    bgcolor?: 'primary' | 'secondary' | 'info'
+}
+export type IconBoxProps = {
+    bgcolor?: string;
+    iconColor?: string;
+    onClick?: () => void;
+    label?: string;
+    labelProps?: TypographyProps,
+    labelColor?: string,
+    icon?: React.ReactNode
+};
+export type ITextWithBgProps = {
+    text: string
+    rest?: TypographyProps
+    bgcolor: 'primary' | 'secondary' | 'info'
 }
