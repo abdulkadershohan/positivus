@@ -18,109 +18,112 @@ export default function WorkingProcess() {
     };
 
     return (
-        <Container maxWidth='lg' id='use-cases'>
-            <Stack spacing={6}>
-                <Stack
-                    direction={{
-                        xs: 'column',
-                        md: 'row',
-                    }}
-                    gap={6}
-                    alignItems={'center'}
-                >
-                    <TextWithBg text={title} bgcolor="primary" />
-                    <Typography
-                        color={(theme) => theme.palette.text.primary}
-                        maxWidth={{
-                            xs: 390,
-                            md: 580,
+        <div data-aos="fade-up"
+            data-aos-duration="2000">
+            <Container maxWidth='lg' id='use-cases'>
+                <Stack spacing={6}>
+                    <Stack
+                        direction={{
+                            xs: 'column',
+                            md: 'row',
                         }}
-                        fontSize={{
-                            xs: 'caption.fontSize',
-                            md: 'body2.fontSize',
-                        }}
-                        textAlign={{
-                            xs: 'center',
-                            md: 'left',
-                        }}
+                        gap={6}
+                        alignItems={'center'}
                     >
-                        {description}
-                    </Typography>
-                </Stack>
-                {items.map((item) => (
-                    <Card key={item.id}
-                        bgcolor={index === item.id ? 'primary' : 'secondary'}
-                    >
-                        <Stack key={item.id}>
-                            <Stack
-                                direction={'row'}
-                                alignItems={'center'}
-                                justifyContent={'space-between'}
-                            >
-                                <Stack direction={'row'} alignItems={'center'} gap={{ md: 4, xs: 2 }} >
-                                    <Typography
-                                        color={(theme) => theme.palette.text.primary}
-                                        fontSize={{
-                                            xs: 20,
-                                            md: 60,
-                                        }}
-                                        fontWeight={500}
-                                    >
-                                        {item.id < 10 ? `0${item.id}` : item.id}
-                                    </Typography>
-                                    <Typography
-                                        color={(theme) => theme.palette.text.primary}
-                                        fontSize={{
-                                            xs: 18,
-                                            md: 30,
-                                        }}
-                                        fontWeight={500}
-
-                                    >
-                                        {item.title}
-                                    </Typography>
-                                </Stack>
-                                <Box
-                                    sx={{
-                                        border: '1px solid',
-                                        borderRadius: '50%',
-                                        borderColor: 'inherit',
-                                        cursor: 'pointer',
-
-                                    }}
-                                    onClick={() => handleToggle(item.id)}
-
+                        <TextWithBg text={title} bgcolor="primary" />
+                        <Typography
+                            color={(theme) => theme.palette.text.primary}
+                            maxWidth={{
+                                xs: 390,
+                                md: 580,
+                            }}
+                            fontSize={{
+                                xs: 'caption.fontSize',
+                                md: 'body2.fontSize',
+                            }}
+                            textAlign={{
+                                xs: 'center',
+                                md: 'left',
+                            }}
+                        >
+                            {description}
+                        </Typography>
+                    </Stack>
+                    {items.map((item) => (
+                        <Card key={item.id}
+                            bgcolor={index === item.id ? 'primary' : 'secondary'}
+                        >
+                            <Stack key={item.id}>
+                                <Stack
+                                    direction={'row'}
+                                    alignItems={'center'}
+                                    justifyContent={'space-between'}
                                 >
-                                    <IconBox
-                                        bgcolor='secondary'
-                                        icon={index === item.id ? <RemoveIcon /> : <AddIcon />}
-                                    />
-                                </Box>
-                            </Stack>
-                            <Collapse in={index === item.id}>
-                                <Stack spacing={4} py={4}>
-                                    <Divider
-                                        sx={{
-                                            borderColor: (theme) => theme.palette.info.main,
-                                        }}
-                                    />
-                                    <Typography
-                                        color={(theme) => theme.palette.text.primary}
-                                        fontSize={{
-                                            xs: 18,
-                                            md: 30,
-                                        }}
-                                        fontWeight={500}
-                                    >
-                                        {item.description}
-                                    </Typography>
-                                </Stack>
-                            </Collapse>
-                        </Stack>
-                    </Card>
+                                    <Stack direction={'row'} alignItems={'center'} gap={{ md: 4, xs: 2 }} >
+                                        <Typography
+                                            color={(theme) => theme.palette.text.primary}
+                                            fontSize={{
+                                                xs: 20,
+                                                md: 60,
+                                            }}
+                                            fontWeight={500}
+                                        >
+                                            {item.id < 10 ? `0${item.id}` : item.id}
+                                        </Typography>
+                                        <Typography
+                                            color={(theme) => theme.palette.text.primary}
+                                            fontSize={{
+                                                xs: 18,
+                                                md: 30,
+                                            }}
+                                            fontWeight={500}
 
-                ))}
-            </Stack>
-        </Container>
+                                        >
+                                            {item.title}
+                                        </Typography>
+                                    </Stack>
+                                    <Box
+                                        sx={{
+                                            border: '1px solid',
+                                            borderRadius: '50%',
+                                            borderColor: 'inherit',
+                                            cursor: 'pointer',
+
+                                        }}
+                                        onClick={() => handleToggle(item.id)}
+
+                                    >
+                                        <IconBox
+                                            bgcolor='secondary'
+                                            icon={index === item.id ? <RemoveIcon /> : <AddIcon />}
+                                        />
+                                    </Box>
+                                </Stack>
+                                <Collapse in={index === item.id}>
+                                    <Stack spacing={4} py={4}>
+                                        <Divider
+                                            sx={{
+                                                borderColor: (theme) => theme.palette.info.main,
+                                            }}
+                                        />
+                                        <Typography
+                                            color={(theme) => theme.palette.text.primary}
+                                            fontSize={{
+                                                xs: 18,
+                                                md: 30,
+                                            }}
+                                            fontWeight={500}
+                                        >
+                                            {item.description}
+                                        </Typography>
+                                    </Stack>
+                                </Collapse>
+                            </Stack>
+                        </Card>
+
+                    ))}
+                </Stack>
+            </Container>
+        </div>
     );
 }

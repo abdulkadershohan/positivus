@@ -63,130 +63,133 @@ export default function Testimonials() {
 
     };
     return (
-        <Container maxWidth='lg' id='testimonials' >
-            <Stack spacing={6}  >
-                <Stack
-                    direction={{
-                        xs: 'column',
-                        md: 'row',
-                    }}
-                    gap={6}
-                    alignItems={'center'}
-                >
-                    <TextWithBg text={title} bgcolor="primary" />
-                    <Typography
-                        color={(theme) => theme.palette.text.primary}
-                        maxWidth={{
-                            xs: 390,
-                            md: 580,
-                        }}
-                        fontSize={{
-                            xs: 'caption.fontSize',
-                            md: 'body2.fontSize',
-                        }}
-                        textAlign={{
-                            xs: 'center',
-                            md: 'left',
-                        }}
-                    >
-                        {description}
-                    </Typography>
-                </Stack>
-                <Stack gap={4} position={'relative'} bgcolor={(theme) => theme.palette.info.main} borderRadius={6} p={{ xs: 0, sm: 4 }} >
-                    <Slider {...settings} ref={slider}>
-                        {
-                            testimonials.map((testimonial) => (
-                                <Box key={testimonial.id} p={2}>
-                                    <Stack
-                                        sx={{
-                                            boxShadow: '0 4px 6px rgba(255, 255, 255, 0.3), 0 1px 3px rgba(255, 255, 255, 0.2)',
-                                            borderRadius: '45px',
-                                            border: (theme) => `1px solid ${theme.palette.primary.main}`,
-                                            padding: 4
-                                        }}
-                                    >
-                                        <Stack gap={2}>
-                                            <Stack direction={"row"} spacing={2} alignItems={"center"}>
-                                                <Stack>
-                                                    <Typography color={(theme => theme.palette.text.secondary)} fontWeight={400} fontSize={20}>
-                                                        {testimonial.name}
-                                                    </Typography>
-                                                    <Typography color={(theme => theme.palette.text.secondary)} fontWeight={400} fontSize={14}>
-                                                        {testimonial.position}
-                                                    </Typography>
-                                                </Stack>
-                                            </Stack>
-                                            <Typography color={(theme => theme.palette.text.secondary)} fontWeight={400} fontSize={16}>
-                                                {testimonial.description}
-                                            </Typography>
-                                        </Stack>
-                                    </Stack>
-                                </Box>
-                            ))
-                        }
-
-                    </Slider>
+        <div data-aos="fade-up"
+            data-aos-duration="2000">
+            <Container maxWidth='lg' id='testimonials' >
+                <Stack spacing={6}  >
                     <Stack
-                        direction={'row'}
-                        justifyContent={'space-between'}
-                        gap={4}
-                        display={{
-                            xs: 'none',
-                            sm: 'flex',
+                        direction={{
+                            xs: 'column',
+                            md: 'row',
                         }}
+                        gap={6}
+                        alignItems={'center'}
                     >
-                        <IconButton
-                            sx={{
-                                color: (theme) => theme.palette.text.primary,
-                                bgcolor: (theme) => theme.palette.background.paper,
-                                "&:hover": {
-                                    bgcolor: (theme) => theme.palette.primary.main,
-                                    color: (theme) => theme.palette.primary.contrastText,
-                                },
+                        <TextWithBg text={title} bgcolor="primary" />
+                        <Typography
+                            color={(theme) => theme.palette.text.primary}
+                            maxWidth={{
+                                xs: 390,
+                                md: 580,
                             }}
-                            onClick={() => slider.current?.slickPrev()}
+                            fontSize={{
+                                xs: 'caption.fontSize',
+                                md: 'body2.fontSize',
+                            }}
+                            textAlign={{
+                                xs: 'center',
+                                md: 'left',
+                            }}
                         >
-                            <ArrowBackOutlinedIcon sx={{ height: 32, width: 32 }} />
-                        </IconButton>
-                        <Stack direction={'row'} gap={2}>
-                            {testimonials.map((testimonial, index) => (
-                                <IconButton
-                                    key={testimonial.id}
-                                    sx={{
-                                        color: (theme) =>
-                                            index === currentIndex
-                                                ? theme.palette.primary.contrastText
-                                                : theme.palette.text.secondary,
-                                        bgcolor: (theme) => index === currentIndex ? theme.palette.primary.main : 'inherit',
-                                        "&:hover": {
-                                            bgcolor: (theme) => theme.palette.primary.main,
-                                            color: (theme) => theme.palette.primary.contrastText,
-                                        },
-                                    }}
-                                    onClick={() => slider.current?.slickGoTo(index)}
-                                >
-                                    <PagesOutlinedIcon sx={{ height: 32, width: 32 }} />
-                                </IconButton>
-                            ))}
+                            {description}
+                        </Typography>
+                    </Stack>
+                    <Stack gap={4} position={'relative'} bgcolor={(theme) => theme.palette.info.main} borderRadius={6} p={{ xs: 0, sm: 4 }} >
+                        <Slider {...settings} ref={slider}>
+                            {
+                                testimonials.map((testimonial) => (
+                                    <Box key={testimonial.id} p={2}>
+                                        <Stack
+                                            sx={{
+                                                boxShadow: '0 4px 6px rgba(255, 255, 255, 0.3), 0 1px 3px rgba(255, 255, 255, 0.2)',
+                                                borderRadius: '45px',
+                                                border: (theme) => `1px solid ${theme.palette.primary.main}`,
+                                                padding: 4
+                                            }}
+                                        >
+                                            <Stack gap={2}>
+                                                <Stack direction={"row"} spacing={2} alignItems={"center"}>
+                                                    <Stack>
+                                                        <Typography color={(theme => theme.palette.text.secondary)} fontWeight={400} fontSize={20}>
+                                                            {testimonial.name}
+                                                        </Typography>
+                                                        <Typography color={(theme => theme.palette.text.secondary)} fontWeight={400} fontSize={14}>
+                                                            {testimonial.position}
+                                                        </Typography>
+                                                    </Stack>
+                                                </Stack>
+                                                <Typography color={(theme => theme.palette.text.secondary)} fontWeight={400} fontSize={16}>
+                                                    {testimonial.description}
+                                                </Typography>
+                                            </Stack>
+                                        </Stack>
+                                    </Box>
+                                ))
+                            }
+
+                        </Slider>
+                        <Stack
+                            direction={'row'}
+                            justifyContent={'space-between'}
+                            gap={4}
+                            display={{
+                                xs: 'none',
+                                sm: 'flex',
+                            }}
+                        >
+                            <IconButton
+                                sx={{
+                                    color: (theme) => theme.palette.text.primary,
+                                    bgcolor: (theme) => theme.palette.background.paper,
+                                    "&:hover": {
+                                        bgcolor: (theme) => theme.palette.primary.main,
+                                        color: (theme) => theme.palette.primary.contrastText,
+                                    },
+                                }}
+                                onClick={() => slider.current?.slickPrev()}
+                            >
+                                <ArrowBackOutlinedIcon sx={{ height: 32, width: 32 }} />
+                            </IconButton>
+                            <Stack direction={'row'} gap={2}>
+                                {testimonials.map((testimonial, index) => (
+                                    <IconButton
+                                        key={testimonial.id}
+                                        sx={{
+                                            color: (theme) =>
+                                                index === currentIndex
+                                                    ? theme.palette.primary.contrastText
+                                                    : theme.palette.text.secondary,
+                                            bgcolor: (theme) => index === currentIndex ? theme.palette.primary.main : 'inherit',
+                                            "&:hover": {
+                                                bgcolor: (theme) => theme.palette.primary.main,
+                                                color: (theme) => theme.palette.primary.contrastText,
+                                            },
+                                        }}
+                                        onClick={() => slider.current?.slickGoTo(index)}
+                                    >
+                                        <PagesOutlinedIcon sx={{ height: 32, width: 32 }} />
+                                    </IconButton>
+                                ))}
+                            </Stack>
+
+                            <IconButton
+                                sx={{
+                                    color: (theme) => theme.palette.text.primary,
+                                    bgcolor: (theme) => theme.palette.background.paper,
+                                    "&:hover": {
+                                        bgcolor: (theme) => theme.palette.primary.main,
+                                        color: (theme) => theme.palette.primary.contrastText,
+                                    },
+                                }}
+                                onClick={() => slider.current?.slickNext()}
+                            >
+                                <ArrowForwardOutlinedIcon sx={{ height: 32, width: 32 }} />
+                            </IconButton>
+
                         </Stack>
-
-                        <IconButton
-                            sx={{
-                                color: (theme) => theme.palette.text.primary,
-                                bgcolor: (theme) => theme.palette.background.paper,
-                                "&:hover": {
-                                    bgcolor: (theme) => theme.palette.primary.main,
-                                    color: (theme) => theme.palette.primary.contrastText,
-                                },
-                            }}
-                            onClick={() => slider.current?.slickNext()}
-                        >
-                            <ArrowForwardOutlinedIcon sx={{ height: 32, width: 32 }} />
-                        </IconButton>
-
                     </Stack>
                 </Stack>
-            </Stack>
-        </Container >
+            </Container >
+        </div>
     )
 }
