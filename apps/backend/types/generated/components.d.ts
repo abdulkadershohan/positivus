@@ -45,6 +45,10 @@ export interface FooterMenu extends Schema.Component {
   attributes: {
     menu: Attribute.Component<'component.component', true>;
     contact: Attribute.Component<'component.contact'>;
+    copyright: Attribute.Component<'component.copyright'>;
+    social: Attribute.Component<'component.social'>;
+    email: Attribute.Component<'form.input'>;
+    button: Attribute.Component<'component.component'>;
   };
 }
 
@@ -95,6 +99,17 @@ export interface ComponentImage extends Schema.Component {
   };
 }
 
+export interface ComponentCopyright extends Schema.Component {
+  collectionName: 'components_component_copyrights';
+  info: {
+    displayName: 'copyright';
+  };
+  attributes: {
+    title: Attribute.String;
+    button: Attribute.Component<'component.component'>;
+  };
+}
+
 export interface ComponentContact extends Schema.Component {
   collectionName: 'components_footer_contacts';
   info: {
@@ -134,6 +149,7 @@ declare module '@strapi/types' {
       'component.responsive-button': ComponentResponsiveButton;
       'component.logo': ComponentLogo;
       'component.image': ComponentImage;
+      'component.copyright': ComponentCopyright;
       'component.contact': ComponentContact;
       'component.component': ComponentComponent;
     }
