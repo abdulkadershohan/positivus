@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_component_responsive_buttons",
+  "info": {
+    "displayName": "responsive_button",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "sm_title": {
+      "type": "string"
+    },
+    "md_title": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    },
+    "target": {
+      "type": "enumeration",
+      "enum": [
+        "_self",
+        "_blank",
+        "_parent",
+        "_top"
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_component_logos",
+  "info": {
+    "displayName": "Logo"
+  },
+  "options": {},
+  "attributes": {
+    "dark_logo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.image"
+    },
+    "light_logo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.image"
+    }
+  }
+}

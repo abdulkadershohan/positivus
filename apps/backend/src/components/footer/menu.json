@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_footer_menus",
+  "info": {
+    "displayName": "footer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "menu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "component.component"
+    },
+    "contact": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.contact"
+    }
+  }
+}

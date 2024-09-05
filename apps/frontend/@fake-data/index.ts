@@ -397,7 +397,7 @@ export const data: IData = {
                 {
                     title: 'About us',
                     href: '#about-us',
-                    target: '_self',
+                    target: '_blank',
                 },
                 {
                     title: 'Services',
