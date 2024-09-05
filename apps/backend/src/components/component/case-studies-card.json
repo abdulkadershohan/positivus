@@ -7,11 +7,7 @@
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
-    },
-    "slug": {
-      "type": "customField",
-      "customField": "plugin::field-uuid.uuid"
+      "type": "text"
     }
   }
 }

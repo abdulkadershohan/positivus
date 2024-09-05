@@ -33,22 +33,7 @@ export interface FormInput extends Schema.Component {
   attributes: {
     label: Attribute.String;
     placeholder: Attribute.String;
-  };
-}
-
-export interface FooterMenu extends Schema.Component {
-  collectionName: 'components_footer_menus';
-  info: {
-    displayName: 'footer';
-    description: '';
-  };
-  attributes: {
-    menu: Attribute.Component<'component.component', true>;
-    contact: Attribute.Component<'component.contact'>;
-    copyright: Attribute.Component<'component.copyright'>;
-    social: Attribute.Component<'component.social'>;
-    form: Attribute.Component<'form.input'>;
-    button: Attribute.Component<'component.component'>;
+    required: Attribute.Boolean & Attribute.DefaultTo<false>;
   };
 }
 
@@ -173,11 +158,11 @@ export interface ComponentWorkingProcessCard extends Schema.Component {
   collectionName: 'components_component_working_process_cards';
   info: {
     displayName: 'WorkingProcessCard';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     description: Attribute.Text;
-    slug: Attribute.UID & Attribute.CustomField<'plugin::field-uuid.uuid'>;
   };
 }
 
@@ -185,9 +170,9 @@ export interface ComponentTestimonialCard extends Schema.Component {
   collectionName: 'components_component_testimonial_cards';
   info: {
     displayName: 'TestimonialCard';
+    description: '';
   };
   attributes: {
-    slug: Attribute.UID & Attribute.CustomField<'plugin::field-uuid.uuid'>;
     name: Attribute.String;
     position: Attribute.String;
     description: Attribute.Text;
@@ -198,13 +183,13 @@ export interface ComponentTeamMembersCard extends Schema.Component {
   collectionName: 'components_component_team_members_cards';
   info: {
     displayName: 'TeamMembersCard';
+    description: '';
   };
   attributes: {
     name: Attribute.String;
     role: Attribute.String;
     image: Attribute.Component<'component.image'>;
     description: Attribute.Text;
-    slug: Attribute.UID & Attribute.CustomField<'plugin::field-uuid.uuid'>;
   };
 }
 
@@ -224,12 +209,12 @@ export interface ComponentServicesCard extends Schema.Component {
   collectionName: 'components_component_services_cards';
   info: {
     displayName: 'ServicesCard';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     text: Attribute.String;
     image: Attribute.Component<'component.image'>;
-    slug: Attribute.UID & Attribute.CustomField<'plugin::field-uuid.uuid'>;
     color: Attribute.Enumeration<['primary', 'secondary', 'info']>;
     bgcolor: Attribute.Enumeration<['primary', 'secondary', 'info']>;
     iconColor: Attribute.Enumeration<['primary', 'secondary', 'info']>;
@@ -324,8 +309,23 @@ export interface ComponentCaseStudiesCard extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String;
-    slug: Attribute.UID & Attribute.CustomField<'plugin::field-uuid.uuid'>;
+    title: Attribute.Text;
+  };
+}
+
+export interface FooterMenu extends Schema.Component {
+  collectionName: 'components_footer_menus';
+  info: {
+    displayName: 'footer';
+    description: '';
+  };
+  attributes: {
+    menu: Attribute.Component<'component.component', true>;
+    contact: Attribute.Component<'component.contact'>;
+    copyright: Attribute.Component<'component.copyright'>;
+    social: Attribute.Component<'component.social'>;
+    form: Attribute.Component<'form.input'>;
+    button: Attribute.Component<'component.component'>;
   };
 }
 
@@ -335,7 +335,6 @@ declare module '@strapi/types' {
       'header.menu': HeaderMenu;
       'form.radio': FormRadio;
       'form.input': FormInput;
-      'footer.menu': FooterMenu;
       'block.working-process': BlockWorkingProcess;
       'block.testimonial': BlockTestimonial;
       'block.team': BlockTeam;
@@ -357,6 +356,7 @@ declare module '@strapi/types' {
       'component.contact': ComponentContact;
       'component.component': ComponentComponent;
       'component.case-studies-card': ComponentCaseStudiesCard;
+      'footer.menu': FooterMenu;
     }
   }
 }

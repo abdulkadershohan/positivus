@@ -1,14 +1,11 @@
 {
   "collectionName": "components_component_testimonial_cards",
   "info": {
-    "displayName": "TestimonialCard"
+    "displayName": "TestimonialCard",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "slug": {
-      "type": "customField",
-      "customField": "plugin::field-uuid.uuid"
-    },
     "name": {
       "type": "string"
     },

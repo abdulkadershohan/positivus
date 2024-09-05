@@ -1,7 +1,8 @@
 {
   "collectionName": "components_component_team_members_cards",
   "info": {
-    "displayName": "TeamMembersCard"
+    "displayName": "TeamMembersCard",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -18,10 +19,6 @@
     },
     "description": {
       "type": "text"
-    },
-    "slug": {
-      "type": "customField",
-      "customField": "plugin::field-uuid.uuid"
     }
   }
 }

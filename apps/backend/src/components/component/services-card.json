@@ -1,10 +1,11 @@
 {
   "collectionName": "components_component_services_cards",
   "info": {
-    "displayName": "ServicesCard"
+    "displayName": "ServicesCard",
+    "description": ""
   },
   "options": {},
- "attributes": {
+  "attributes": {
     "title": {
       "type": "string"
     },
@@ -15,10 +16,6 @@
       "type": "component",
       "repeatable": false,
       "component": "component.image"
-    },
-    "slug": {
-      "type": "customField",
-      "customField": "plugin::field-uuid.uuid"
     },
     "color": {
       "type": "enumeration",

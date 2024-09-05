@@ -1,7 +1,8 @@
 {
   "collectionName": "components_component_working_process_cards",
   "info": {
-    "displayName": "WorkingProcessCard"
+    "displayName": "WorkingProcessCard",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -10,10 +11,6 @@
     },
     "description": {
       "type": "text"
-    },
-    "slug": {
-      "type": "customField",
-      "customField": "plugin::field-uuid.uuid"
     }
   }
 }

@@ -374,6 +374,19 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
+    blocks: Attribute.DynamicZone<
+      [
+        'block.banner',
+        'block.company-logo',
+        'block.service',
+        'block.proposal',
+        'block.case-studies',
+        'block.working-process',
+        'block.team',
+        'block.testimonial',
+        'block.contact-us'
+      ]
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -11,5 +11,20 @@
     "draftAndPublish": true
   },
   "pluginOptions": {},
-  "attributes": {}
+  "attributes": {
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "block.banner",
+        "block.company-logo",
+        "block.service",
+        "block.proposal",
+        "block.case-studies",
+        "block.working-process",
+        "block.team",
+        "block.testimonial",
+        "block.contact-us"
+      ]
+    }
+  }
 }
