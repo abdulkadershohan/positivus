@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_block_company_logos",
+  "info": {
+    "displayName": "Company logo"
+  },
+  "options": {},
+  "attributes": {
+    "logo": {
+      "type": "component",
+      "repeatable": true,
+      "component": "component.image"
+    }
+  }
+}

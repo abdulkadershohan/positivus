@@ -27,7 +27,7 @@
       "repeatable": false,
       "component": "component.social"
     },
-    "email": {
+    "form": {
       "type": "component",
       "repeatable": false,
       "component": "form.input"

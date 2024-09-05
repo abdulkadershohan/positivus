@@ -1,0 +1,65 @@
+{
+  "collectionName": "components_component_services_cards",
+  "info": {
+    "displayName": "ServicesCard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "image": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.image"
+    },
+    "slug": {
+      "type": "customField",
+      "customField": "plugin::field-uuid.uuid"
+    },
+    "color": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "info"
+      ]
+    },
+    "bgcolor": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "info"
+      ]
+    },
+    "iconColor": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "info"
+      ]
+    },
+    "iconBgColor": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "info"
+      ]
+    },
+    "iconLabelColor": {
+      "type": "enumeration",
+      "enum": [
+        "text.primary",
+        "text.secondary",
+        "text.info"
+      ]
+    }
+  }
+}

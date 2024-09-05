@@ -47,7 +47,7 @@ export interface FooterMenu extends Schema.Component {
     contact: Attribute.Component<'component.contact'>;
     copyright: Attribute.Component<'component.copyright'>;
     social: Attribute.Component<'component.social'>;
-    email: Attribute.Component<'form.input'>;
+    form: Attribute.Component<'form.input'>;
     button: Attribute.Component<'component.component'>;
   };
 }
@@ -61,6 +61,27 @@ export interface ComponentSocial extends Schema.Component {
     facebook: Attribute.String;
     twitter: Attribute.String;
     linkedin: Attribute.String;
+  };
+}
+
+export interface ComponentServicesCard extends Schema.Component {
+  collectionName: 'components_component_services_cards';
+  info: {
+    displayName: 'ServicesCard';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    text: Attribute.String;
+    image: Attribute.Component<'component.image'>;
+    slug: Attribute.UID & Attribute.CustomField<'plugin::field-uuid.uuid'>;
+    color: Attribute.Enumeration<['primary', 'secondary', 'info']>;
+    bgcolor: Attribute.Enumeration<['primary', 'secondary', 'info']>;
+    iconColor: Attribute.Enumeration<['primary', 'secondary', 'info']>;
+    iconBgColor: Attribute.Enumeration<['primary', 'secondary', 'info']>;
+    iconLabelColor: Attribute.Enumeration<
+      ['text.primary', 'text.secondary', 'text.info']
+    >;
   };
 }
 
@@ -93,9 +114,11 @@ export interface ComponentImage extends Schema.Component {
   collectionName: 'components_component_images';
   info: {
     displayName: 'Image';
+    description: '';
   };
   attributes: {
     image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    alt: Attribute.String;
   };
 }
 
@@ -138,6 +161,40 @@ export interface ComponentComponent extends Schema.Component {
   };
 }
 
+export interface BlockService extends Schema.Component {
+  collectionName: 'components_block_services';
+  info: {
+    displayName: 'service';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+  };
+}
+
+export interface BlockCompanyLogo extends Schema.Component {
+  collectionName: 'components_block_company_logos';
+  info: {
+    displayName: 'Company logo';
+  };
+  attributes: {
+    logo: Attribute.Component<'component.image', true>;
+  };
+}
+
+export interface BlockBanner extends Schema.Component {
+  collectionName: 'components_block_banners';
+  info: {
+    displayName: 'Banner';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    image: Attribute.Component<'component.image'>;
+    button: Attribute.Component<'component.component'>;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -146,12 +203,16 @@ declare module '@strapi/types' {
       'form.input': FormInput;
       'footer.menu': FooterMenu;
       'component.social': ComponentSocial;
+      'component.services-card': ComponentServicesCard;
       'component.responsive-button': ComponentResponsiveButton;
       'component.logo': ComponentLogo;
       'component.image': ComponentImage;
       'component.copyright': ComponentCopyright;
       'component.contact': ComponentContact;
       'component.component': ComponentComponent;
+      'block.service': BlockService;
+      'block.company-logo': BlockCompanyLogo;
+      'block.banner': BlockBanner;
     }
   }
 }
