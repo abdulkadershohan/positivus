@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_component_working_process_cards",
+  "info": {
+    "displayName": "WorkingProcessCard"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "slug": {
+      "type": "customField",
+      "customField": "plugin::field-uuid.uuid"
+    }
+  }
+}

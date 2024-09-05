@@ -1,8 +1,7 @@
 {
-  "collectionName": "components_block_services",
+  "collectionName": "components_block_working_processes",
   "info": {
-    "displayName": "service",
-    "description": ""
+    "displayName": "working process"
   },
   "options": {},
   "attributes": {
@@ -12,11 +11,11 @@
     "description": {
       "type": "text"
     },
-    "services": {
-      "displayName": "ServicesCard",
+    "data": {
+      "displayName": "WorkingProcessCard",
       "type": "component",
       "repeatable": true,
-      "component": "component.services-card"
+      "component": "component.working-process-card"
     }
   }
 }

@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_component_case_studies_cards",
+  "info": {
+    "displayName": "CaseStudiesCard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "customField",
+      "customField": "plugin::field-uuid.uuid"
+    }
+  }
+}

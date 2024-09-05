@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_component_team_members_cards",
+  "info": {
+    "displayName": "TeamMembersCard"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "image": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.image"
+    },
+    "description": {
+      "type": "text"
+    },
+    "slug": {
+      "type": "customField",
+      "customField": "plugin::field-uuid.uuid"
+    }
+  }
+}

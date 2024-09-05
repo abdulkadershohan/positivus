@@ -1,0 +1,45 @@
+{
+  "collectionName": "components_block_contact_uses",
+  "info": {
+    "displayName": "Contact us"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.component"
+    },
+    "image": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.image"
+    },
+    "form1": {
+      "type": "component",
+      "repeatable": false,
+      "component": "form.input"
+    },
+    "form2": {
+      "type": "component",
+      "repeatable": false,
+      "component": "form.input"
+    },
+    "form3": {
+      "type": "component",
+      "repeatable": false,
+      "component": "form.input"
+    },
+    "radio": {
+      "type": "component",
+      "repeatable": true,
+      "component": "form.radio"
+    }
+  }
+}

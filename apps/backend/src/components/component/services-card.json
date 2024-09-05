@@ -1,11 +1,10 @@
 {
   "collectionName": "components_component_services_cards",
   "info": {
-    "displayName": "ServicesCard",
-    "description": ""
+    "displayName": "ServicesCard"
   },
   "options": {},
-  "attributes": {
+ "attributes": {
     "title": {
       "type": "string"
     },
@@ -60,6 +59,11 @@
         "text.secondary",
         "text.info"
       ]
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.component"
     }
   }
 }

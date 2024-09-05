@@ -1,8 +1,7 @@
 {
-  "collectionName": "components_block_services",
+  "collectionName": "components_block_testimonials",
   "info": {
-    "displayName": "service",
-    "description": ""
+    "displayName": "testimonial"
   },
   "options": {},
   "attributes": {
@@ -12,11 +11,11 @@
     "description": {
       "type": "text"
     },
-    "services": {
-      "displayName": "ServicesCard",
+    "testimonials": {
+      "displayName": "TestimonialCard",
       "type": "component",
       "repeatable": true,
-      "component": "component.services-card"
+      "component": "component.testimonial-card"
     }
   }
 }
