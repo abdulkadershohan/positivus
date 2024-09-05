@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_form_radios",
+  "info": {
+    "displayName": "radio",
+    "icon": ""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "value": {
+      "type": "integer"
+    }
+  }
+}
