@@ -118,10 +118,9 @@ export interface ComponentContact extends Schema.Component {
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    address: Attribute.JSON &
-      Attribute.CustomField<'plugin::location-field.location'>;
     phone: Attribute.String & Attribute.Required;
     email: Attribute.String & Attribute.Required;
+    address: Attribute.Text;
   };
 }
 
@@ -134,7 +133,8 @@ export interface ComponentComponent extends Schema.Component {
   attributes: {
     title: Attribute.String;
     href: Attribute.String;
-    target: Attribute.Enumeration<['_self', '_blank', '_parent', '_top']>;
+    target: Attribute.Enumeration<['_self', '_blank', '_parent', '_top']> &
+      Attribute.DefaultTo<'_self'>;
   };
 }
 

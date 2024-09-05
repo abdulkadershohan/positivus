@@ -389,9 +389,6 @@ export const data: IData = {
                 lightLogo: {
                     url: "/images/logo/logoDark.png"
                 }
-
-
-
             },
             navItems: [
                 {

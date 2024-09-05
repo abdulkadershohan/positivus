@@ -19,7 +19,8 @@
         "_blank",
         "_parent",
         "_top"
-      ]
+      ],
+      "default": "_self"
     }
   }
 }

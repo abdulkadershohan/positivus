@@ -10,10 +10,6 @@
       "type": "string",
       "required": true
     },
-    "address": {
-      "type": "customField",
-      "customField": "plugin::location-field.location"
-    },
     "phone": {
       "type": "string",
       "required": true
@@ -21,6 +17,9 @@
     "email": {
       "type": "string",
       "required": true
+    },
+    "address": {
+      "type": "text"
     }
   }
 }
