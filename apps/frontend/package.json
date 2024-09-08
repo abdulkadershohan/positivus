@@ -17,6 +17,7 @@
     "aos": "3.0.0-beta.6",
     "next": "14.2.6",
     "next-themes": "latest",
+    "qs": "^6.13.0",
     "react": "latest",
     "react-dom": "latest",
     "react-slick": "^0.30.2",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "@types/aos": "^3.0.7",
     "@types/node": "latest",
+    "@types/qs": "^6.9.15",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "@types/react-slick": "^0.23.13",
