@@ -20,7 +20,7 @@ export default function Services() {
                     >
                         <TextWithBg text={title} bgcolor="primary" />
                         <Typography
-                            color={(theme) => theme.palette.text.primary}
+                            color="text.primary"
                             maxWidth={{
                                 xs: 390,
                                 md: 580

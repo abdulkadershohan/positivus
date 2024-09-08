@@ -77,7 +77,7 @@ export default function Testimonials() {
                     >
                         <TextWithBg text={title} bgcolor="primary" />
                         <Typography
-                            color={(theme) => theme.palette.text.primary}
+                            color="text.primary"
                             maxWidth={{
                                 xs: 390,
                                 md: 580,
@@ -110,15 +110,15 @@ export default function Testimonials() {
                                             <Stack gap={2}>
                                                 <Stack direction={"row"} spacing={2} alignItems={"center"}>
                                                     <Stack>
-                                                        <Typography color={(theme => theme.palette.text.secondary)} fontWeight={400} fontSize={20}>
+                                                        <Typography color="text.secondary" fontWeight={400} fontSize={20}>
                                                             {testimonial.name}
                                                         </Typography>
-                                                        <Typography color={(theme => theme.palette.text.secondary)} fontWeight={400} fontSize={14}>
+                                                        <Typography color="text.secondary" fontWeight={400} fontSize={14}>
                                                             {testimonial.position}
                                                         </Typography>
                                                     </Stack>
                                                 </Stack>
-                                                <Typography color={(theme => theme.palette.text.secondary)} fontWeight={400} fontSize={16}>
+                                                <Typography color="text.secondary" fontWeight={400} fontSize={16}>
                                                     {testimonial.description}
                                                 </Typography>
                                             </Stack>

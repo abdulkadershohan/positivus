@@ -75,7 +75,7 @@ export default function CaseStudies() {
                         >
                             <TextWithBg text={title} bgcolor="primary" />
                             <Typography
-                                color={(theme) => theme.palette.text.primary}
+                                color="text.primary"
                                 maxWidth={{
                                     xs: 390,
                                     md: 580,
@@ -106,7 +106,7 @@ export default function CaseStudies() {
                                 <Stack key={item.id} direction="row" alignItems="center">
                                     <Stack spacing={4}>
                                         <Typography
-                                            color={(theme) => theme.palette.text.secondary}
+                                            color="text.secondary"
                                             fontSize={{
                                                 xs: 16,
                                                 md: 18,
@@ -127,7 +127,9 @@ export default function CaseStudies() {
                                             href='#'
                                         >
                                             <Typography
-                                                color={(theme) => theme.palette.primary.main}
+                                                sx={{
+                                                    color: (theme) => theme.palette.primary.main,
+                                                }}
                                                 variant='body1'
                                             >
                                                 {link.title}
@@ -174,7 +176,7 @@ export default function CaseStudies() {
                                     >
                                         <Stack spacing={4}>
                                             <Typography
-                                                color={(theme) => theme.palette.text.secondary}
+                                                color="text.secondary"
                                                 fontSize={{
                                                     xs: 16,
                                                     md: 18,
@@ -195,7 +197,9 @@ export default function CaseStudies() {
                                                 href='#'
                                             >
                                                 <Typography
-                                                    color={(theme) => theme.palette.primary.main}
+                                                    sx={{
+                                                        color: (theme) => theme.palette.primary.main,
+                                                    }}
                                                     variant='body1'
                                                 >
                                                     {link.title}

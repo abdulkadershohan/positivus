@@ -32,7 +32,7 @@ export default function WorkingProcess() {
                     >
                         <TextWithBg text={title} bgcolor="primary" />
                         <Typography
-                            color={(theme) => theme.palette.text.primary}
+                            color="text.primary"
                             maxWidth={{
                                 xs: 390,
                                 md: 580,
@@ -61,7 +61,7 @@ export default function WorkingProcess() {
                                 >
                                     <Stack direction={'row'} alignItems={'center'} gap={{ md: 4, xs: 2 }} >
                                         <Typography
-                                            color={(theme) => theme.palette.text.primary}
+                                            color="text.primary"
                                             fontSize={{
                                                 xs: 20,
                                                 md: 60,
@@ -71,7 +71,7 @@ export default function WorkingProcess() {
                                             {item.id < 10 ? `0${item.id}` : item.id}
                                         </Typography>
                                         <Typography
-                                            color={(theme) => theme.palette.text.primary}
+                                            color="text.primary"
                                             fontSize={{
                                                 xs: 18,
                                                 md: 30,
@@ -107,7 +107,7 @@ export default function WorkingProcess() {
                                             }}
                                         />
                                         <Typography
-                                            color={(theme) => theme.palette.text.primary}
+                                            color="text.primary"
                                             fontSize={{
                                                 xs: 18,
                                                 md: 30,

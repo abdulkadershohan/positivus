@@ -30,13 +30,15 @@ export default function TextWithBg({ text, rest, bgcolor }: ITextWithBgProps) {
     return (
         <Typography
             bgcolor={(theme) => getBgColor(bgcolor || 'primary', theme)}
-            color={(theme) => getColor(bgcolor || 'primary', theme)}
             width={"fit-content"}
             borderRadius={"7px"}
             fontWeight={500}
             fontSize={{
                 xs: "h3.fontSize",
                 md: "h2.fontSize",
+            }}
+            sx={{
+                color: (theme) => theme.palette.primary.contrastText,
             }}
             px={"7px"}
             {...rest}

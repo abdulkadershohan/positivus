@@ -52,7 +52,9 @@ export default function IconBox({ icon, bgcolor = 'white', iconColor = '#B9FF66'
                 variant="h4"
                 fontWeight={400}
                 fontSize={20}
-                color={labelColor || 'text.primary'}
+                sx={{
+                    color: labelColor || 'text.primary',
+                }}
                 {...labelProps}
             >
                 {label}

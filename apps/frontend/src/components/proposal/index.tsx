@@ -21,7 +21,7 @@ export default function Proposal() {
                                         xs: 26,
                                         md: "h3.fontSize"
                                     }}
-                                    color={(theme) => theme.palette.text.primary}
+                                    color="text.primary"
 
                                 >
                                     {title}
@@ -32,7 +32,7 @@ export default function Proposal() {
                                         xs: "caption.fontSize",
                                         md: "body2.fontSize"
                                     }}
-                                    color={(theme) => theme.palette.text.primary}
+                                    color="text.primary"
                                 >
                                     {description}
                                 </Typography>

@@ -45,7 +45,7 @@ export default function DrawerAppBar({ data, ...props }: { data: ILayoutData } &
                 passHref
             >
                 <Image
-                    src={mode === 'light' ? logo?.lightLogo?.url : logo?.darkLogo?.url}
+                    src={mode === 'light' ? lightLogo : darkLogo}
                     alt="logo"
                     width={200}
                     height={56}
@@ -131,7 +131,7 @@ export default function DrawerAppBar({ data, ...props }: { data: ILayoutData } &
                             {menu.map((item) => (
                                 <Typography
                                     key={Math.random()}
-                                    color={(theme) => theme.palette.text.primary}
+                                    color="text.primary"
                                     fontWeight={400}
                                     fontSize={20}
                                     component={NextLink}

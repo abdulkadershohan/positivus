@@ -68,7 +68,7 @@ export default function Footer({ data }: { data: ILayoutData }) {
                                                 md: 'subtitle1.fontSize'
                                             }}
                                             textAlign={'center'}
-                                            color={(theme) => theme.palette.text.secondary}
+                                            color='text.secondary'
                                             component={Link}
                                             href={item.href}
                                             target={item.target}
@@ -140,7 +140,7 @@ export default function Footer({ data }: { data: ILayoutData }) {
                                             xs: 'caption.fontSize',
                                             md: 'body2.fontSize'
                                         }}
-                                        color={(theme) => theme.palette.text.secondary}
+                                        color='text.secondary'
                                         textAlign={{
                                             xs: 'center',
                                             md: 'start'
@@ -153,7 +153,7 @@ export default function Footer({ data }: { data: ILayoutData }) {
                                             xs: 'caption.fontSize',
                                             md: 'body2.fontSize'
                                         }}
-                                        color={(theme) => theme.palette.text.secondary}
+                                        color='text.secondary'
                                         textAlign={{
                                             xs: 'center',
                                             md: 'start'
@@ -167,7 +167,8 @@ export default function Footer({ data }: { data: ILayoutData }) {
                                             xs: 'caption.fontSize',
                                             md: 'body2.fontSize'
                                         }}
-                                        color={(theme) => theme.palette.text.secondary}
+                                        color='text.secondary'
+
                                         textAlign={{
                                             xs: 'center',
                                             md: 'start'
@@ -294,7 +295,7 @@ export default function Footer({ data }: { data: ILayoutData }) {
                             gap={4}
                         >
                             <Typography
-                                color={(theme) => theme.palette.text.secondary}
+                                color='text.secondary'
                                 fontSize={{
                                     xs: 'caption.fontSize',
                                     md: 'body2.fontSize'
@@ -307,7 +308,7 @@ export default function Footer({ data }: { data: ILayoutData }) {
                                 &copy;  {new Date().getFullYear()} {copyright?.title}
                             </Typography>
                             <Typography
-                                color={(theme) => theme.palette.text.secondary}
+                                color='text.secondary'
                                 fontSize={{
                                     xs: 'caption.fontSize',
                                     md: 'body2.fontSize'

@@ -22,7 +22,7 @@ export default function ContactUs() {
                         >
                             <TextWithBg text={title} bgcolor="primary" />
                             <Typography
-                                color={(theme) => theme.palette.text.primary}
+                                color="text.primary"
                                 maxWidth={{
                                     xs: 390,
                                     md: 580,
@@ -72,7 +72,7 @@ export default function ContactUs() {
                                         <Stack spacing={1}>
                                             <Typography
                                                 variant='caption'
-                                                color={(theme) => theme.palette.text.primary}
+                                                color="text.primary"
                                             >
                                                 {form?.name?.label}
                                             </Typography>
@@ -98,7 +98,7 @@ export default function ContactUs() {
                                         <Stack spacing={1}>
                                             <Typography
                                                 variant='caption'
-                                                color={(theme) => theme.palette.text.primary}
+                                                color="text.primary"
                                             >
                                                 {form?.email?.label} *
                                             </Typography>
@@ -125,7 +125,7 @@ export default function ContactUs() {
                                         <Stack spacing={1}>
                                             <Typography
                                                 variant='caption'
-                                                color={(theme) => theme.palette.text.primary}
+                                                color="text.primary"
                                             >
                                                 {form?.message?.label} *
                                             </Typography>

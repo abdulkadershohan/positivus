@@ -24,7 +24,7 @@ export default function Team() {
                     >
                         <TextWithBg text={title} bgcolor="primary" />
                         <Typography
-                            color={(theme) => theme.palette.text.primary}
+                            color="text.primary"
                             maxWidth={{
                                 xs: 390,
                                 md: 580,
@@ -77,7 +77,7 @@ export default function Team() {
                                                                 xs: 'body2.fontSize',
                                                                 md: 'h4.fontSize',
                                                             }}
-                                                            color={(theme) => theme.palette.text.primary}
+                                                            color="text.primary"
                                                         >
                                                             {item.name}
                                                         </Typography>
@@ -88,7 +88,7 @@ export default function Team() {
                                                                 xs: 'caption.fontSize',
                                                                 md: 'body2.fontSize',
                                                             }}
-                                                            color={(theme) => theme.palette.text.primary}
+                                                            color="text.primary"
                                                         >
                                                             {item.role}
                                                         </Typography>
@@ -103,7 +103,7 @@ export default function Team() {
                                                         xs: 'caption.fontSize',
                                                         md: 'body2.fontSize',
                                                     }}
-                                                    color={(theme) => theme.palette.text.primary}
+                                                    color="text.primary"
                                                 >
                                                     {item.description}
                                                 </Typography>
