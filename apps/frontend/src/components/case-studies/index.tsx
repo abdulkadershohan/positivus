@@ -75,7 +75,9 @@ export default function CaseStudies() {
                         >
                             <TextWithBg text={title} bgcolor="primary" />
                             <Typography
-                                color="text.primary"
+                                sx={{
+                                    color: (theme) => theme.palette.text.primary
+                                }}
                                 maxWidth={{
                                     xs: 390,
                                     md: 580,
@@ -106,7 +108,9 @@ export default function CaseStudies() {
                                 <Stack key={item.id} direction="row" alignItems="center">
                                     <Stack spacing={4}>
                                         <Typography
-                                            color="text.secondary"
+                                            sx={{
+                                                color: (theme) => theme.palette.text.secondary
+                                            }}
                                             fontSize={{
                                                 xs: 16,
                                                 md: 18,
@@ -176,7 +180,9 @@ export default function CaseStudies() {
                                     >
                                         <Stack spacing={4}>
                                             <Typography
-                                                color="text.secondary"
+                                                sx={{
+                                                    color: (theme) => theme.palette.text.secondary
+                                                }}
                                                 fontSize={{
                                                     xs: 16,
                                                     md: 18,

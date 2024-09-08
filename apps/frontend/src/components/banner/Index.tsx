@@ -27,7 +27,9 @@ export default function Banner() {
                                         xs: 'center',
                                         sm: 'left',
                                     }}
-                                    color="text.primary"
+                                    sx={{
+                                        color: (theme) => theme.palette.text.primary
+                                    }}
                                 >{title}</Typography>
                                 <Typography
                                     variant="body1"
@@ -35,7 +37,9 @@ export default function Banner() {
                                         xs: 'body2.fontSize',
                                         md: 'body1.fontSize',
                                     }}
-                                    color="text.primary"
+                                    sx={{
+                                        color: (theme) => theme.palette.text.primary
+                                    }}
 
                                 >{description}</Typography>
                                 <Stack

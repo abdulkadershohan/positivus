@@ -131,7 +131,6 @@ export default function DrawerAppBar({ data, ...props }: { data: ILayoutData } &
                             {menu.map((item) => (
                                 <Typography
                                     key={Math.random()}
-                                    color="text.primary"
                                     fontWeight={400}
                                     fontSize={20}
                                     component={NextLink}
@@ -142,6 +141,7 @@ export default function DrawerAppBar({ data, ...props }: { data: ILayoutData } &
                                         "&:hover": {
                                             borderBottom: (theme) => `2px solid ${theme.palette.primary.main}`,
                                         },
+                                        color: (theme) => theme.palette.text.primary
                                     }}
                                     target={item?.target || '_self'}
                                 >
