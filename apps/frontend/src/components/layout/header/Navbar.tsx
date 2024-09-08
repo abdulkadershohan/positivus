@@ -44,27 +44,33 @@ export default function DrawerAppBar({ data, ...props }: { data: ILayoutData } &
                 href="/"
                 passHref
             >
-                <Image
-                    src={mode === 'light' ? lightLogo : darkLogo}
-                    alt="logo"
-                    width={200}
-                    height={56}
-                />
+                {lightLogo && darkLogo &&
+                    <Image
+                        src={mode === 'light' ? lightLogo : darkLogo}
+                        alt="logo"
+                        width={200}
+                        height={56}
+                    />
+                }
             </NextLink>
             <Divider />
-            <List>
-                {menu.map((item) => (
-                    <ListItem key={Math.random()} disablePadding component={NextLink} href={item?.href} target={item.target || '_self'} >
-                        <ListItemButton sx={{ textAlign: 'center' }}>
-                            <ListItemText primary={item.title}
-                                sx={{
-                                    color: (theme) => theme.palette.text.primary,
-                                }}
-                            />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
+            {menu &&
+                <List>
+                    {menu?.map((item) => (
+                        <ListItem key={Math.random()} disablePadding component={NextLink} href={item?.href} target={item.target || '_self'} >
+                            <ListItemButton sx={{ textAlign: 'center' }}>
+                                {item.title &&
+                                    < ListItemText primary={item.title}
+                                        sx={{
+                                            color: (theme) => theme.palette.text.primary,
+                                        }}
+                                    />
+                                }
+                            </ListItemButton>
+                        </ListItem>
+                    ))}
+                </List>
+            }
             <Box
                 sx={{
                     display: 'flex',
@@ -102,12 +108,14 @@ export default function DrawerAppBar({ data, ...props }: { data: ILayoutData } &
                             width={'100%'}
                             display={{ xs: 'flex', md: 'none' }}
                         >
-                            <Image
-                                src={mode === 'light' ? lightLogo : darkLogo}
-                                alt="logo"
-                                width={200}
-                                height={56}
-                            />
+                            {lightLogo && darkLogo &&
+                                <Image
+                                    src={mode === 'light' ? lightLogo : darkLogo}
+                                    alt="logo"
+                                    width={200}
+                                    height={56}
+                                />
+                            }
                             <Box>
                                 <IconButton
                                     color="inherit"
@@ -117,47 +125,51 @@ export default function DrawerAppBar({ data, ...props }: { data: ILayoutData } &
                                 </IconButton>
                             </Box>
                         </Stack>
-
-                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }}>
-                            <Image
-                                src={mode === 'light' ? lightLogo : darkLogo}
-                                alt="mui-logo"
-                                width={200}
-                                height={56}
-                            />
-                        </Box>
-
-                        <Stack spacing={6} direction={'row'} sx={{ display: { xs: 'none', md: 'block' } }}>
-                            {menu.map((item) => (
-                                <Typography
-                                    key={Math.random()}
-                                    fontWeight={400}
-                                    fontSize={20}
-                                    component={NextLink}
-                                    href={item?.href}
-                                    sx={{
-                                        textDecoration: 'none',
-                                        // i need bottom line on hover after 
-                                        "&:hover": {
-                                            borderBottom: (theme) => `2px solid ${theme.palette.primary.main}`,
-                                        },
-                                        color: (theme) => theme.palette.text.primary
-                                    }}
-                                    target={item?.target || '_self'}
-                                >
-                                    {item?.title}
-                                </Typography>
-                            ))}
-                            <Button
-                                variant='outlined'
-                                color={mode === 'light' ? 'info' : 'inherit'}
-                                size='medium'
-                                LinkComponent={NextLink}
-                                href={button?.href}
-                            >
-                                {button?.title}
-                            </Button>
-                        </Stack>
+                        {lightLogo && darkLogo &&
+                            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }}>
+                                <Image
+                                    src={mode === 'light' ? lightLogo : darkLogo}
+                                    alt="mui-logo"
+                                    width={200}
+                                    height={56}
+                                />
+                            </Box>
+                        }
+                        {menu &&
+                            <Stack spacing={6} direction={'row'} sx={{ display: { xs: 'none', md: 'block' } }}>
+                                {menu?.map((item) => (
+                                    <Typography
+                                        key={Math.random()}
+                                        fontWeight={400}
+                                        fontSize={20}
+                                        component={NextLink}
+                                        href={item?.href}
+                                        sx={{
+                                            textDecoration: 'none',
+                                            // i need bottom line on hover after 
+                                            "&:hover": {
+                                                borderBottom: (theme) => `2px solid ${theme.palette.primary.main}`,
+                                            },
+                                            color: (theme) => theme.palette.text.primary
+                                        }}
+                                        target={item?.target || '_self'}
+                                    >
+                                        {item?.title}
+                                    </Typography>
+                                ))}
+                                {button &&
+                                    <Button
+                                        variant='outlined'
+                                        color={mode === 'light' ? 'info' : 'inherit'}
+                                        size='medium'
+                                        LinkComponent={NextLink}
+                                        href={button?.href}
+                                    >
+                                        {button?.title}
+                                    </Button>
+                                }
+                            </Stack>
+                        }
                         <IconButton sx={{ ml: 1, color: (theme) => theme.palette.text.primary, display: { sm: 'block', xs: 'none' } }} onClick={toggleTheme}>
                             {mode === 'dark' ? <NightlightIcon /> : <LightModeIcon />}
                         </IconButton>

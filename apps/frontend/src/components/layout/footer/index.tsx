@@ -13,6 +13,8 @@ export default function Footer({ data }: { data: ILayoutData }) {
     const { logo } = data?.attributes || {}
     const lightLogo = logo?.light_logo?.image?.data?.attributes?.url;
     const darkLogo = logo?.dark_logo?.image?.data?.attributes?.url;
+    // check if data is empty
+    if (Object.keys(data).length === 0 && data.constructor === Object) return null
     return (
         <div data-aos="fade-up"
         >
@@ -43,41 +45,47 @@ export default function Footer({ data }: { data: ILayoutData }) {
                             }}
 
                         >
-                            <Box >
-                                <Image
-                                    src={darkLogo}
-                                    alt="positivus-logo"
-                                    width={200}
-                                    height={56}
-                                />
-                            </Box>
-                            <Stack gap={{
-                                xs: 2,
-                                md: 4
-                            }}
-                                direction={{
-                                    xs: 'column',
-                                    md: 'row'
+
+                            {lightLogo &&
+                                <Box >
+                                    <Image
+                                        src={darkLogo}
+                                        alt="positivus-logo"
+                                        width={200}
+                                        height={56}
+                                    />
+                                </Box>
+                            }
+
+                            {menu &&
+                                <Stack gap={{
+                                    xs: 2,
+                                    md: 4
                                 }}
-                            >
-                                {
-                                    menu.map((item) => (
-                                        <Typography key={Math.random()}
-                                            fontSize={{
-                                                xs: 'caption.fontSize',
-                                                md: 'subtitle1.fontSize'
-                                            }}
-                                            textAlign={'center'}
-                                            color='text.secondary'
-                                            component={Link}
-                                            href={item.href}
-                                            target={item.target}
-                                        >
-                                            {item.title}
-                                        </Typography>
-                                    ))
-                                }
-                            </Stack>
+                                    direction={{
+                                        xs: 'column',
+                                        md: 'row'
+                                    }}
+                                >
+                                    {
+                                        menu?.map((item) => (
+                                            <Typography key={Math.random()}
+                                                fontSize={{
+                                                    xs: 'caption.fontSize',
+                                                    md: 'subtitle1.fontSize'
+                                                }}
+                                                textAlign={'center'}
+                                                color='text.secondary'
+                                                component={Link}
+                                                href={item.href}
+                                                target={item.target}
+                                            >
+                                                {item?.title}
+                                            </Typography>
+                                        ))
+                                    }
+                                </Stack>
+                            }
                             <Stack
                                 direction={'row'}
                                 gap={2}
@@ -86,101 +94,115 @@ export default function Footer({ data }: { data: ILayoutData }) {
                                     md: 'flex'
                                 }}
                             >
-                                <Box component={Link} href={social.linkedin} target='_blank'>
-                                    <LinkedInIcon
-                                        sx={{
-                                            color: (theme) => theme.palette.text.secondary,
-                                            width: 30,
-                                            height: 30,
-                                            cursor: 'pointer'
-                                        }}
-                                    />
-                                </Box>
-                                <Box component={Link} href={social.facebook} target='_blank'>
-                                    <FacebookIcon
-                                        sx={{
-                                            color: (theme) => theme.palette.text.secondary,
-                                            width: 30,
-                                            height: 30,
-                                            cursor: 'pointer'
-                                        }}
-                                    />
-                                </Box>
-                                <Box component={Link} href={social.twitter} target='_blank'>
-                                    <TwitterIcon
-                                        sx={{
-                                            color: (theme) => theme.palette.text.secondary,
-                                            width: 30,
-                                            height: 30,
-                                            cursor: 'pointer'
-                                        }}
-                                    />
-                                </Box>
+                                {social?.linkedin &&
+                                    <Box component={Link} href={social?.linkedin} target='_blank'>
+                                        <LinkedInIcon
+                                            sx={{
+                                                color: (theme) => theme.palette.text.secondary,
+                                                width: 30,
+                                                height: 30,
+                                                cursor: 'pointer'
+                                            }}
+                                        />
+                                    </Box>
+                                }
+                                {social?.facebook &&
+                                    <Box component={Link} href={social?.facebook} target='_blank'>
+                                        <FacebookIcon
+                                            sx={{
+                                                color: (theme) => theme.palette.text.secondary,
+                                                width: 30,
+                                                height: 30,
+                                                cursor: 'pointer'
+                                            }}
+                                        />
+                                    </Box>
+                                }
+                                {social?.twitter &&
+                                    <Box component={Link} href={social?.twitter} target='_blank'>
+                                        <TwitterIcon
+                                            sx={{
+                                                color: (theme) => theme.palette.text.secondary,
+                                                width: 30,
+                                                height: 30,
+                                                cursor: 'pointer'
+                                            }}
+                                        />
+                                    </Box>
+                                }
                             </Stack>
 
                         </Stack>
                         <Grid container spacing={4}>
                             <Grid item xs={12} md={5.5}>
                                 <Stack gap={1}>
-                                    <Stack alignItems={{
-                                        xs: 'center',
-                                        md: 'flex-start'
-                                    }}>
-                                        <TextWithBg text={contact?.title} bgcolor='primary'
-                                            rest={{
-                                                fontSize: {
-                                                    xs: 'body2.fontSize',
-                                                    md: 'body1.fontSize'
-                                                },
+                                    {contact?.title &&
+                                        <Stack alignItems={{
+                                            xs: 'center',
+                                            md: 'flex-start'
+                                        }}>
+                                            <TextWithBg text={contact?.title} bgcolor='primary'
+                                                rest={{
+                                                    fontSize: {
+                                                        xs: 'body2.fontSize',
+                                                        md: 'body1.fontSize'
+                                                    },
+                                                }}
+                                            />
+                                        </Stack>
+                                    }
+                                    {contact?.email &&
+                                        <Typography
+                                            fontSize={{
+                                                xs: 'caption.fontSize',
+                                                md: 'body2.fontSize'
                                             }}
-                                        />
-                                    </Stack>
-                                    <Typography
-                                        fontSize={{
-                                            xs: 'caption.fontSize',
-                                            md: 'body2.fontSize'
-                                        }}
-                                        color='text.secondary'
-                                        textAlign={{
-                                            xs: 'center',
-                                            md: 'start'
-                                        }}
-                                    >
-                                        Email: {contact?.email}
-                                    </Typography>
-                                    <Typography
-                                        fontSize={{
-                                            xs: 'caption.fontSize',
-                                            md: 'body2.fontSize'
-                                        }}
-                                        color='text.secondary'
-                                        textAlign={{
-                                            xs: 'center',
-                                            md: 'start'
-                                        }}
+                                            color='text.secondary'
+                                            textAlign={{
+                                                xs: 'center',
+                                                md: 'start'
+                                            }}
+                                        >
+                                            Email: {contact?.email}
+                                        </Typography>
+                                    }
+                                    {contact?.phone &&
+                                        <Typography
+                                            fontSize={{
+                                                xs: 'caption.fontSize',
+                                                md: 'body2.fontSize'
+                                            }}
+                                            color='text.secondary'
+                                            textAlign={{
+                                                xs: 'center',
+                                                md: 'start'
+                                            }}
 
-                                    >
-                                        Phone: {contact?.phone}
-                                    </Typography>
-                                    <Typography
-                                        fontSize={{
-                                            xs: 'caption.fontSize',
-                                            md: 'body2.fontSize'
-                                        }}
-                                        color='text.secondary'
+                                        >
+                                            Phone: {contact?.phone}
+                                        </Typography>
+                                    }
+                                    {contact?.address &&
+                                        <Typography
+                                            fontSize={{
+                                                xs: 'caption.fontSize',
+                                                md: 'body2.fontSize'
+                                            }}
+                                            color='text.secondary'
 
-                                        textAlign={{
-                                            xs: 'center',
-                                            md: 'start'
-                                        }}
-                                        maxWidth={{
-                                            xs: '100%',
-                                            md: 300
-                                        }}
+                                            textAlign={{
+                                                xs: 'center',
+                                                md: 'start'
+                                            }}
+                                            maxWidth={{
+                                                xs: '100%',
+                                                md: 300
+                                            }}
 
-                                    >
-                                        {contact?.address}
-                                    </Typography>
+                                        >
+                                            {contact?.address}
+                                        </Typography>
+                                    }
                                 </Stack>
                             </Grid>
                             <Grid item xs={12} md={6.5}>
@@ -196,51 +218,55 @@ export default function Footer({ data }: { data: ILayoutData }) {
                                     }}
                                 >
                                     <Grid container spacing={2} alignItems={'center'} px={2} >
-                                        <Grid item xs={12} md={6}>
-                                            <TextField
-                                                fullWidth
-                                                placeholder={form?.placeholder}
-                                                variant="outlined"
-                                                sx={{
-                                                    color: (theme) => theme.palette.text.primary,
-                                                    '& .MuiOutlinedInput-root': {
-                                                        pl: 2,
-                                                        borderRadius: 4,
-                                                        color: (theme) => theme.palette.text.secondary,
-                                                        '& fieldset': {
+                                        {form &&
+                                            <Grid item xs={12} md={6}>
+                                                <TextField
+                                                    fullWidth
+                                                    placeholder={form?.placeholder}
+                                                    variant="outlined"
+                                                    sx={{
+                                                        color: (theme) => theme.palette.text.primary,
+                                                        '& .MuiOutlinedInput-root': {
+                                                            pl: 2,
+                                                            borderRadius: 4,
                                                             color: (theme) => theme.palette.text.secondary,
+                                                            '& fieldset': {
+                                                                color: (theme) => theme.palette.text.secondary,
 
-                                                            borderColor: (theme) => theme.palette.text.secondary,
+                                                                borderColor: (theme) => theme.palette.text.secondary,
+                                                            },
+                                                            '&.Mui-focused fieldset': {
+                                                                color: (theme) => theme.palette.text.secondary,
+
+                                                                borderColor: (theme) => theme.palette.text.secondary,
+                                                            },
                                                         },
-                                                        '&.Mui-focused fieldset': {
-                                                            color: (theme) => theme.palette.text.secondary,
+                                                    }}
+                                                />
+                                            </Grid>
+                                        }
+                                        {button &&
+                                            <Grid item xs={12} md={6}>
+                                                <Button
+                                                    variant='contained'
+                                                    color='primary'
+                                                    fullWidth
+                                                    sx={{
+                                                        py: 1.6,
+                                                        '&:hover': {
+                                                            bgcolor: (theme) => theme.palette.info.main,
+                                                            color: (theme) => theme.palette.info.contrastText
+                                                        }
+                                                    }}
+                                                    LinkComponent={Link}
+                                                    href={button?.href}
+                                                    target={button?.target || '_self'}
 
-                                                            borderColor: (theme) => theme.palette.text.secondary,
-                                                        },
-                                                    },
-                                                }}
-                                            />
-                                        </Grid>
-                                        <Grid item xs={12} md={6}>
-                                            <Button
-                                                variant='contained'
-                                                color='primary'
-                                                fullWidth
-                                                sx={{
-                                                    py: 1.6,
-                                                    '&:hover': {
-                                                        bgcolor: (theme) => theme.palette.info.main,
-                                                        color: (theme) => theme.palette.info.contrastText
-                                                    }
-                                                }}
-                                                LinkComponent={Link}
-                                                href={button?.href}
-                                                target={button?.target || '_self'}
-
-                                            >
-                                                {button.title}
-                                            </Button>
-                                        </Grid>
+                                                >
+                                                    {button?.title}
+                                                </Button>
+                                            </Grid>
+                                        }
                                     </Grid>
 
                                 </Stack>
@@ -256,36 +282,42 @@ export default function Footer({ data }: { data: ILayoutData }) {
                             justifyContent={'center'}
 
                         >
-                            <Box component={Link} href={social.linkedin} target='_blank'>
-                                <LinkedInIcon
-                                    sx={{
-                                        color: (theme) => theme.palette.text.secondary,
-                                        width: 30,
-                                        height: 30,
-                                        cursor: 'pointer'
-                                    }}
-                                />
-                            </Box>
-                            <Box component={Link} href={social.facebook} target='_blank'>
-                                <FacebookIcon
-                                    sx={{
-                                        color: (theme) => theme.palette.text.secondary,
-                                        width: 30,
-                                        height: 30,
-                                        cursor: 'pointer'
-                                    }}
-                                />
-                            </Box>
-                            <Box component={Link} href={social.twitter} target='_blank'>
-                                <TwitterIcon
-                                    sx={{
-                                        color: (theme) => theme.palette.text.secondary,
-                                        width: 30,
-                                        height: 30,
-                                        cursor: 'pointer'
-                                    }}
-                                />
-                            </Box>
+                            {social?.linkedin &&
+                                <Box component={Link} href={social?.linkedin} target='_blank'>
+                                    <LinkedInIcon
+                                        sx={{
+                                            color: (theme) => theme.palette.text.secondary,
+                                            width: 30,
+                                            height: 30,
+                                            cursor: 'pointer'
+                                        }}
+                                    />
+                                </Box>
+                            }
+                            {social?.facebook &&
+                                <Box component={Link} href={social?.facebook} target='_blank'>
+                                    <FacebookIcon
+                                        sx={{
+                                            color: (theme) => theme.palette.text.secondary,
+                                            width: 30,
+                                            height: 30,
+                                            cursor: 'pointer'
+                                        }}
+                                    />
+                                </Box>
+                            }
+                            {social?.twitter &&
+                                <Box component={Link} href={social?.twitter} target='_blank'>
+                                    <TwitterIcon
+                                        sx={{
+                                            color: (theme) => theme.palette.text.secondary,
+                                            width: 30,
+                                            height: 30,
+                                            cursor: 'pointer'
+                                        }}
+                                    />
+                                </Box>
+                            }
                         </Stack>
                         <Divider />
                         <Stack direction={{
@@ -294,35 +326,39 @@ export default function Footer({ data }: { data: ILayoutData }) {
                         }}
                             gap={4}
                         >
-                            <Typography
-                                color='text.secondary'
-                                fontSize={{
-                                    xs: 'caption.fontSize',
-                                    md: 'body2.fontSize'
-                                }}
-                                textAlign={{
-                                    xs: 'center',
-                                    md: 'start'
-                                }}
-                            >
-                                &copy;  {new Date().getFullYear()} {copyright?.title}
-                            </Typography>
-                            <Typography
-                                color='text.secondary'
-                                fontSize={{
-                                    xs: 'caption.fontSize',
-                                    md: 'body2.fontSize'
-                                }}
-                                component={Link}
-                                href={copyright?.button?.href}
-                                textAlign={{
-                                    xs: 'center',
-                                    md: 'start'
-                                }}
-                                target={copyright?.button?.target || '_self'}
-                            >
-                                {copyright?.button?.title}
-                            </Typography>
+                            {copyright?.title &&
+                                <Typography
+                                    color='text.secondary'
+                                    fontSize={{
+                                        xs: 'caption.fontSize',
+                                        md: 'body2.fontSize'
+                                    }}
+                                    textAlign={{
+                                        xs: 'center',
+                                        md: 'start'
+                                    }}
+                                >
+                                    &copy;  {new Date().getFullYear()} {copyright?.title}
+                                </Typography>
+                            }
+                            {copyright?.button &&
+                                <Typography
+                                    color='text.secondary'
+                                    fontSize={{
+                                        xs: 'caption.fontSize',
+                                        md: 'body2.fontSize'
+                                    }}
+                                    component={Link}
+                                    href={copyright?.button?.href}
+                                    textAlign={{
+                                        xs: 'center',
+                                        md: 'start'
+                                    }}
+                                    target={copyright?.button?.target || '_self'}
+                                >
+                                    {copyright?.button?.title}
+                                </Typography>
+                            }
                         </Stack>
                     </Stack>
                 </Paper>
