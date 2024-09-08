@@ -1,6 +1,6 @@
 'use client';
 import useThemeToggle from '@/next-theme/useThemeToggle';
-import { data } from '@fakeData/index';
+import { ILayoutData } from '@/types/layout';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import MenuIcon from '@mui/icons-material/Menu';
 import NightlightIcon from '@mui/icons-material/Nightlight';
@@ -26,9 +26,12 @@ interface Props {
 }
 const drawerWidth = 240;
 
-export default function DrawerAppBar(props: Props) {
+export default function DrawerAppBar({ data, ...props }: { data: ILayoutData } & Props) {
     const { toggleTheme, mode } = useThemeToggle();
-    const { logo, navItems, button } = data?.layout?.header || {};
+    const { button, menu } = data?.attributes?.header || {};
+    const { logo } = data?.attributes || {};
+    const lightLogo = logo?.light_logo?.image?.data?.attributes?.url;
+    const darkLogo = logo?.dark_logo?.image?.data?.attributes?.url;
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const handleDrawerToggle = () => {
@@ -50,7 +53,7 @@ export default function DrawerAppBar(props: Props) {
             </NextLink>
             <Divider />
             <List>
-                {navItems.map((item) => (
+                {menu.map((item) => (
                     <ListItem key={Math.random()} disablePadding component={NextLink} href={item?.href} target={item.target || '_self'} >
                         <ListItemButton sx={{ textAlign: 'center' }}>
                             <ListItemText primary={item.title}
@@ -100,7 +103,7 @@ export default function DrawerAppBar(props: Props) {
                             display={{ xs: 'flex', md: 'none' }}
                         >
                             <Image
-                                src={mode === 'light' ? logo?.lightLogo?.url : logo?.darkLogo?.url}
+                                src={mode === 'light' ? lightLogo : darkLogo}
                                 alt="logo"
                                 width={200}
                                 height={56}
@@ -117,7 +120,7 @@ export default function DrawerAppBar(props: Props) {
 
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }}>
                             <Image
-                                src={mode === 'light' ? logo?.lightLogo?.url : logo?.darkLogo?.url}
+                                src={mode === 'light' ? lightLogo : darkLogo}
                                 alt="mui-logo"
                                 width={200}
                                 height={56}
@@ -125,7 +128,7 @@ export default function DrawerAppBar(props: Props) {
                         </Box>
 
                         <Stack spacing={6} direction={'row'} sx={{ display: { xs: 'none', md: 'block' } }}>
-                            {navItems.map((item) => (
+                            {menu.map((item) => (
                                 <Typography
                                     key={Math.random()}
                                     color={(theme) => theme.palette.text.primary}

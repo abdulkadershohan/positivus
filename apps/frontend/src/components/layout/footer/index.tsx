@@ -1,14 +1,18 @@
 'use client'
 import TextWithBg from '@/components/shared/TextWithBg'
-import { data } from '@fakeData/index'
+import { ILayoutData } from '@/types/layout'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import { Box, Button, Container, Divider, Grid, Paper, Stack, TextField, Typography } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
-export default function Footer() {
-    const { logo, navItems, contact, form, button, social, copyright } = data?.layout?.footer || {}
+export default function Footer({ data }: { data: ILayoutData }) {
+    // const { logo, menu, contact, form, button, social, copyright } = data?.layout?.footer || {}
+    const { button, contact, copyright, form, menu, social } = data?.attributes?.footer || {}
+    const { logo } = data?.attributes || {}
+    const lightLogo = logo?.light_logo?.image?.data?.attributes?.url;
+    const darkLogo = logo?.dark_logo?.image?.data?.attributes?.url;
     return (
         <div data-aos="fade-up"
         >
@@ -41,7 +45,7 @@ export default function Footer() {
                         >
                             <Box >
                                 <Image
-                                    src={logo.darkLogo.url}
+                                    src={darkLogo}
                                     alt="positivus-logo"
                                     width={200}
                                     height={56}
@@ -57,7 +61,7 @@ export default function Footer() {
                                 }}
                             >
                                 {
-                                    navItems.map((item) => (
+                                    menu.map((item) => (
                                         <Typography key={Math.random()}
                                             fontSize={{
                                                 xs: 'caption.fontSize',
@@ -194,7 +198,7 @@ export default function Footer() {
                                         <Grid item xs={12} md={6}>
                                             <TextField
                                                 fullWidth
-                                                placeholder={form?.email?.placeholder}
+                                                placeholder={form?.placeholder}
                                                 variant="outlined"
                                                 sx={{
                                                     color: (theme) => theme.palette.text.primary,
@@ -300,7 +304,7 @@ export default function Footer() {
                                     md: 'start'
                                 }}
                             >
-                                &copy;  {new Date().getFullYear()} {copyright?.text}
+                                &copy;  {new Date().getFullYear()} {copyright?.title}
                             </Typography>
                             <Typography
                                 color={(theme) => theme.palette.text.secondary}
@@ -309,14 +313,14 @@ export default function Footer() {
                                     md: 'body2.fontSize'
                                 }}
                                 component={Link}
-                                href={copyright?.link?.href}
+                                href={copyright?.button?.href}
                                 textAlign={{
                                     xs: 'center',
                                     md: 'start'
                                 }}
-                                target={copyright?.link?.target}
+                                target={copyright?.button?.target || '_self'}
                             >
-                                {copyright?.link?.title}
+                                {copyright?.button?.title}
                             </Typography>
                         </Stack>
                     </Stack>

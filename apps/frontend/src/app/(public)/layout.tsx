@@ -13,13 +13,11 @@ export default async function PublicLayout({ children }: { children: React.React
         },
         "no-store",
     );
-    console.log(LayoutData)
-    console.log(LayoutError)
     return (
         <main>
-            <DrawerAppBar />
+            <DrawerAppBar data={LayoutData?.data || {}} />
             {children}
-            <Footer />
+            <Footer data={LayoutData?.data || {}} />
         </main>
     )
 }
