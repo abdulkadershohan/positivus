@@ -37,119 +37,18 @@ export interface FormInput extends Schema.Component {
   };
 }
 
-export interface BlockWorkingProcess extends Schema.Component {
-  collectionName: 'components_block_working_processes';
+export interface FooterMenu extends Schema.Component {
+  collectionName: 'components_footer_menus';
   info: {
-    displayName: 'working process';
-  };
-  attributes: {
-    title: Attribute.String;
-    description: Attribute.Text;
-    data: Attribute.Component<'component.working-process-card', true>;
-  };
-}
-
-export interface BlockTestimonial extends Schema.Component {
-  collectionName: 'components_block_testimonials';
-  info: {
-    displayName: 'testimonial';
-  };
-  attributes: {
-    title: Attribute.String;
-    description: Attribute.Text;
-    testimonials: Attribute.Component<'component.testimonial-card', true>;
-  };
-}
-
-export interface BlockTeam extends Schema.Component {
-  collectionName: 'components_block_teams';
-  info: {
-    displayName: 'team';
-  };
-  attributes: {
-    title: Attribute.String;
-    description: Attribute.Text;
-    button: Attribute.Component<'component.component'>;
-    members: Attribute.Component<'component.team-members-card', true>;
-  };
-}
-
-export interface BlockService extends Schema.Component {
-  collectionName: 'components_block_services';
-  info: {
-    displayName: 'service';
+    displayName: 'footer';
     description: '';
   };
   attributes: {
-    title: Attribute.String;
-    description: Attribute.Text;
-    services: Attribute.Component<'component.services-card', true>;
-  };
-}
-
-export interface BlockProposal extends Schema.Component {
-  collectionName: 'components_block_proposals';
-  info: {
-    displayName: 'proposal';
-  };
-  attributes: {
-    title: Attribute.String;
-    description: Attribute.Text;
-    image: Attribute.Component<'component.image'>;
-    button: Attribute.Component<'component.responsive-button'>;
-  };
-}
-
-export interface BlockContactUs extends Schema.Component {
-  collectionName: 'components_block_contact_uses';
-  info: {
-    displayName: 'Contact us';
-  };
-  attributes: {
-    title: Attribute.String;
-    description: Attribute.String;
-    button: Attribute.Component<'component.component'>;
-    image: Attribute.Component<'component.image'>;
-    form1: Attribute.Component<'form.input'>;
-    form2: Attribute.Component<'form.input'>;
-    form3: Attribute.Component<'form.input'>;
-    radio: Attribute.Component<'form.radio', true>;
-  };
-}
-
-export interface BlockCompanyLogo extends Schema.Component {
-  collectionName: 'components_block_company_logos';
-  info: {
-    displayName: 'Company logo';
-  };
-  attributes: {
-    logo: Attribute.Component<'component.image', true>;
-  };
-}
-
-export interface BlockCaseStudies extends Schema.Component {
-  collectionName: 'components_block_case_studies';
-  info: {
-    displayName: 'Case studies';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String;
-    description: Attribute.Text;
-    button: Attribute.Component<'component.component'>;
-    data: Attribute.Component<'component.case-studies-card', true>;
-  };
-}
-
-export interface BlockBanner extends Schema.Component {
-  collectionName: 'components_block_banners';
-  info: {
-    displayName: 'Banner';
-  };
-  attributes: {
-    title: Attribute.String;
-    description: Attribute.Text;
-    image: Attribute.Component<'component.image'>;
+    menu: Attribute.Component<'component.component', true>;
+    contact: Attribute.Component<'component.contact'>;
+    copyright: Attribute.Component<'component.copyright'>;
+    social: Attribute.Component<'component.social'>;
+    form: Attribute.Component<'form.input'>;
     button: Attribute.Component<'component.component'>;
   };
 }
@@ -313,18 +212,119 @@ export interface ComponentCaseStudiesCard extends Schema.Component {
   };
 }
 
-export interface FooterMenu extends Schema.Component {
-  collectionName: 'components_footer_menus';
+export interface BlockWorkingProcess extends Schema.Component {
+  collectionName: 'components_block_working_processes';
   info: {
-    displayName: 'footer';
+    displayName: 'working process';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    data: Attribute.Component<'component.working-process-card', true>;
+  };
+}
+
+export interface BlockTestimonial extends Schema.Component {
+  collectionName: 'components_block_testimonials';
+  info: {
+    displayName: 'testimonial';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    testimonials: Attribute.Component<'component.testimonial-card', true>;
+  };
+}
+
+export interface BlockTeam extends Schema.Component {
+  collectionName: 'components_block_teams';
+  info: {
+    displayName: 'team';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    button: Attribute.Component<'component.component'>;
+    members: Attribute.Component<'component.team-members-card', true>;
+  };
+}
+
+export interface BlockService extends Schema.Component {
+  collectionName: 'components_block_services';
+  info: {
+    displayName: 'service';
     description: '';
   };
   attributes: {
-    menu: Attribute.Component<'component.component', true>;
-    contact: Attribute.Component<'component.contact'>;
-    copyright: Attribute.Component<'component.copyright'>;
-    social: Attribute.Component<'component.social'>;
-    form: Attribute.Component<'form.input'>;
+    title: Attribute.String;
+    description: Attribute.Text;
+    services: Attribute.Component<'component.services-card', true>;
+  };
+}
+
+export interface BlockProposal extends Schema.Component {
+  collectionName: 'components_block_proposals';
+  info: {
+    displayName: 'proposal';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    image: Attribute.Component<'component.image'>;
+    button: Attribute.Component<'component.responsive-button'>;
+  };
+}
+
+export interface BlockContactUs extends Schema.Component {
+  collectionName: 'components_block_contact_uses';
+  info: {
+    displayName: 'Contact us';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.String;
+    button: Attribute.Component<'component.component'>;
+    image: Attribute.Component<'component.image'>;
+    form1: Attribute.Component<'form.input'>;
+    form2: Attribute.Component<'form.input'>;
+    form3: Attribute.Component<'form.input'>;
+    radio: Attribute.Component<'form.radio', true>;
+  };
+}
+
+export interface BlockCompanyLogo extends Schema.Component {
+  collectionName: 'components_block_company_logos';
+  info: {
+    displayName: 'Company logo';
+  };
+  attributes: {
+    logo: Attribute.Component<'component.image', true>;
+  };
+}
+
+export interface BlockCaseStudies extends Schema.Component {
+  collectionName: 'components_block_case_studies';
+  info: {
+    displayName: 'Case studies';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    button: Attribute.Component<'component.component'>;
+    data: Attribute.Component<'component.case-studies-card', true>;
+  };
+}
+
+export interface BlockBanner extends Schema.Component {
+  collectionName: 'components_block_banners';
+  info: {
+    displayName: 'Banner';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    image: Attribute.Component<'component.image'>;
     button: Attribute.Component<'component.component'>;
   };
 }
@@ -335,15 +335,7 @@ declare module '@strapi/types' {
       'header.menu': HeaderMenu;
       'form.radio': FormRadio;
       'form.input': FormInput;
-      'block.working-process': BlockWorkingProcess;
-      'block.testimonial': BlockTestimonial;
-      'block.team': BlockTeam;
-      'block.service': BlockService;
-      'block.proposal': BlockProposal;
-      'block.contact-us': BlockContactUs;
-      'block.company-logo': BlockCompanyLogo;
-      'block.case-studies': BlockCaseStudies;
-      'block.banner': BlockBanner;
+      'footer.menu': FooterMenu;
       'component.working-process-card': ComponentWorkingProcessCard;
       'component.testimonial-card': ComponentTestimonialCard;
       'component.team-members-card': ComponentTeamMembersCard;
@@ -356,7 +348,15 @@ declare module '@strapi/types' {
       'component.contact': ComponentContact;
       'component.component': ComponentComponent;
       'component.case-studies-card': ComponentCaseStudiesCard;
-      'footer.menu': FooterMenu;
+      'block.working-process': BlockWorkingProcess;
+      'block.testimonial': BlockTestimonial;
+      'block.team': BlockTeam;
+      'block.service': BlockService;
+      'block.proposal': BlockProposal;
+      'block.contact-us': BlockContactUs;
+      'block.company-logo': BlockCompanyLogo;
+      'block.case-studies': BlockCaseStudies;
+      'block.banner': BlockBanner;
     }
   }
 }
