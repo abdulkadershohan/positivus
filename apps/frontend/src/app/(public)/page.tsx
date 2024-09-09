@@ -2,6 +2,7 @@ import blockComponentMapping from "@/lib/component.map";
 import { find } from "@/lib/strapi";
 import { StrapiSeoFormate } from "@/lib/strapiSeo";
 import PageAnimation from "@/utils/animation";
+import { getLanguageFromCookie } from "@/utils/language";
 import { Paper } from "@mui/material";
 import type { Metadata } from "next";
 import Script from "next/script";
@@ -25,13 +26,14 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
+  const language = getLanguageFromCookie();
 
   const { data, error } = await find(
     "home-page",
     {
       populate: "deep",
       publicationState: "live",
-      // locale: [language]
+      locale: [language]
     },
     "no-store",
   );
