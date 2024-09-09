@@ -88,6 +88,22 @@ export interface FormInput extends Schema.Component {
   };
 }
 
+export interface FooterMenu extends Schema.Component {
+  collectionName: 'components_footer_menus';
+  info: {
+    displayName: 'footer';
+    description: '';
+  };
+  attributes: {
+    menu: Attribute.Component<'component.component', true>;
+    contact: Attribute.Component<'component.contact'>;
+    copyright: Attribute.Component<'component.copyright'>;
+    social: Attribute.Component<'component.social'>;
+    form: Attribute.Component<'form.input'>;
+    button: Attribute.Component<'component.component'>;
+  };
+}
+
 export interface ComponentWorkingProcessCard extends Schema.Component {
   collectionName: 'components_component_working_process_cards';
   info: {
@@ -248,22 +264,6 @@ export interface ComponentCaseStudiesCard extends Schema.Component {
   };
 }
 
-export interface FooterMenu extends Schema.Component {
-  collectionName: 'components_footer_menus';
-  info: {
-    displayName: 'footer';
-    description: '';
-  };
-  attributes: {
-    menu: Attribute.Component<'component.component', true>;
-    contact: Attribute.Component<'component.contact'>;
-    copyright: Attribute.Component<'component.copyright'>;
-    social: Attribute.Component<'component.social'>;
-    form: Attribute.Component<'form.input'>;
-    button: Attribute.Component<'component.component'>;
-  };
-}
-
 export interface BlockWorkingProcess extends Schema.Component {
   collectionName: 'components_block_working_processes';
   info: {
@@ -390,6 +390,7 @@ declare module '@strapi/types' {
       'header.menu': HeaderMenu;
       'form.radio': FormRadio;
       'form.input': FormInput;
+      'footer.menu': FooterMenu;
       'component.working-process-card': ComponentWorkingProcessCard;
       'component.testimonial-card': ComponentTestimonialCard;
       'component.team-members-card': ComponentTeamMembersCard;
@@ -402,7 +403,6 @@ declare module '@strapi/types' {
       'component.contact': ComponentContact;
       'component.component': ComponentComponent;
       'component.case-studies-card': ComponentCaseStudiesCard;
-      'footer.menu': FooterMenu;
       'block.working-process': BlockWorkingProcess;
       'block.testimonial': BlockTestimonial;
       'block.team': BlockTeam;
