@@ -54,8 +54,8 @@ export default function Settings() {
                 open={open}
                 onClose={handleClose}
                 anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
+                    vertical: 'bottom',
+                    horizontal: 'right',
                 }}
                 transformOrigin={{
                     vertical: 'top',
