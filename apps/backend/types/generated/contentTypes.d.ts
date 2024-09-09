@@ -373,6 +373,11 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     blocks: Attribute.DynamicZone<
       [
@@ -386,7 +391,18 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
         'block.testimonial',
         'block.contact-us'
       ]
-    >;
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    seo: Attribute.Component<'shared.seo'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -402,6 +418,12 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToMany',
+      'api::home-page.home-page'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -416,10 +438,36 @@ export interface ApiLayoutLayout extends Schema.SingleType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    header: Attribute.Component<'header.menu'>;
-    logo: Attribute.Component<'component.logo'>;
-    footer: Attribute.Component<'footer.menu'>;
+    header: Attribute.Component<'header.menu'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    logo: Attribute.Component<'component.logo'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    footer: Attribute.Component<'footer.menu'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    seo: Attribute.Component<'shared.seo'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -435,6 +483,12 @@ export interface ApiLayoutLayout extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::layout.layout',
+      'oneToMany',
+      'api::layout.layout'
+    >;
+    locale: Attribute.String;
   };
 }
 
