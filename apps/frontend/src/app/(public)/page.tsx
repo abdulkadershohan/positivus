@@ -3,7 +3,7 @@ import { find } from "@/lib/strapi";
 import { StrapiSeoFormate } from "@/lib/strapiSeo";
 import PageAnimation from "@/utils/animation";
 import { getLanguageFromCookie } from "@/utils/language";
-import { Paper } from "@mui/material";
+import { Container, Grid, Paper, Typography } from "@mui/material";
 import type { Metadata } from "next";
 import Script from "next/script";
 
@@ -40,7 +40,17 @@ export default async function Home() {
 
   const blocks = data?.data?.attributes?.blocks || [];
   if (error) {
-    return <div>Error: {error}</div>;
+    return (
+      <Container maxWidth='md' >
+        <Paper elevation={0} sx={{ p: 10, borderRadius: 2, mt: 10 }}>
+          <Grid container justifyContent="center" alignItems={'center'}>
+            <Grid item>
+              <Typography color='error' variant="h2">Something went wrong</Typography>
+            </Grid>
+          </Grid>
+        </Paper>
+      </Container>
+    )
   }
   return <>
     <PageAnimation />
