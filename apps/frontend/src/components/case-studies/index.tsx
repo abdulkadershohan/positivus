@@ -1,5 +1,5 @@
 'use client';
-import { data } from '@fakeData/index';
+import { ICaseStudiesComponent } from '@/types';
 import CallMadeIcon from '@mui/icons-material/CallMade';
 import { Box, Container, Divider, Stack, Typography } from "@mui/material";
 import Link from 'next/link';
@@ -10,8 +10,8 @@ import "slick-carousel/slick/slick.css";
 import Card from '../shared/Card';
 import TextWithBg from '../shared/TextWithBg';
 
-export default function CaseStudies() {
-    const { items, title, description, link } = data?.case_studies || {};
+export default function CaseStudies({ data }: ICaseStudiesComponent) {
+    const { data: items, title, description, button } = data || {};
     const slider = React.useRef<Slider | null>(null);
     const settings = {
         className: "center",
@@ -73,26 +73,30 @@ export default function CaseStudies() {
                             gap={6}
                             alignItems={'center'}
                         >
-                            <TextWithBg text={title} bgcolor="primary" />
-                            <Typography
-                                sx={{
-                                    color: (theme) => theme.palette.text.primary
-                                }}
-                                maxWidth={{
-                                    xs: 390,
-                                    md: 580,
-                                }}
-                                fontSize={{
-                                    xs: 'caption.fontSize',
-                                    md: 'body2.fontSize',
-                                }}
-                                textAlign={{
-                                    xs: 'center',
-                                    md: 'left',
-                                }}
-                            >
-                                {description}
-                            </Typography>
+                            {title &&
+                                <TextWithBg text={title} bgcolor="primary" />
+                            }
+                            {description &&
+                                <Typography
+                                    sx={{
+                                        color: (theme) => theme.palette.text.primary
+                                    }}
+                                    maxWidth={{
+                                        xs: 390,
+                                        md: 580,
+                                    }}
+                                    fontSize={{
+                                        xs: 'caption.fontSize',
+                                        md: 'body2.fontSize',
+                                    }}
+                                    textAlign={{
+                                        xs: 'center',
+                                        md: 'left',
+                                    }}
+                                >
+                                    {description}
+                                </Typography>
+                            }
                         </Stack>
                     </Stack>
                     <Card bgcolor='info'
@@ -104,46 +108,52 @@ export default function CaseStudies() {
                         }}
                     >
                         <Stack direction={'row'} spacing={4} >
-                            {items.map((item, index) => (
+                            {items && items.map((item, index) => (
                                 <Stack key={item.id} direction="row" alignItems="center">
                                     <Stack spacing={4}>
-                                        <Typography
-                                            sx={{
-                                                color: (theme) => theme.palette.text.secondary
-                                            }}
-                                            fontSize={{
-                                                xs: 16,
-                                                md: 18,
-                                            }}
-                                            fontWeight={400}
-                                        >
-                                            {item.text}
-                                        </Typography>
-                                        <Stack
-                                            direction='row'
-                                            gap={2} alignItems='center'
-                                            sx={{
-                                                cursor: 'pointer',
-                                                textDecoration: 'none',
-                                                width: 'fit-content',
-                                            }}
-                                            component={Link}
-                                            href='#'
-                                        >
+                                        {item?.title &&
                                             <Typography
                                                 sx={{
-                                                    color: (theme) => theme.palette.primary.main,
+                                                    color: (theme) => theme.palette.text.secondary
                                                 }}
-                                                variant='body1'
+                                                fontSize={{
+                                                    xs: 16,
+                                                    md: 18,
+                                                }}
+                                                fontWeight={400}
                                             >
-                                                {link.title}
+                                                {item?.title}
                                             </Typography>
-                                            <CallMadeIcon
+                                        }
+                                        {
+                                            button?.title &&
+                                            <Stack
+                                                direction='row'
+                                                gap={2} alignItems='center'
                                                 sx={{
-                                                    color: (theme) => theme.palette.primary.main,
+                                                    cursor: 'pointer',
+                                                    textDecoration: 'none',
+                                                    width: 'fit-content',
                                                 }}
-                                            />
-                                        </Stack>
+                                                component={Link}
+                                                href={button?.href || '#'}
+                                                target={button?.target || '_self'}
+                                            >
+                                                <Typography
+                                                    sx={{
+                                                        color: (theme) => theme.palette.primary.main,
+                                                    }}
+                                                    variant='body1'
+                                                >
+                                                    {button?.title}
+                                                </Typography>
+                                                <CallMadeIcon
+                                                    sx={{
+                                                        color: (theme) => theme.palette.primary.main,
+                                                    }}
+                                                />
+                                            </Stack>
+                                        }
                                     </Stack>
                                     {index < items.length - 1 && (
                                         <Divider
@@ -167,69 +177,76 @@ export default function CaseStudies() {
                             }
                         }}
                     >
-                        <Slider {...settings} ref={slider}>
-                            {items.map((item, index) => (
-                                <Box key={item.id} >
-                                    <Stack
-                                        sx={{
-                                            bgcolor: (theme) => theme.palette.info.main,
-                                            p: 4,
-                                            borderRadius: '45px',
-                                            mx: 2,
-                                        }}
-                                    >
-                                        <Stack spacing={4}>
-                                            <Typography
-                                                sx={{
-                                                    color: (theme) => theme.palette.text.secondary
-                                                }}
-                                                fontSize={{
-                                                    xs: 16,
-                                                    md: 18,
-                                                }}
-                                                fontWeight={400}
-                                            >
-                                                {item.text}
-                                            </Typography>
-                                            <Stack
-                                                direction='row'
-                                                gap={2} alignItems='center'
-                                                sx={{
-                                                    cursor: 'pointer',
-                                                    textDecoration: 'none',
-                                                    width: 'fit-content',
-                                                }}
-                                                component={Link}
-                                                href='#'
-                                            >
-                                                <Typography
+                        {items?.length > 0 &&
+                            <Slider {...settings} ref={slider}>
+                                {items?.map((item, index) => (
+                                    <Box key={item.id} >
+                                        <Stack
+                                            sx={{
+                                                bgcolor: (theme) => theme.palette.info.main,
+                                                p: 4,
+                                                borderRadius: '45px',
+                                                mx: 2,
+                                            }}
+                                        >
+                                            <Stack spacing={4}>
+                                                {item?.title &&
+                                                    <Typography
+                                                        sx={{
+                                                            color: (theme) => theme.palette.text.secondary
+                                                        }}
+                                                        fontSize={{
+                                                            xs: 16,
+                                                            md: 18,
+                                                        }}
+                                                        fontWeight={400}
+                                                    >
+                                                        {item?.title}
+                                                    </Typography>
+                                                }
+                                                {
+                                                    button?.title &&
+                                                    <Stack
+                                                        direction='row'
+                                                        gap={2} alignItems='center'
+                                                        sx={{
+                                                            cursor: 'pointer',
+                                                            textDecoration: 'none',
+                                                            width: 'fit-content',
+                                                        }}
+                                                        component={Link}
+                                                        href={button?.href || '#'}
+                                                    >
+                                                        <Typography
+                                                            sx={{
+                                                                color: (theme) => theme.palette.primary.main,
+                                                            }}
+                                                            variant='body1'
+                                                        >
+                                                            {button?.title}
+                                                        </Typography>
+                                                        <CallMadeIcon
+                                                            sx={{
+                                                                color: (theme) => theme.palette.primary.main,
+                                                            }}
+                                                        />
+                                                    </Stack>
+                                                }
+                                            </Stack>
+                                            {index < items.length - 1 && (
+                                                <Divider
+                                                    flexItem
+                                                    orientation='vertical'
                                                     sx={{
-                                                        color: (theme) => theme.palette.primary.main,
-                                                    }}
-                                                    variant='body1'
-                                                >
-                                                    {link.title}
-                                                </Typography>
-                                                <CallMadeIcon
-                                                    sx={{
-                                                        color: (theme) => theme.palette.primary.main,
+                                                        marginLeft: 4,
                                                     }}
                                                 />
-                                            </Stack>
+                                            )}
                                         </Stack>
-                                        {index < items.length - 1 && (
-                                            <Divider
-                                                flexItem
-                                                orientation='vertical'
-                                                sx={{
-                                                    marginLeft: 4,
-                                                }}
-                                            />
-                                        )}
-                                    </Stack>
-                                </Box>
-                            ))}
-                        </Slider>
+                                    </Box>
+                                ))}
+                            </Slider>
+                        }
                     </Stack>
                 </Stack>
             </Container >

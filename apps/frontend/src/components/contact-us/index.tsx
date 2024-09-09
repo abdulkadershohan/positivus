@@ -1,11 +1,12 @@
 'use client'
-import { data } from '@fakeData/index'
+import { IContactUsComponent } from '@/types'
 import { Box, Button, Container, FormControl, FormControlLabel, Grid, Radio, RadioGroup, Stack, TextField, Typography } from '@mui/material'
 import Image from 'next/image'
 import TextWithBg from '../shared/TextWithBg'
 
-export default function ContactUs() {
-    const { title, description, form, button, image } = data?.contact_us || {}
+export default function ContactUs({ data }: IContactUsComponent) {
+    const { title, description, form1, button, image, form2, form3, radio } = data || {}
+    const imageUrl = image?.image?.data?.attributes?.url
     return (
         <div data-aos="fade-up"
             data-aos-duration="2000">
@@ -20,8 +21,8 @@ export default function ContactUs() {
                             gap={6}
                             alignItems={'center'}
                         >
-                            <TextWithBg text={title} bgcolor="primary" />
-                            <Typography
+                            {title && <TextWithBg text={title} bgcolor="primary" />}
+                            {description && <Typography
                                 sx={{
                                     color: (theme) => theme.palette.text.primary
                                 }}
@@ -40,106 +41,114 @@ export default function ContactUs() {
                             >
                                 {description}
                             </Typography>
+                            }
                         </Stack>
                         <Stack position={'relative'} overflow={'hidden'} sx={{ borderRadius: 10, p: { md: 6, xs: 2 }, bgcolor: (theme) => theme.palette.background.paper }} >
                             <Grid container spacing={4} >
                                 <Grid item xs={12} md={6}>
                                     <Stack component={'form'} gap={4}>
-                                        <FormControl>
-                                            <RadioGroup
-                                                row
-                                                aria-labelledby="demo-row-radio-buttons-group-label"
-                                                name="row-radio-buttons-group"
-                                                defaultValue={0}
-                                                sx={{
-                                                    color: (theme) => theme.palette.text.primary,
-                                                    fontSize: {
-                                                        xs: 'caption.fontSize',
-                                                        md: 'body2.fontSize',
-                                                    },
-                                                }}
-                                            >
-                                                {
-                                                    form?.radio?.map((item) => (
-                                                        <FormControlLabel key={item?.id} value={item?.value} control={<Radio
-                                                            sx={{
-                                                                color: (theme) => theme.palette.text.primary,
+                                        {radio &&
+                                            <FormControl>
+                                                <RadioGroup
+                                                    row
+                                                    aria-labelledby="demo-row-radio-buttons-group-label"
+                                                    name="row-radio-buttons-group"
+                                                    defaultValue={0}
+                                                    sx={{
+                                                        color: (theme) => theme.palette.text.primary,
+                                                        fontSize: {
+                                                            xs: 'caption.fontSize',
+                                                            md: 'body2.fontSize',
+                                                        },
+                                                    }}
+                                                >
+                                                    {
+                                                        radio?.map((item) => (
+                                                            <FormControlLabel key={item?.id} value={item?.value} control={<Radio
+                                                                sx={{
+                                                                    color: (theme) => theme.palette.text.primary,
 
-                                                            }}
-                                                        />} label={item?.label} />
-                                                    ))
-                                                }
-                                            </RadioGroup>
-                                        </FormControl>
-                                        <Stack spacing={1}>
+                                                                }}
+                                                            />} label={item?.label} />
+                                                        ))
+                                                    }
+                                                </RadioGroup>
+                                            </FormControl>
+                                        }
+                                        {form1 &&
+                                            <Stack spacing={1}>
+                                                <Typography
+                                                    variant='caption'
+                                                    sx={{
+                                                        color: (theme) => theme.palette.text.primary
+                                                    }}
+                                                >
+                                                    {form1?.label}
+                                                </Typography>
+                                                <TextField
+                                                    fullWidth
+                                                    placeholder={form1?.placeholder}
+                                                    variant="outlined"
+                                                    sx={{
+                                                        color: (theme) => theme.palette.text.primary,
+                                                        '& .MuiOutlinedInput-root': {
+                                                            pl: 2,
+                                                            borderRadius: 4,
+                                                            '& fieldset': {
+                                                                borderColor: (theme) => theme.palette.text.primary,
+                                                            },
+                                                            '&.Mui-focused fieldset': {
+                                                                borderColor: (theme) => theme.palette.text.primary,
+                                                            },
+                                                        },
+                                                    }}
+                                                    required={form1?.required || false}
+                                                />
+                                            </Stack>
+                                        }
+                                        {form2 &&
+                                            <Stack spacing={1}>
+                                                <Typography
+                                                    variant='caption'
+                                                    sx={{
+                                                        color: (theme) => theme.palette.text.primary
+                                                    }}
+                                                >
+                                                    {form2?.label} {form2?.required && '*'}
+                                                </Typography>
+                                                <TextField
+                                                    fullWidth
+                                                    placeholder={form2?.placeholder}
+                                                    variant="outlined"
+                                                    required={form2?.required || false}
+                                                    sx={{
+                                                        color: (theme) => theme.palette.text.primary,
+                                                        '& .MuiOutlinedInput-root': {
+                                                            pl: 2,
+                                                            borderRadius: 4,
+                                                            '& fieldset': {
+                                                                borderColor: (theme) => theme.palette.text.primary,
+                                                            },
+                                                            '&.Mui-focused fieldset': {
+                                                                borderColor: (theme) => theme.palette.text.primary,
+                                                            },
+                                                        },
+                                                    }}
+                                                />
+                                            </Stack>
+                                        }
+                                        {form3 && <Stack spacing={1}>
                                             <Typography
                                                 variant='caption'
                                                 sx={{
                                                     color: (theme) => theme.palette.text.primary
                                                 }}
                                             >
-                                                {form?.name?.label}
+                                                {form3?.label} {form3?.required && '*'}
                                             </Typography>
                                             <TextField
                                                 fullWidth
-                                                placeholder={form?.name?.placeholder}
-                                                variant="outlined"
-                                                sx={{
-                                                    color: (theme) => theme.palette.text.primary,
-                                                    '& .MuiOutlinedInput-root': {
-                                                        pl: 2,
-                                                        borderRadius: 4,
-                                                        '& fieldset': {
-                                                            borderColor: (theme) => theme.palette.text.primary,
-                                                        },
-                                                        '&.Mui-focused fieldset': {
-                                                            borderColor: (theme) => theme.palette.text.primary,
-                                                        },
-                                                    },
-                                                }}
-                                            />
-                                        </Stack>
-                                        <Stack spacing={1}>
-                                            <Typography
-                                                variant='caption'
-                                                sx={{
-                                                    color: (theme) => theme.palette.text.primary
-                                                }}
-                                            >
-                                                {form?.email?.label} *
-                                            </Typography>
-                                            <TextField
-                                                fullWidth
-                                                placeholder={form?.email?.placeholder}
-                                                variant="outlined"
-                                                required
-                                                sx={{
-                                                    color: (theme) => theme.palette.text.primary,
-                                                    '& .MuiOutlinedInput-root': {
-                                                        pl: 2,
-                                                        borderRadius: 4,
-                                                        '& fieldset': {
-                                                            borderColor: (theme) => theme.palette.text.primary,
-                                                        },
-                                                        '&.Mui-focused fieldset': {
-                                                            borderColor: (theme) => theme.palette.text.primary,
-                                                        },
-                                                    },
-                                                }}
-                                            />
-                                        </Stack>
-                                        <Stack spacing={1}>
-                                            <Typography
-                                                variant='caption'
-                                                sx={{
-                                                    color: (theme) => theme.palette.text.primary
-                                                }}
-                                            >
-                                                {form?.message?.label} *
-                                            </Typography>
-                                            <TextField
-                                                fullWidth
-                                                placeholder={form?.message?.placeholder}
+                                                placeholder={form3?.placeholder}
                                                 variant="outlined"
                                                 sx={{
                                                     color: (theme) => theme.palette.text.primary,
@@ -156,26 +165,29 @@ export default function ContactUs() {
                                                 }}
                                                 multiline
                                                 rows={7}
-                                                required
+                                                required={form3?.required || false}
                                             />
                                         </Stack>
-                                        <Button
-                                            variant='contained'
-                                            color='info'
-                                            type='submit'
-                                            sx={{
-                                                '&:hover': {
-                                                    bgcolor: (theme) => theme.palette.primary.main,
-                                                    color: (theme) => theme.palette.primary.contrastText,
-                                                },
+                                        }
+                                        {button &&
+                                            <Button
+                                                variant='contained'
+                                                color='info'
+                                                type='submit'
+                                                sx={{
+                                                    '&:hover': {
+                                                        bgcolor: (theme) => theme.palette.primary.main,
+                                                        color: (theme) => theme.palette.primary.contrastText,
+                                                    },
 
-                                            }}
-                                        >
-                                            {button?.title}
-                                        </Button>
+                                                }}
+                                            >
+                                                {button?.title}
+                                            </Button>
+                                        }
                                     </Stack>
                                 </Grid>
-                                <Grid item xs={12} md={6} display={{
+                                {imageUrl && <Grid item xs={12} md={6} display={{
                                     xs: 'none',
                                     md: 'block'
                                 }}>
@@ -193,13 +205,14 @@ export default function ContactUs() {
                                         }}
                                     >
                                         <Box component={Image}
-                                            src={image?.url}
-                                            alt="Proposal"
+                                            src={imageUrl}
+                                            alt={image?.alt || 'contact us'}
                                             fill={true}
 
                                         />
                                     </Stack>
                                 </Grid>
+                                }
                             </Grid>
                         </Stack>
 

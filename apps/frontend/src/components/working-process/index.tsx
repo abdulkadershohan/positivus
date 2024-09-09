@@ -1,5 +1,5 @@
 'use client';
-import { data } from '@fakeData/index';
+import { IWorkingProcessComponent } from '@/types';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { Box, Collapse, Container, Divider, Stack, Typography } from '@mui/material';
@@ -9,8 +9,8 @@ import IconBox from '../shared/IconBox';
 import TextWithBg from '../shared/TextWithBg';
 
 
-export default function WorkingProcess() {
-    const { description, items, title } = data?.working_process || {};
+export default function WorkingProcess({ data }: IWorkingProcessComponent) {
+    const { description, data: items, title } = data || {};
     const [index, setIndex] = React.useState<number | null>(1);
 
     const handleToggle = (id: number) => {
@@ -30,28 +30,32 @@ export default function WorkingProcess() {
                         gap={6}
                         alignItems={'center'}
                     >
-                        <TextWithBg text={title} bgcolor="primary" />
-                        <Typography
-                            sx={{
-                                color: (theme) => theme.palette.text.primary
-                            }}
-                            maxWidth={{
-                                xs: 390,
-                                md: 580,
-                            }}
-                            fontSize={{
-                                xs: 'caption.fontSize',
-                                md: 'body2.fontSize',
-                            }}
-                            textAlign={{
-                                xs: 'center',
-                                md: 'left',
-                            }}
-                        >
-                            {description}
-                        </Typography>
+                        {title &&
+                            <TextWithBg text={title} bgcolor="primary" />
+                        }
+                        {description &&
+                            <Typography
+                                sx={{
+                                    color: (theme) => theme.palette.text.primary
+                                }}
+                                maxWidth={{
+                                    xs: 390,
+                                    md: 580,
+                                }}
+                                fontSize={{
+                                    xs: 'caption.fontSize',
+                                    md: 'body2.fontSize',
+                                }}
+                                textAlign={{
+                                    xs: 'center',
+                                    md: 'left',
+                                }}
+                            >
+                                {description}
+                            </Typography>
+                        }
                     </Stack>
-                    {items.map((item) => (
+                    {items && items?.map((item) => (
                         <Card key={item.id}
                             bgcolor={index === item.id ? 'primary' : 'secondary'}
                         >
@@ -74,19 +78,21 @@ export default function WorkingProcess() {
                                         >
                                             {item.id < 10 ? `0${item.id}` : item.id}
                                         </Typography>
-                                        <Typography
-                                            sx={{
-                                                color: (theme) => theme.palette.text.primary
-                                            }}
-                                            fontSize={{
-                                                xs: 18,
-                                                md: 30,
-                                            }}
-                                            fontWeight={500}
+                                        {item?.title &&
+                                            <Typography
+                                                sx={{
+                                                    color: (theme) => theme.palette.text.primary
+                                                }}
+                                                fontSize={{
+                                                    xs: 18,
+                                                    md: 30,
+                                                }}
+                                                fontWeight={500}
 
-                                        >
-                                            {item.title}
-                                        </Typography>
+                                            >
+                                                {item?.title}
+                                            </Typography>
+                                        }
                                     </Stack>
                                     <Box
                                         sx={{
@@ -112,18 +118,20 @@ export default function WorkingProcess() {
                                                 borderColor: (theme) => theme.palette.info.main,
                                             }}
                                         />
-                                        <Typography
-                                            sx={{
-                                                color: (theme) => theme.palette.text.primary
-                                            }}
-                                            fontSize={{
-                                                xs: 18,
-                                                md: 30,
-                                            }}
-                                            fontWeight={500}
-                                        >
-                                            {item.description}
-                                        </Typography>
+                                        {item?.description &&
+                                            <Typography
+                                                sx={{
+                                                    color: (theme) => theme.palette.text.primary
+                                                }}
+                                                fontSize={{
+                                                    xs: 18,
+                                                    md: 30,
+                                                }}
+                                                fontWeight={500}
+                                            >
+                                                {item?.description}
+                                            </Typography>
+                                        }
                                     </Stack>
                                 </Collapse>
                             </Stack>

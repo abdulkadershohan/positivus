@@ -1,10 +1,11 @@
 'use client';
-import { data } from "@fakeData/index";
+import { IProposalComponent } from "@/types";
 import { Button, Container, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-export default function Proposal() {
-    const { button, description, image, title } = data?.proposal || {};
+export default function Proposal({ data }: IProposalComponent) {
+    const { button, description, image, title } = data || {};
+    const imageUrl = image?.image?.data?.attributes?.url
     return (
         <div data-aos="fade-up"
             data-aos-duration="2000">
@@ -15,94 +16,104 @@ export default function Proposal() {
                             data-aos-offset="300"
                             data-aos-easing="ease-in-sine">
                             <Stack spacing={4}>
-                                <Typography
-                                    variant="h3"
-                                    fontSize={{
-                                        xs: 26,
-                                        md: "h3.fontSize"
-                                    }}
-                                    sx={{
-                                        color: (theme) => theme.palette.text.primary
-                                    }}
-
-                                >
-                                    {title}
-                                </Typography>
-                                <Typography
-                                    variant="body2"
-                                    fontSize={{
-                                        xs: "caption.fontSize",
-                                        md: "body2.fontSize"
-                                    }}
-                                    sx={{
-                                        color: (theme) => theme.palette.text.primary
-                                    }}
-                                >
-                                    {description}
-                                </Typography>
-                                <Stack
-                                    sx={{
-                                        display: {
-                                            xs: 'block',
-                                            sm: 'none'
-                                        }
-                                    }}
-                                >
-                                    <Button
-                                        variant="contained"
-                                        color="info"
-                                        fullWidth
-                                        LinkComponent={Link}
-                                        href={button?.href}
-                                        target={button?.target || '_self'}
-
+                                {title &&
+                                    <Typography
+                                        variant="h3"
+                                        fontSize={{
+                                            xs: 26,
+                                            md: "h3.fontSize"
+                                        }}
+                                        sx={{
+                                            color: (theme) => theme.palette.text.primary
+                                        }}
 
                                     >
-                                        {button.sm.title}
-                                    </Button>
+                                        {title}
+                                    </Typography>
+                                }
+                                {description &&
+                                    <Typography
+                                        variant="body2"
+                                        fontSize={{
+                                            xs: "caption.fontSize",
+                                            md: "body2.fontSize"
+                                        }}
+                                        sx={{
+                                            color: (theme) => theme.palette.text.primary
+                                        }}
+                                    >
+                                        {description}
+                                    </Typography>
+                                }
+                                {button?.sm_title &&
+                                    <Stack
+                                        sx={{
+                                            display: {
+                                                xs: 'block',
+                                                sm: 'none'
+                                            }
+                                        }}
+                                    >
+                                        <Button
+                                            variant="contained"
+                                            color="info"
+                                            fullWidth
+                                            LinkComponent={Link}
+                                            href={button?.href}
+                                            target={button?.target || '_self'}
 
-                                </Stack>
+
+                                        >
+                                            {button?.sm_title}
+                                        </Button>
+
+                                    </Stack>
+                                }
+                                {button?.md_title &&
+                                    <Stack
+                                        sx={{
+                                            width: 'fit-content',
+                                            display: {
+                                                xs: 'none',
+                                                sm: 'block'
+                                            }
+                                        }}
+                                    >
+                                        <Button
+                                            variant="contained"
+                                            color="info"
+
+                                        >
+                                            {button?.md_title}
+                                        </Button>
+
+                                    </Stack>
+                                }
+                            </Stack>
+                        </Grid>
+                        {imageUrl &&
+                            <Grid item xs={12} md={6} data-aos={'fade-left'}
+                                data-aos-offset="300"
+                                data-aos-easing="ease-in-sine">
                                 <Stack
                                     sx={{
-                                        width: 'fit-content',
+                                        position: 'relative',
+                                        width: '100%',
+                                        height: 400,
                                         display: {
                                             xs: 'none',
-                                            sm: 'block'
+                                            md: 'block'
                                         }
                                     }}
                                 >
-                                    <Button
-                                        variant="contained"
-                                        color="info"
-
-                                    >
-                                        {button.md.title}
-                                    </Button>
-
+                                    <Image
+                                        src={imageUrl}
+                                        alt={image?.alt || title || 'image'}
+                                        fill={true}
+                                    />
                                 </Stack>
-                            </Stack>
-                        </Grid>
-                        <Grid item xs={12} md={6} data-aos={'fade-left'}
-                            data-aos-offset="300"
-                            data-aos-easing="ease-in-sine">
-                            <Stack
-                                sx={{
-                                    position: 'relative',
-                                    width: '100%',
-                                    height: 400,
-                                    display: {
-                                        xs: 'none',
-                                        md: 'block'
-                                    }
-                                }}
-                            >
-                                <Image
-                                    src={image}
-                                    alt="Proposal"
-                                    fill={true}
-                                />
-                            </Stack>
-                        </Grid>
+                            </Grid>
+                        }
                     </Grid>
                 </Stack>
             </Container>

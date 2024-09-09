@@ -1,9 +1,8 @@
 'use client';
-import { data } from "@fakeData/index";
+import { IServiceComponent } from "@/types";
 import { Container, Grid, Stack, Typography } from "@mui/material";
 import TextWithBg from "../shared/TextWithBg";
 import SingleServiceCard from "./SingleServiceCard";
-import { IServiceComponent } from "@/types";
 export default function Services({ data }: IServiceComponent) {
     const { description, services, title, } = data
     return (

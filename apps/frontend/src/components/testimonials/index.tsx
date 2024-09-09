@@ -1,5 +1,5 @@
 'use client'
-import { data } from '@fakeData/index';
+import { ITestimonialComponent } from '@/types';
 import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
 import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
 import PagesOutlinedIcon from '@mui/icons-material/PagesOutlined';
@@ -10,8 +10,8 @@ import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import TextWithBg from "../shared/TextWithBg";
 
-export default function Testimonials() {
-    const { title, description, testimonials } = data?.testimonial || {}
+export default function Testimonials({ data }: ITestimonialComponent) {
+    const { title, description, testimonials } = data || {}
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const slider = React.useRef<Slider | null>(null);
@@ -75,67 +75,77 @@ export default function Testimonials() {
                         gap={6}
                         alignItems={'center'}
                     >
-                        <TextWithBg text={title} bgcolor="primary" />
-                        <Typography
-                            sx={{
-                                color: (theme) => theme.palette.text.primary
-                            }}
-                            maxWidth={{
-                                xs: 390,
-                                md: 580,
-                            }}
-                            fontSize={{
-                                xs: 'caption.fontSize',
-                                md: 'body2.fontSize',
-                            }}
-                            textAlign={{
-                                xs: 'center',
-                                md: 'left',
-                            }}
-                        >
-                            {description}
-                        </Typography>
+                        {title && <TextWithBg text={title} bgcolor="primary" />}
+                        {description &&
+                            <Typography
+                                sx={{
+                                    color: (theme) => theme.palette.text.primary
+                                }}
+                                maxWidth={{
+                                    xs: 390,
+                                    md: 580,
+                                }}
+                                fontSize={{
+                                    xs: 'caption.fontSize',
+                                    md: 'body2.fontSize',
+                                }}
+                                textAlign={{
+                                    xs: 'center',
+                                    md: 'left',
+                                }}
+                            >
+                                {description}
+                            </Typography>
+                        }
                     </Stack>
                     <Stack gap={4} position={'relative'} bgcolor={(theme) => theme.palette.info.main} borderRadius={6} p={{ xs: 0, sm: 4 }} >
-                        <Slider {...settings} ref={slider}>
-                            {
-                                testimonials.map((testimonial) => (
-                                    <Box key={testimonial.id} p={2}>
-                                        <Stack
-                                            sx={{
-                                                boxShadow: '0 4px 6px rgba(255, 255, 255, 0.3), 0 1px 3px rgba(255, 255, 255, 0.2)',
-                                                borderRadius: '45px',
-                                                border: (theme) => `1px solid ${theme.palette.primary.main}`,
-                                                padding: 4
-                                            }}
-                                        >
-                                            <Stack gap={2}>
-                                                <Stack direction={"row"} spacing={2} alignItems={"center"}>
-                                                    <Stack>
-                                                        <Typography sx={{
-                                                            color: (theme) => theme.palette.text.secondary
-                                                        }} fontWeight={400} fontSize={20}>
-                                                            {testimonial.name}
-                                                        </Typography>
-                                                        <Typography sx={{
-                                                            color: (theme) => theme.palette.text.secondary
-                                                        }} fontWeight={400} fontSize={14}>
-                                                            {testimonial.position}
-                                                        </Typography>
+                        {testimonials &&
+                            <Slider {...settings} ref={slider}>
+                                {
+                                    testimonials?.map((testimonial) => (
+                                        <Box key={testimonial?.id} p={2}>
+                                            <Stack
+                                                sx={{
+                                                    boxShadow: '0 4px 6px rgba(255, 255, 255, 0.3), 0 1px 3px rgba(255, 255, 255, 0.2)',
+                                                    borderRadius: '45px',
+                                                    border: (theme) => `1px solid ${theme.palette.primary.main}`,
+                                                    padding: 4
+                                                }}
+                                            >
+                                                <Stack gap={2}>
+                                                    <Stack direction={"row"} spacing={2} alignItems={"center"}>
+                                                        <Stack>
+                                                            {testimonial.name &&
+                                                                <Typography sx={{
+                                                                    color: (theme) => theme.palette.text.secondary
+                                                                }} fontWeight={400} fontSize={20}>
+                                                                    {testimonial?.name}
+                                                                </Typography>
+                                                            }
+                                                            {testimonial.position &&
+                                                                <Typography sx={{
+                                                                    color: (theme) => theme.palette.text.secondary
+                                                                }} fontWeight={400} fontSize={14}>
+                                                                    {testimonial?.position}
+                                                                </Typography>
+                                                            }
+                                                        </Stack>
                                                     </Stack>
+                                                    {testimonial.description &&
+                                                        <Typography sx={{
+                                                            color: (theme) => theme.palette.text.secondary
+                                                        }} fontWeight={400} fontSize={16}>
+                                                            {testimonial?.description}
+                                                        </Typography>
+                                                    }
                                                 </Stack>
-                                                <Typography sx={{
-                                                    color: (theme) => theme.palette.text.secondary
-                                                }} fontWeight={400} fontSize={16}>
-                                                    {testimonial.description}
-                                                </Typography>
                                             </Stack>
-                                        </Stack>
-                                    </Box>
-                                ))
-                            }
+                                        </Box>
+                                    ))
+                                }
 
-                        </Slider>
+                            </Slider>
+                        }
                         <Stack
                             direction={'row'}
                             justifyContent={'space-between'}
@@ -159,9 +169,9 @@ export default function Testimonials() {
                                 <ArrowBackOutlinedIcon sx={{ height: 32, width: 32 }} />
                             </IconButton>
                             <Stack direction={'row'} gap={2}>
-                                {testimonials.map((testimonial, index) => (
+                                {testimonials && testimonials?.map((testimonial, index) => (
                                     <IconButton
-                                        key={testimonial.id}
+                                        key={testimonial?.id}
                                         sx={{
                                             color: (theme) =>
                                                 index === currentIndex
