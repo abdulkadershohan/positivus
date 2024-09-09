@@ -1,36 +1,42 @@
-import { AllCategory, BlogSection, BreadCrumbs, CandidateFilter, CompanyFilter, HeroSection, JobFilter, PopularCategories, PopularListedJobs, ReviewsSection } from "ui";
+import Banner from '@/components/banner';
+import CaseStudies from '@/components/case-studies';
+import CompanyLogo from '@/components/company-logo';
+import ContactUs from '@/components/contact-us';
+import Proposal from '@/components/proposal';
+import Services from '@/components/services';
+import Team from '@/components/team';
+import Testimonials from '@/components/testimonials';
+import WorkingProcess from '@/components/working-process';
 
 const blockComponentMapping = {
-   "banner.banner-one": {
-      component: HeroSection
+   "block.banner": {
+      component: Banner
    },
-   "header.breadcrumbs": {
-      component: BreadCrumbs
+   "block.company-logo": {
+      component: CompanyLogo
    },
-   "forms.job-filter": {
-      component: JobFilter
+   "block.service": {
+      component: Services
    },
-   "forms.company-filter": {
-      component: CompanyFilter
+   "block.proposal": {
+      component: Proposal
    },
-   "forms.candidate-filter": {
-      component: CandidateFilter
+   "block.case-studies": {
+      component: CaseStudies
    },
-   "block.category-card": {
-      component: PopularCategories
+   "block.working-process": {
+      component: WorkingProcess
    },
-   "block.category-card2": {
-      component: AllCategory
+   "block.team": {
+      component: Team
    },
-   "block.job-card": {
-      component: PopularListedJobs
+   "block.testimonial": {
+      component: Testimonials
    },
-   "block.review-card": {
-      component: ReviewsSection
+   "block.contact-us": {
+      component: ContactUs
    },
-   "block.blog-card": {
-      component: BlogSection
-   }
+
 } as any;
 
 export default blockComponentMapping;

@@ -1,18 +1,8 @@
 'use client';
-import Banner from '@/components/banner/Index';
-import CaseStudies from '@/components/case-studies';
-import CompanyLogo from '@/components/company-logo';
-import ContactUs from '@/components/contact-us';
-import Proposal from '@/components/proposal';
-import Services from '@/components/services';
-import Team from '@/components/team';
-import Testimonials from '@/components/testimonials';
-import WorkingProcess from '@/components/working-process';
-import { Paper } from '@mui/material';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import React from 'react';
-export default function PageBody() {
+export default function PageAnimation() {
     React.useEffect(() => {
         AOS.init({
             // Global settings:
@@ -35,25 +25,5 @@ export default function PageBody() {
 
         });
     }, []);
-    return (
-        <Paper
-            sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 12,
-                backgroundColor: (theme) => theme.palette.background.default,
-            }}
-            elevation={0}
-        >
-            <Banner />
-            <CompanyLogo />
-            <Services />
-            <Proposal />
-            <CaseStudies />
-            <WorkingProcess />
-            <Team />
-            <Testimonials />
-            <ContactUs />
-        </Paper>
-    )
+    return null;
 }
