@@ -9,9 +9,9 @@ module.exports = ({ env }) => ({
       password: env('DATABASE_PASSWORD'),
       schema: env('DATABASE_SCHEMA', 'public'), // Not required
       // uncomment the following lines if you are using SSL or remote database
-      // ssl: {
-      //   rejectUnauthorized: env.bool('DATABASE_SSL', false),
-      // },
+      ssl: {
+        rejectUnauthorized: env.bool('DATABASE_SSL', false),
+      },
     },
     debug: false,
   },
