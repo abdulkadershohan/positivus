@@ -1,10 +1,11 @@
 'use client'
-import { data } from '@fakeData/index';
+import { ICompanyLogoComponent } from '@/types';
 import { Container, Stack } from '@mui/material';
 import Image from 'next/image';
-export default function CompanyLogo() {
+export default function CompanyLogo({ data }: ICompanyLogoComponent) {
 
-    const { company_logo } = data || {}
+    const { logo } = data || {}
+    if (logo.length === 0) return null
     return (
         <div data-aos="zoom-in">
             <Container maxWidth='lg' >
@@ -15,9 +16,9 @@ export default function CompanyLogo() {
                     flexWrap={'wrap'}
                 >
                     {
-                        company_logo.map((logo, index) => (
+                        logo.map((logo, index) => (
                             <Image
-                                src={logo.url}
+                                src={logo?.image?.data?.attributes?.url}
                                 alt={logo.alt}
                                 key={index}
                                 width={125}

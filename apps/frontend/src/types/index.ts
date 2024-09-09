@@ -241,6 +241,7 @@ export type ITextWithBgProps = {
 
 /// backend
 
+// banner component type
 export type IBannerComponent = {
     data: {
         id: number;
@@ -285,3 +286,99 @@ export type IBannerComponent = {
         };
     }
 };
+
+// company_logo component type
+export type ICompanyLogoComponent = {
+    data: {
+        id: number;
+        __component: string;
+        logo: {
+            id: number;
+            alt: string;
+            image: {
+                data: {
+                    id: number;
+                    attributes: {
+                        name: string;
+                        alternativeText: string | null;
+                        caption: string | null;
+                        width: number;
+                        height: number;
+                        formats: null; // Adjust this type if 'formats' may contain data
+                        hash: string;
+                        ext: string;
+                        mime: string;
+                        size: number;
+                        url: string;
+                        previewUrl: string | null;
+                        provider: string;
+                        provider_metadata: {
+                            public_id: string;
+                            resource_type: string;
+                        };
+                        createdAt: string;
+                        updatedAt: string;
+                    };
+                };
+            };
+        }[];
+    }
+}
+
+// service component type
+export type IServiceComponent = {
+    data: {
+        id: number;
+        __component: string;
+        title: string;
+        description: string;
+        services: IService[];
+    }
+}
+
+export type IService = {
+    id?: number;
+    title: string;
+    text: string;
+    color: "primary" | "secondary" | "info";
+    bgcolor: "primary" | "secondary" | "info";
+    iconColor: "primary" | "secondary" | "info";
+    iconBgColor: "primary" | "secondary" | "info";
+    iconLabelColor: "text.primary" | "text.secondary" | "text.info";
+    image: {
+        id: number;
+        alt: string;
+        image: {
+            data: {
+                id: number;
+                attributes: {
+                    name: string;
+                    alternativeText: string | null;
+                    caption: string | null;
+                    width: number;
+                    height: number;
+                    formats: null; // Adjust if 'formats' may contain data
+                    hash: string;
+                    ext: string;
+                    mime: string;
+                    size: number;
+                    url: string;
+                    previewUrl: string | null;
+                    provider: string;
+                    provider_metadata: {
+                        public_id: string;
+                        resource_type: string;
+                    };
+                    createdAt: string;
+                    updatedAt: string;
+                };
+            };
+        };
+    };
+    button: {
+        id: number;
+        title: string;
+        href: string;
+        target: string;
+    };
+}

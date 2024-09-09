@@ -3,8 +3,9 @@ import { data } from "@fakeData/index";
 import { Container, Grid, Stack, Typography } from "@mui/material";
 import TextWithBg from "../shared/TextWithBg";
 import SingleServiceCard from "./SingleServiceCard";
-export default function Services() {
-    const { description, services, title, link: btnTitle } = data?.service || {};
+import { IServiceComponent } from "@/types";
+export default function Services({ data }: IServiceComponent) {
+    const { description, services, title, } = data
     return (
         <div data-aos="fade-up"
             data-aos-duration="2000">
@@ -50,7 +51,6 @@ export default function Services() {
                                 >
                                     <SingleServiceCard
                                         {...item}
-                                        btnTitle={btnTitle}
                                     />
                                 </Grid>
                             ))}
