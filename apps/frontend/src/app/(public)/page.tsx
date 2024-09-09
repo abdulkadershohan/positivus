@@ -8,16 +8,16 @@ import type { Metadata } from "next";
 import Script from "next/script";
 
 
-// *** generate metadata for the page
+// seo metadata
 export async function generateMetadata(): Promise<Metadata> {
-  // const language = getLanguageFromCookie();
-  // fetch data
+  const language = getLanguageFromCookie();
+  // fetch data from strapi
   const product = await find(
     "home-page",
     {
       populate: "deep",
       publicationState: "live",
-      //locale: [language]
+      locale: [language]
     },
     "no-store",
   );
