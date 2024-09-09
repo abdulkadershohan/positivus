@@ -140,6 +140,7 @@ export interface ComponentTeamMembersCard extends Schema.Component {
     role: Attribute.String;
     image: Attribute.Component<'component.image'>;
     description: Attribute.Text;
+    linkedin: Attribute.String;
   };
 }
 

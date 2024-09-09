@@ -484,6 +484,7 @@ export type ITeamComponent = {
             name: string;
             role: string;
             description: string;
+            linkedin: string;
             image: {
                 id: number;
                 alt: string;

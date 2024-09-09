@@ -134,6 +134,9 @@ export default function Team({ data }: ITeamComponent) {
                                                         justifyContent: 'center',
                                                         alignItems: 'center',
                                                     }}
+                                                    component={Link}
+                                                    href={item?.linkedin}
+                                                    target='_blank'
 
                                                 >
                                                     <LinkedInIcon color='primary' />
