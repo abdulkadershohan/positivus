@@ -268,11 +268,12 @@ export interface BlockWorkingProcess extends Schema.Component {
   collectionName: 'components_block_working_processes';
   info: {
     displayName: 'working process';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     description: Attribute.Text;
-    data: Attribute.Component<'component.working-process-card', true>;
+    items: Attribute.Component<'component.working-process-card', true>;
   };
 }
 

@@ -10,7 +10,7 @@ import TextWithBg from '../shared/TextWithBg';
 
 
 export default function WorkingProcess({ data }: IWorkingProcessComponent) {
-    const { description, data: items, title } = data || {};
+    const { description, items, title } = data || {};
     const [index, setIndex] = React.useState<number | null>(1);
 
     const handleToggle = (id: number) => {

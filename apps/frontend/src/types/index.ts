@@ -457,7 +457,7 @@ export type IWorkingProcessComponent = {
         __component: string;
         title: string;
         description: string;
-        data: {
+        items: {
             id: number;
             title: string;
             description: string;
