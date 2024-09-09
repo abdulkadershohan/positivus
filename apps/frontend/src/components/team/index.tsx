@@ -50,45 +50,64 @@ export default function Team({ data }: ITeamComponent) {
                     <Stack>
                         <Grid container spacing={4}>
                             {
-                                members && members?.map((item, index) => (
-                                    <Grid item xs={12} sm={6} md={4} key={item.id}
-                                        data-aos={index % 2 === 0 ? 'fade-right' : 'fade-left'}
-                                        data-aos-offset="300"
-                                        data-aos-easing="ease-in-sine"
-                                    >
-                                        <Card
-                                            sx={{
-                                                bgcolor: 'none',
-                                                position: 'relative',
-                                                '&:hover': {
-                                                    transform: 'translateY(-5px)',
-                                                    transition: 'transform 0.3s ease-in-out',
-                                                    cursor: 'pointer',
-                                                },
-                                            }}
+                                members && members?.map((item, index) => {
+                                    return (
+                                        <Grid item xs={12} sm={6} md={4} key={item.id}
+                                            data-aos={index % 2 === 0 ? 'fade-right' : 'fade-left'}
+                                            data-aos-offset="300"
+                                            data-aos-easing="ease-in-sine"
                                         >
-                                            <Stack spacing={4}>
-                                                <Stack direction={'row'} gap={2}>
-                                                    <Image
-                                                        src={item?.image?.image?.data?.attributes?.url}
-                                                        alt={item?.name || 'team member'}
-                                                        height={100}
-                                                        width={100}
-                                                    />
-                                                    <Stack justifyContent={'flex-end'}>
-                                                        <Typography
-                                                            variant='h4'
-                                                            fontWeight={500}
-                                                            fontSize={{
-                                                                xs: 'body2.fontSize',
-                                                                md: 'h4.fontSize',
-                                                            }}
-                                                            sx={{
-                                                                color: (theme) => theme.palette.text.primary
-                                                            }}
-                                                        >
-                                                            {item?.name}
-                                                        </Typography>
+                                            <Card
+                                                sx={{
+                                                    bgcolor: 'none',
+                                                    position: 'relative',
+                                                    '&:hover': {
+                                                        transform: 'translateY(-5px)',
+                                                        transition: 'transform 0.3s ease-in-out',
+                                                        cursor: 'pointer',
+                                                    },
+                                                }}
+                                            >
+                                                <Stack spacing={4}>
+                                                    <Stack direction={'row'} gap={2}>
+                                                        <Image
+                                                            src={item?.image?.image?.data?.attributes?.url}
+                                                            alt={item?.name || 'team member'}
+                                                            height={100}
+                                                            width={100}
+                                                        />
+                                                        <Stack justifyContent={'flex-end'}>
+                                                            <Typography
+                                                                variant='h4'
+                                                                fontWeight={500}
+                                                                fontSize={{
+                                                                    xs: 'body2.fontSize',
+                                                                    md: 'h4.fontSize',
+                                                                }}
+                                                                sx={{
+                                                                    color: (theme) => theme.palette.text.primary
+                                                                }}
+                                                            >
+                                                                {item?.name}
+                                                            </Typography>
+                                                            <Typography
+                                                                variant='h4'
+                                                                fontWeight={500}
+                                                                fontSize={{
+                                                                    xs: 'caption.fontSize',
+                                                                    md: 'body2.fontSize',
+                                                                }}
+                                                                sx={{
+                                                                    color: (theme) => theme.palette.text.primary
+                                                                }}
+                                                            >
+                                                                {item?.role}
+                                                            </Typography>
+                                                        </Stack>
+
+                                                    </Stack>
+                                                    <Divider />
+                                                    {item?.description &&
                                                         <Typography
                                                             variant='h4'
                                                             fontWeight={500}
@@ -100,54 +119,35 @@ export default function Team({ data }: ITeamComponent) {
                                                                 color: (theme) => theme.palette.text.primary
                                                             }}
                                                         >
-                                                            {item?.role}
+                                                            {item?.description}
                                                         </Typography>
-                                                    </Stack>
+                                                    }
+                                                    <Box
+                                                        sx={{
+                                                            position: 'absolute',
+                                                            top: 0,
+                                                            right: 25,
+                                                            bgcolor: (theme) => theme.palette.info.main,
+                                                            borderRadius: '50%',
+                                                            height: 40,
+                                                            width: 40,
+                                                            display: 'flex',
+                                                            justifyContent: 'center',
+                                                            alignItems: 'center',
+                                                        }}
+                                                        component={Link}
+                                                        href={item?.linkedin || '#'}
+                                                        target='_blank'
+
+                                                    >
+                                                        <LinkedInIcon color='primary' />
+                                                    </Box>
 
                                                 </Stack>
-                                                <Divider />
-                                                {item?.description &&
-                                                    <Typography
-                                                        variant='h4'
-                                                        fontWeight={500}
-                                                        fontSize={{
-                                                            xs: 'caption.fontSize',
-                                                            md: 'body2.fontSize',
-                                                        }}
-                                                        sx={{
-                                                            color: (theme) => theme.palette.text.primary
-                                                        }}
-                                                    >
-                                                        {item?.description}
-                                                    </Typography>
-                                                }
-                                                <Box
-                                                    sx={{
-                                                        position: 'absolute',
-                                                        top: 0,
-                                                        right: 25,
-                                                        bgcolor: (theme) => theme.palette.info.main,
-                                                        borderRadius: '50%',
-                                                        height: 40,
-                                                        width: 40,
-                                                        display: 'flex',
-                                                        justifyContent: 'center',
-                                                        alignItems: 'center',
-                                                    }}
-                                                    component={Link}
-                                                    href={item?.linkedin}
-                                                    target='_blank'
-
-                                                >
-                                                    <LinkedInIcon color='primary' />
-                                                </Box>
-
-                                            </Stack>
-                                        </Card>
-                                    </Grid>
-
-
-                                ))
+                                            </Card>
+                                        </Grid>
+                                    )
+                                })
                             }
                         </Grid>
                         {button &&

@@ -16,7 +16,6 @@ export default function WorkingProcess({ data }: IWorkingProcessComponent) {
     const handleToggle = (id: number) => {
         setIndex(prevIndex => (prevIndex === id ? null : id));
     };
-
     return (
         <div data-aos="fade-up"
             data-aos-duration="2000">
