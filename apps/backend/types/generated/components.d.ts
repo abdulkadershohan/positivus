@@ -364,7 +364,7 @@ export interface BlockCaseStudies extends Schema.Component {
     title: Attribute.String;
     description: Attribute.Text;
     button: Attribute.Component<'component.component'>;
-    data: Attribute.Component<'component.case-studies-card', true>;
+    items: Attribute.Component<'component.case-studies-card', true>;
   };
 }
 

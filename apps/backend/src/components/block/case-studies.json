@@ -17,7 +17,7 @@
       "repeatable": false,
       "component": "component.component"
     },
-    "data": {
+    "items": {
       "displayName": "Case studies Card",
       "type": "component",
       "repeatable": true,

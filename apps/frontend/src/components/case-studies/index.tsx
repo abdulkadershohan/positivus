@@ -10,8 +10,8 @@ import "slick-carousel/slick/slick.css";
 import Card from '../shared/Card';
 import TextWithBg from '../shared/TextWithBg';
 
-export default function CaseStudies({ data }: ICaseStudiesComponent) {
-    const { data: items, title, description, button } = data || {};
+export default function CaseStudies({ data: sectionData }: ICaseStudiesComponent) {
+    const { items, title, description, button } = sectionData || {};
     const slider = React.useRef<Slider | null>(null);
     const settings = {
         className: "center",

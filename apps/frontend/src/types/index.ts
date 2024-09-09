@@ -443,7 +443,7 @@ export type ICaseStudiesComponent = {
             href: string;
             target: string;
         };
-        data: {
+        items: {
             id: number;
             title: string;
         }[];
