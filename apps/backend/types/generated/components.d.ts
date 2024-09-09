@@ -51,6 +51,18 @@ export interface SharedMetaSocial extends Schema.Component {
   };
 }
 
+export interface HeaderMenu extends Schema.Component {
+  collectionName: 'components_header_menus';
+  info: {
+    displayName: 'navbar';
+    description: '';
+  };
+  attributes: {
+    menu: Attribute.Component<'component.component', true>;
+    button: Attribute.Component<'component.component'>;
+  };
+}
+
 export interface FormRadio extends Schema.Component {
   collectionName: 'components_form_radios';
   info: {
@@ -73,18 +85,6 @@ export interface FormInput extends Schema.Component {
     label: Attribute.String;
     placeholder: Attribute.String;
     required: Attribute.Boolean & Attribute.DefaultTo<false>;
-  };
-}
-
-export interface HeaderMenu extends Schema.Component {
-  collectionName: 'components_header_menus';
-  info: {
-    displayName: 'navbar';
-    description: '';
-  };
-  attributes: {
-    menu: Attribute.Component<'component.component', true>;
-    button: Attribute.Component<'component.component'>;
   };
 }
 
@@ -385,9 +385,9 @@ declare module '@strapi/types' {
     export interface Components {
       'shared.seo': SharedSeo;
       'shared.meta-social': SharedMetaSocial;
+      'header.menu': HeaderMenu;
       'form.radio': FormRadio;
       'form.input': FormInput;
-      'header.menu': HeaderMenu;
       'footer.menu': FooterMenu;
       'component.working-process-card': ComponentWorkingProcessCard;
       'component.testimonial-card': ComponentTestimonialCard;

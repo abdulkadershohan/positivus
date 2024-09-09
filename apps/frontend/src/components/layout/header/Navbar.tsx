@@ -1,9 +1,9 @@
 'use client';
 import useThemeToggle from '@/next-theme/useThemeToggle';
 import { ILayoutData } from '@/types/layout';
-import LightModeIcon from '@mui/icons-material/LightMode';
+// import LightModeIcon from '@mui/icons-material/LightMode';
 import MenuIcon from '@mui/icons-material/Menu';
-import NightlightIcon from '@mui/icons-material/Nightlight';
+// import NightlightIcon from '@mui/icons-material/Nightlight';
 import { Button, Container, Stack } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -19,12 +19,13 @@ import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import * as React from 'react';
+import Settings from './Settings';
 
 interface Props {
     window?: () => Window;
     children?: React.ReactNode;
 }
-const drawerWidth = 240;
+const drawerWidth = 260;
 
 export default function DrawerAppBar({ data, ...props }: { data: ILayoutData } & Props) {
     const { toggleTheme, mode } = useThemeToggle();
@@ -71,7 +72,7 @@ export default function DrawerAppBar({ data, ...props }: { data: ILayoutData } &
                     ))}
                 </List>
             }
-            <Box
+            {/* <Box
                 sx={{
                     display: 'flex',
                     justifyContent: 'center',
@@ -81,7 +82,7 @@ export default function DrawerAppBar({ data, ...props }: { data: ILayoutData } &
                 <IconButton sx={{ ml: 1, color: (theme) => theme.palette.text.primary, display: { sm: 'none', xs: 'block' } }} onClick={toggleTheme}>
                     {mode === 'dark' ? <NightlightIcon /> : <LightModeIcon />}
                 </IconButton>
-            </Box>
+            </Box> */}
 
         </Box>
     );
@@ -170,9 +171,11 @@ export default function DrawerAppBar({ data, ...props }: { data: ILayoutData } &
                                 }
                             </Stack>
                         }
-                        <IconButton sx={{ ml: 1, color: (theme) => theme.palette.text.primary, display: { sm: 'block', xs: 'none' } }} onClick={toggleTheme}>
+                        <Box pl={2}> <Settings /></Box>
+                        {/* <IconButton sx={{ ml: 1, color: (theme) => theme.palette.text.primary, display: { sm: 'block', xs: 'none' } }} onClick={toggleTheme}>
                             {mode === 'dark' ? <NightlightIcon /> : <LightModeIcon />}
-                        </IconButton>
+                        </IconButton> */}
+
                     </Toolbar>
                 </Container>
             </AppBar>
