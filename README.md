@@ -1,14 +1,34 @@
-# Turborepo starter
+<!-- TABLE OF CONTENTS -->
 
-This is an official starter Turborepo.
+## Table of Contents
 
-## Using this example
+- [Environment Setup](#environment-setup)
+- [Database Setup](#database-setup)
+- [Installation](#installation)
+- [What's inside?](#what's-inside?)
+- [Utilities](#utilities)
+- [Build](#build)
+- [Develop](#develop)
+- [Remote Caching](#remote-caching)
+- [Apps and Packages](#apps-and-packages)
+- [License](#license)
+- [Author](#author)
 
-Run the following command:
+# Environment Setup
+* check the env.example file and create a .env file in the root directory of the project
 
-```sh
-npx create-turbo@latest
-```
+# Database Setup
+* You need to create new postgres database and update the .env file with the database credentials
+
+### Installation
+
+You can install the package via pnpm:
+
+Install dependencies
+   ```sh
+    pnpm install
+   ```
+
 
 ## What's inside?
 
@@ -16,9 +36,9 @@ This Turborepo includes the following packages/apps:
 
 ### Apps and Packages
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
+- `frontend`: a [Next.js](https://nextjs.org/) app
+- `backend`: a [Strapi Headless CMS](https://strapi.io/)
+- `@repo/ui`: a stub React component library shared by both `frontend` applications
 - `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
 
@@ -37,7 +57,6 @@ This Turborepo has some additional tools already setup for you:
 To build all apps and packages, run the following command:
 
 ```
-cd my-turborepo
 pnpm build
 ```
 
@@ -46,7 +65,6 @@ pnpm build
 To develop all apps and packages, run the following command:
 
 ```
-cd my-turborepo
 pnpm dev
 ```
 
@@ -57,7 +75,6 @@ Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo
 By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
 
 ```
-cd my-turborepo
 npx turbo login
 ```
 
@@ -69,13 +86,21 @@ Next, you can link your Turborepo to your Remote Cache by running the following 
 npx turbo link
 ```
 
-## Useful Links
 
-Learn more about the power of Turborepo:
+<!--Installation -->
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+
+### License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+### Author
+<img src="https://avatars.githubusercontent.com/u/56482597?v=4" width="100" style="border-radius:5%"/>
+
+ - [MD. Abdul Kader](
+    https://www.linkedin.com/in/abdulkadershohan/)
+
+ - Email: abdulkadirshohan@gmail.com
+
+ - Protfolio: https://dev-shohan.netlify.app/
+
+ - https://github.com/abdulkadershohan
