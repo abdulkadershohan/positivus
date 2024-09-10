@@ -14,8 +14,8 @@
 - [Apps and Packages](#apps-and-packages)
 - [License](#license)
 - [Author](#author)
-- [Video] (#video)
-- [Screenshot] (#screenshot)
+- [Video](#video)
+- [Screenshot](#screenshot)
 
 
 ### Requirements
