@@ -14,11 +14,18 @@
 - [License](#license)
 - [Author](#author)
 
-# Environment Setup
-* check the env.example file and create a .env file in the root directory of the project
+### Environment Setup
+* Check the env.example file and create a .env file in the root directory of the project
 
-# Database Setup
-* You need to create new postgres database and update the .env file with the database credentials
+### Database Setup 
+
+   - Remote Database
+     * Go to `backend/config/database.ts` and uncomment ssl property and update the database credentials in the .env file
+
+   - Local Database
+      * You need to Postgresql setup in your local machine and have to install pgAdmin4.
+      * You need to create new postgres database.
+      * Import the `local-backup-db/positivusdb` database in your local database and update the .env file with the database credentials.
 
 ### Installation
 
