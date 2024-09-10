@@ -3,7 +3,7 @@ import qs from "qs";
 
 const apiUrl = process.env.STRAPI_ENDPOINT
 export const find = async (
-    model: string,
+    collection: string,
     query: any = {},
     cache: "force-cache" | "no-cache" | "no-store" = "force-cache",
     revalidate?: number
@@ -15,7 +15,7 @@ export const find = async (
     });
 
     try {
-        const response = await fetch(`${apiUrl}/api/${model}/?${queryString}`, {
+        const response = await fetch(`${apiUrl}/api/${collection}/?${queryString}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

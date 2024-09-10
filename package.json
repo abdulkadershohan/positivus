@@ -19,5 +19,24 @@
   "packageManager": "pnpm@8.15.6",
   "engines": {
     "node": ">=18"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdulkadershohan/positivus.git"
+  },
+  "keywords": [
+    "Next.js",
+    "typescript",
+    "node",
+    "pnpm",
+    "strapi headless cms",
+    "MUI"
+  ],
+  "bugs": {
+    "url": "https://github.com/abdulkadershohan/positivus/issues"
+  },
+  "homepage": "https://github.com/abdulkadershohan/positivus#readme",
+  "author": "MD. Abdul Kader",
+  "license": "ISC",
+  "description": "Landing page for digital agency"
 }
