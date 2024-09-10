@@ -2,9 +2,10 @@
 
 ## Table of Contents
 
+- [Requirements](#requirements)  
+- [Installation](#installation)
 - [Environment Setup](#environment-setup)
 - [Database Setup](#database-setup)
-- [Installation](#installation)
 - [What's inside?](#what's-inside?)
 - [Utilities](#utilities)
 - [Build](#build)
@@ -14,18 +15,13 @@
 - [License](#license)
 - [Author](#author)
 
-### Environment Setup
-* Check the env.example file and create a .env file in the root directory of the project
 
-### Database Setup 
+### Requirements
+- Node JS ( Strapi supported Node JS version )
+- Postgresql Setup
+- pgAdmin4
+- cloudinary account
 
-   - Remote Database
-     * Go to `backend/config/database.ts` and uncomment ssl property and update the database credentials in the .env file
-
-   - Local Database
-      * You need to Postgresql setup in your local machine and have to install pgAdmin4.
-      * You need to create new postgres database.
-      * Import the `local-backup-db/positivusdb` database in your local database and update the .env file with the database credentials.
 
 ### Installation
 
@@ -35,6 +31,22 @@ Install dependencies
    ```sh
     pnpm install
    ```
+
+
+### Environment Setup
+- Check the env.example file and create a .env file in the same directory and update the environment variables. [ `apps/frontend/.env.example` and `apps/backend/.env.example` ]
+
+   
+
+### Database Setup 
+
+   - Remote Database
+     * Go to `backend/config/database.ts` and uncomment ssl property and update the database credentials in the .env file
+
+   - Local Database
+      * You need to Postgresql setup in your local machine and have to install pgAdmin4.
+      * You need to create new postgres database.
+      * Import the `apps/backend/database/backup/positivusdb` database in your local database and update the .env file with the database credentials.
 
 
 ## What's inside?
@@ -92,10 +104,6 @@ Next, you can link your Turborepo to your Remote Cache by running the following 
 ```
 npx turbo link
 ```
-
-
-<!--Installation -->
-
 
 ### License
 This project is licensed under the MIT License - see the LICENSE file for details.
