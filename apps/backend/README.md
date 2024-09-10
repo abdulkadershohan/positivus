@@ -1,3 +1,7 @@
+## ENV configuration 
+➡️ Checkout env.example
+
+
 # 🚀 Getting started with Strapi
 
 Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
@@ -17,9 +21,7 @@ yarn develop
 Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
 
 ```
-npm run start
-# or
-yarn start
+pnpm run start
 ```
 
 ### `build`
@@ -27,9 +29,7 @@ yarn start
 Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
 
 ```
-npm run build
-# or
-yarn build
+pnpm run build
 ```
 
 ## ⚙️ Deployment
@@ -37,7 +37,7 @@ yarn build
 Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
 
 ```
-yarn strapi deploy
+pnpm strapi deploy
 ```
 
 ## 📚 Learn more
