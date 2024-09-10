@@ -6,7 +6,7 @@
 - [Installation](#installation)
 - [Environment Setup](#environment-setup)
 - [Database Setup](#database-setup)
-- [What's inside?](#what's-inside?)
+- [What's inside?](#whats-inside)
 - [Utilities](#utilities)
 - [Build](#build)
 - [Develop](#develop)
@@ -14,6 +14,8 @@
 - [Apps and Packages](#apps-and-packages)
 - [License](#license)
 - [Author](#author)
+- [Video] (#video)
+- [Screenshot] (#screenshot)
 
 
 ### Requirements
@@ -116,6 +118,35 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
  - Email: abdulkadirshohan@gmail.com
 
- - Protfolio: https://dev-shohan.netlify.app/
+ - Portfolio: https://dev-shohan.netlify.app/
 
  - https://github.com/abdulkadershohan
+
+### Video
+
+[![Watch the video](https://github.com/user-attachments/assets/95a5a25b-9e5a-4349-84ab-ac0d0fe386bf)](https://www.youtube.com/watch?v=gmtbP7m_Klw)
+
+
+### Screenshot:
+
+- cover image
+![cover](https://github.com/user-attachments/assets/95a5a25b-9e5a-4349-84ab-ac0d0fe386bf)
+
+- Bangla language
+
+![bn](https://github.com/user-attachments/assets/9b669e9a-b429-4cd6-b52d-80023db8b67a)
+
+- Spanish language
+
+![es](https://github.com/user-attachments/assets/58c34c3d-80c2-4e38-a065-416daf4e7e49)
+
+- Light Theme
+
+![lightTheme](https://github.com/user-attachments/assets/fdadfc0c-fc58-405e-a1e8-b027fbfc38fd)
+
+- Dark Theme
+
+![darkTheme](https://github.com/user-attachments/assets/5af359ad-a746-4f41-91e3-9bc4fc0c2b15)
+
+
+
